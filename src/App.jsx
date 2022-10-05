@@ -1,10 +1,7 @@
-import {Navbar, Hero} from './components'
-
 function App() {
   return (
     <>
-    <Navbar/>
-    <Hero/>
+        <h2>hello</h2>
     </>
   )
 }
