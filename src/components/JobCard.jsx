@@ -4,7 +4,7 @@ import { HiEllipsisVertical, HiTrash } from "react-icons/hi2"
 
 const JobCard = () => {
   return (
-    <section className="grid grid-cols-3 gap-6 my-10 mx-8">
+    <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 my-10 mx-4 md:mx-8 ">
       {data.map((item) => {
         const { id, company, position, status, jobType, jobLocation, image } =
           item
