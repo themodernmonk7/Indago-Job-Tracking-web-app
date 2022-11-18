@@ -1,7 +1,11 @@
 import React from "react"
-
+import { ProfileFormRow } from "../../components"
 const Profile = () => {
-  return <div>Profile</div>
+  return (
+    <>
+      <ProfileFormRow />
+    </>
+  )
 }
 
 export default Profile

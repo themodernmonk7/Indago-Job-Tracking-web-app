@@ -1,7 +1,12 @@
 import React from "react"
+import { FormRow } from "../../components"
 
 const AddJob = () => {
-  return <div>AddJob</div>
+  return (
+    <>
+      <FormRow />
+    </>
+  )
 }
 
 export default AddJob

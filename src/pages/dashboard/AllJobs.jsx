@@ -1,7 +1,12 @@
-import React from "react"
+import { JobCard, SearchBarFilter } from "../../components"
 
 const AllJobs = () => {
-  return <div>AllJobs</div>
+  return (
+    <>
+      <SearchBarFilter />
+      <JobCard />
+    </>
+  )
 }
 
 export default AllJobs

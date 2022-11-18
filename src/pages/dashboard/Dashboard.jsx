@@ -1,7 +1,11 @@
 import React from "react"
-
+import { Overview } from "../../components"
 const Dashboard = () => {
-  return <div>Dashboard</div>
+  return (
+    <>
+      <Overview />
+    </>
+  )
 }
 
 export default Dashboard
