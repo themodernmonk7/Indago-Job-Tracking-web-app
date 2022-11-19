@@ -1,74 +1,105 @@
 import React from "react"
 import mainImage from "../assets/main.png"
 import girlImage from "../assets/girlLogin2.jpg"
-
+import UserImage from "../assets/user.png"
+import Logo from "../assets/Logo.png"
 const Register = () => {
   return (
-    <section className="flex flex-row justify-center h-screen">
-      {/* Left */}
-      <section className=" w-1/3 hidden bg-[#ff898b] md:flex flex-col justify-center items-center">
-        <header className=" w-3/4 space-y-4 text-pink-800 ">
-          <h4 className="text-3xl">Indago</h4>
-          <h1 className="text-2xl xl:text-4xl font-black">
-            Dicover the world's top Designers & Creatives
+    <>
+      <section className=" container mx-auto h-screen  flex ">
+        {/* Right */}
+        <article className=" bg-blue-700 w-1/2 rounded-2xl p-10 space-y-10 my-16 flex flex-col justify-between relative overflow-hidden shadow-2xl ">
+          <h1 className="text-2xl text-white uppercase font-bold tracking-wider ">
+            Indago.
           </h1>
-        </header>
-        <div className=" h-2/3 w-full">
-          <img
-            src={girlImage}
-            alt=""
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      </section>
-      {/* Right */}
-      <div className=" w-full flex flex-col items-center  mt-28 md:mt-0   md:justify-center">
-        <div className=" xl:w-1/3 md:w-1/2  w-full  px-6 md:px-0  space-y-8">
-          <h1 className="text-center text-4xl">Indago</h1>
-          <h2 className="text-left text-3xl font-medium tracking-widest">
-            Create an account
-          </h2>
-          <form className=" space-y-6">
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="" className="">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                className="rounded-md border border-gray-100 hover:bg-white focus:bg-white  bg-gray-100 placeholder:text-sm focus:outline-none focus:border-[#f53465]/30 focus:ring-[#f53465]/10 focus:ring-4 hover:ring-[#f53465]/10 hover:ring-4 hover:border"
+          <div className=" space-y-6 ">
+            <h3 className="text-5xl text-white font-medium leading-[4rem] ">
+              Start your journey with us.
+            </h3>
+            <h4 className=" text-xl text-gray-300 ">
+              Discover the world's best community of freelancers and business
+              owners.{" "}
+            </h4>
+          </div>
+          <div className=" bg-blue-800/70 rounded-xl flex flex-col justify-between p-4 py10 space-y-12  ">
+            <p className="text-gray-300">
+              Simply unbelievable! I am really satisfied with my projects and
+              business. This is Absolutely wonderful!
+            </p>
+            <div className="flex items-center space-x-6 ">
+              <img
+                src={UserImage}
+                alt=""
+                className="w-14 h-14 object-cover rounded-lg"
               />
+              <div className=" space-y2 ">
+                <h4 className="text-white text-lg "> Sara Williams </h4>
+                <p className="text-gray-400">Freelancer</p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute -top-12 -right-10  bg-blue-900 w-28 h-28 rounded-full opacity-40 "></div>
+        </article>
+        {/* Left */}
+        <article className=" my-16 bg-red200 w-full flex flex-col items-center justify-between space-y-12  ">
+          <div className=" flex flex-col items-center space-y-4 ">
+            <img
+              src={Logo}
+              alt=""
+              className=" w-24 h-16 object-cover mix-blend-multiply "
+            />
+            <h4 className="text-4xl font-medium">Hello Again!</h4>
+          </div>
+          <form className=" w-1/2 ">
+            <div className=" space-y-6 ">
+              <div className="flex flex-col space-y-2 ">
+                <label htmlFor="" className=" text-gray-400 text-lg ">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="enter your name"
+                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
+                />
+              </div>
+
+              <div className="flex flex-col space-y-2 ">
+                <label htmlFor="" className=" text-gray-400 text-lg ">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="youremail@gmail.com"
+                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
+                />
+              </div>
+
+              <div className="flex flex-col space-y-2 ">
+                <label htmlFor="" className=" text-gray-400 text-lg ">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="*********"
+                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg"
+                />
+              </div>
             </div>
 
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="rounded-md border border-gray-100 hover:bg-white focus:bg-white  bg-gray-100 placeholder:text-sm focus:outline-none focus:border-[#f53465]/30 focus:ring-[#f53465]/10 focus:ring-4 hover:ring-[#f53465]/10 hover:ring-4 hover:border"
-              />
-            </div>
-
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="">Password</label>
-              <input
-                type="password"
-                placeholder="6+ characters"
-                className="rounded-md border border-gray-100 hover:bg-white focus:bg-white  bg-gray-100 placeholder:text-sm focus:outline-none focus:border-[#f53465]/30 focus:ring-[#f53465]/10 focus:ring-4 hover:ring-[#f53465]/10 hover:ring-4 hover:border font-semibold placeholder:font-normal"
-              />
-            </div>
+            <button className=" bg-blue-700 hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-md focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-linear delay200 ">
+              Create Account
+            </button>
           </form>
-          <button className="mr-auto bg-[#f53465] hover:bg-[#f53465]/80 text-white tracking-wider px-10 py-2 rounded-md focus:outline-none focus:bg-[#f53465]/60">
-            Create Account
-          </button>
-          <p className="text-center text-sm">
+          <p className=" text-lg">
             Already a member?{" "}
-            <button className="text-blue-600">Login In</button>
+            <button className="text-blue-700 font-medium ">Login In</button>
           </p>
-        </div>
-      </div>
-    </section>
+        </article>
+      </section>
+    </>
   )
 }
 
 export default Register
+
+
