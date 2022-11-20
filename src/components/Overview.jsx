@@ -1,34 +1,68 @@
+import { list } from "postcss"
 import React from "react"
-
+import {
+  FcCalendar,
+  FcPlanner,
+  FcDisclaimer,
+  FcBriefcase,
+} from "react-icons/fc"
 const lists = [
   {
     id: 1,
     status_name: "Pending Applications",
     amount: 24,
+    icon: <FcBriefcase className="w-8 h-8" />,
   },
   {
     id: 2,
     status_name: "Interviews Schedules",
     amount: 28,
+    icon: <FcPlanner className="w-8 h-8" />,
   },
   {
     id: 3,
     status_name: "Jobs Declined",
     amount: 18,
-  },
-  {
-    id: 4,
-    status_name: "Jobs Declined",
-    amount: 18,
+    icon: <FcDisclaimer className="w-8 h-8" />,
   },
 ]
 
 const Overview = () => {
+  const backgroundStyle = {
+    backgroundImage:
+      "linear-gradient(to right top, #18a5dc, #22a0dc, #2d9cdc, #3897db, #4392da",
+  }
   return (
     <>
-      <section className=" py-6 mx-4 xl:mx-8 xl:space-y-6 ">
-        <h2 className="text-3xl font-semibold text-gray-600">Overview</h2>
-        <article className="gap-5 xl:gap-10 flex flex-row overflow-x-auto   ">
+      <section className=" grid grid-cols-3 gap-20 my-10 ">
+        {lists.map((item) => {
+          const { id, status_name, amount, icon } = item
+          return (
+            <article
+              key={id}
+              className=" bg-gradient-to-tr from-blue-600 via-blue-700 to-blue-800/90 text-white rounded-3xl h-60 p-10 space-y-10 flex flex-col justify-center  "
+            >
+              <div className=" flex items-center space-x-6 ">
+                <p className="  outline-dashed outline-blue-500 hover:scale-105  outline-2 outline-offset-4 rounded-lg px-2 py-1 ">
+                  {icon}
+                </p>
+                <p className="text-xl font-medium text-gray-300 ">
+                  {" "}
+                  {status_name}
+                </p>
+              </div>
+              <p className="font-bold text-7xl opacity-30 ">
+                {" "}
+                {amount}{" "}
+                <span className="text-lg font-normal text-green-500 ">
+                  {" "}
+                  +4.5%{" "}
+                </span>{" "}
+              </p>
+            </article>
+          )
+        })}
+        {/* <article className=" flex gap-10   ">
           {lists.map((item) => {
             const { id, status_name, amount } = item
             return (
@@ -57,7 +91,7 @@ const Overview = () => {
               </div>
             )
           })}
-        </article>
+        </article> */}
       </section>
     </>
   )
