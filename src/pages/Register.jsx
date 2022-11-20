@@ -59,7 +59,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="enter your name"
-                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
+                  className="rounded-xl border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
                 />
               </div>
 
@@ -70,7 +70,7 @@ const Register = () => {
                 <input
                   type="email"
                   placeholder="youremail@gmail.com"
-                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
+                  className="rounded-xl border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg "
                 />
               </div>
 
@@ -81,12 +81,12 @@ const Register = () => {
                 <input
                   type="password"
                   placeholder="*********"
-                  className="rounded-md border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg"
+                  className="rounded-xl border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-blue-700/70 focus:ring-2 hover:ring-blue-700/90 hover:ring-2 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg"
                 />
               </div>
             </div>
 
-            <button className=" bg-blue-700 hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-md focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-linear delay200 ">
+            <button className=" bg-blue-700 hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-linear delay200 ">
               Create Account
             </button>
           </form>
