@@ -1,56 +1,54 @@
-import { Link } from "react-router-dom"
-import { HiPlus, HiUser, HiCollection, HiViewGrid } from "react-icons/hi"
+import { NavLink } from "react-router-dom"
+import links from "../utils/links"
+import Logo from "../assets/Logo.png"
+import { HiOutlineLogout } from "react-icons/hi"
+
 const BigSidebar = () => {
   return (
     <>
-      <section className="w-1/3 xl:w-1/5 hidden md:flex flex-col h-screen bg-gray-100/50 ">
-        {/* Logo title */}
-        <div className=" py-6 font-bold flex justify-center items-center">
-          <h2 className="text-4xl text-center">Indago</h2>
-        </div>
-        {/* Menu items */}
-        <div className=" mt-5 space-y-4 font-semibold capitalize flex flex-col justify-center ">
-          <Link
-            to="/"
-            className="flex justify-center items-center rounded-r-xl py-5 w-3/4"
-          >
-            <span className=" bg-blue-10 mr-4 ">
-              <HiViewGrid className="w-6 h-6" />
-            </span>
-            <span className=""> Dashboard</span>
-          </Link>
+      <section className="w-1/3 xl:w-1/5 lg:flex flex-col h-screen sticky top-0 hidden ">
+        <div className=" flex flex-col justify-between items-center h-full bg-white ">
+          <div>
+            {/* Logo title */}
+            <div className=" font-semibold flex justify-center items-center space-x-2 py-[22px] mt-10 ">
+              <img
+                src={Logo}
+                alt=""
+                className=" w-126 h-8 object-cover mix-blend-multiply "
+              />
+              <h2 className="text-3xl text-center">indago</h2>
+            </div>
+            {/* Menu items */}
+            <div className=" mt-12 capitalize flex flex-col justify-center items-center space-y-10 ">
+              {links.map((link) => {
+                const { text, path, id, icon } = link
+                return (
+                  <NavLink
+                    to={path}
+                    key={id}
+                    className={({ isActive }) => {
+                      return isActive
+                        ? "flex   items-center w-full capitalize text-lg px-4 py-2 space-x-6 bg-gray-100 rounded-xl font-medium "
+                        : "flex items-center w-full capitalize text-lg px-4 py-2 space-x-6 text-gray-500 hover:bg-gray-100 rounded-xl font-medium  "
+                    }}
+                  >
+                    <span> {icon}</span>
+                    <span>{text} </span>
+                  </NavLink>
+                )
+              })}
+            </div>
+          </div>
 
-          <Link
-            to="/all-jobs"
-            href="#"
-            className="flex justify-center items-center text-black hover:bg-[#f53465] rounded-r-xl hover:text-white py-5 w-3/4"
-          >
-            <span className="mr-4 grid place-items-center">
-              <HiCollection className="w-6 h-6" />
-            </span>
-            <span className="">All Jobs</span>
-          </Link>
-
-          <Link
-            to="/add-job"
-            className="flex justify-center items-center text-black hover:bg-[#f53465] rounded-r-xl hover:text-white py-5 w-3/4"
-          >
-            <span>
-              <HiPlus className="w-6 h-6" />
-            </span>
-            Add Job
-          </Link>
-
-          <Link
-            to="/profile"
-            href="#"
-            className="flex justify-center items-center text-black hover:bg-[#f53465] rounded-r-xl hover:text-white py-5 w-3/4"
-          >
-            <span>
-              <HiUser className="w-6 h-6" />
-            </span>
-            Profile
-          </Link>
+          <div className="  mb-10 w-[185px] hover:bg-gray-100 rounded-xl ">
+            <button className="flex items-center w-full px-4 py-2 font-medium space-x-6 capitalize text-gray-500  ">
+              <span className="">
+                {" "}
+                <HiOutlineLogout className=" w-6 h-6 " />
+              </span>
+              <span> logout </span>
+            </button>
+          </div>
         </div>
       </section>
     </>
