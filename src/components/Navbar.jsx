@@ -1,19 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/Logo.png'
+import IndagoLogo from './Logo'
 
 const Navbar = () => {
   return (
     <nav className='container mx-auto flex justify-between items-center py-4 ' >
       <div className=" py-4 flex items-center space-x-2 ">
-        <img src={Logo} alt="" className='w-[3rem] h-[32px] object-cover mix-blend-multiply ' />
-        <h2 className='text-2xl font-bold'> indago. </h2>
+        <IndagoLogo height={10} />
       </div>
       <div className=" space-x-12 text-lg ">
         <Link>Find Jobs</Link>
         <Link>Sign In</Link>
         <Link className='bg-blue-200 px-4 py-2 rounded-md text-blue-500 font-medium ' > Register </Link>
-
       </div>
     </nav>
     

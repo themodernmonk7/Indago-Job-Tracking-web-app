@@ -8,8 +8,10 @@ import JobCard from "./JobCard"
 import SearchBarFilter from "./SearchBarFilter"
 import FormRow from "./FormRow"
 import ProfileFormRow from "./ProfileFormRow"
+import IndagoLogo from './Logo'
 export {
   BigSidebar,
+  IndagoLogo,
   Graph,
   ProfileFormRow,
   FormRow,
