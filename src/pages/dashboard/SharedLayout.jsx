@@ -1,6 +1,5 @@
-import { Outlet, Link, NavLink } from "react-router-dom"
-import { BigSidebar, Profile } from "../../components"
-import { HiPlus, HiUser, HiCollection, HiViewGrid } from "react-icons/hi"
+import { Outlet, NavLink } from "react-router-dom"
+import { BigSidebar, ProfileBanner } from "../../components"
 import links from "../../utils/links"
 
 const SharedLayout = () => {
@@ -9,7 +8,7 @@ const SharedLayout = () => {
       <main className="flex ">
         <BigSidebar />
         <div className=" w-full lg:mx-5 xl:mx-16 ">
-          <Profile />
+          <ProfileBanner />
           <Outlet />
         </div>
         <div className="fixed bottom-0 bg-white border-t lg:hidden w-full py-4 ">

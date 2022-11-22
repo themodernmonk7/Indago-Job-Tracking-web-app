@@ -1,6 +1,6 @@
 import React from "react"
 import Overview from "./Overview"
-import Profile from "./Profile"
+import Profile from "./ProfileBanner"
 
 const Sidebar = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react"
-import { ProfileFormRow } from "../../components"
+import { ProfileFormRow, UserImage } from "../../components"
 import userImage from "../../assets/user.png"
 
 const Profile = () => {
@@ -30,11 +30,7 @@ const Profile = () => {
         </div>
         {/* Profile Picture change */}
         <div className="flex items-center md:space-x-10 space-x-6 ">
-          <img
-            src={userImage}
-            alt=""
-            className=" w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full border "
-          />
+          <UserImage className={'border w-20 h-20  lg:w-24 lg:h-24 '} />
           <div className=" md:space-x-6 space-x-2 flex md:flex-row ">
             <button className="bg-primary text-white px-4 md:px-12 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 md:font-medium text-xs md:text-base">
               Change
