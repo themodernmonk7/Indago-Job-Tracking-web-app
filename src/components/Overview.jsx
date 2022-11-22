@@ -1,11 +1,6 @@
 import { list } from "postcss"
 import React from "react"
-import {
-  FcCalendar,
-  FcPlanner,
-  FcDisclaimer,
-  FcBriefcase,
-} from "react-icons/fc"
+import { FcPlanner, FcDisclaimer, FcBriefcase } from "react-icons/fc"
 const lists = [
   {
     id: 1,
@@ -28,30 +23,26 @@ const lists = [
 ]
 
 const Overview = () => {
-  const backgroundStyle = {
-    backgroundImage:
-      "linear-gradient(to right top, #18a5dc, #22a0dc, #2d9cdc, #3897db, #4392da",
-  }
   return (
     <>
-      <section className=" grid grid-cols-3 gap-20 my-10 ">
+      <section className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 xl:gap-20 my-10 mb-28 px-5 lg:px-0 ">
         {lists.map((item) => {
           const { id, status_name, amount, icon } = item
           return (
             <article
               key={id}
-              className=" bg-gradient-to-tr from-blue-600 via-blue-700 to-blue-800/90 text-white rounded-3xl h-60 p-10 space-y-10 flex flex-col justify-center  "
+              className=" bg-gradient-to-tr from-blue-600 via-blue-700 to-blue-800/90 text-white rounded-3xl xl:h-60 p-10 md:p-5 lg:p-8 space-y-10 flex flex-col justify-center shadow-xl shadow-blue-500/40  "
             >
               <div className=" flex items-center space-x-6 ">
-                <p className="  outline-dashed outline-blue-500 hover:scale-105  outline-2 outline-offset-4 rounded-lg px-2 py-1 ">
+                <p className="  outline-dashed outline-blue-500 hover:scale-110  outline-2 outline-offset-4 rounded-lg px-2 py-1 transition-all duration-300 ease-in  ">
                   {icon}
                 </p>
-                <p className="text-xl font-medium text-gray-300 ">
+                <p className="xl:text-xl font-medium text-gray-300 ">
                   {" "}
                   {status_name}
                 </p>
               </div>
-              <p className="font-bold text-7xl opacity-30 ">
+              <p className="font-bold text-5xl xl:text-7xl opacity-30 ">
                 {" "}
                 {amount}{" "}
                 <span className="text-lg font-normal text-green-500 ">

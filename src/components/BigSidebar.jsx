@@ -6,8 +6,8 @@ import { HiOutlineLogout } from "react-icons/hi"
 const BigSidebar = () => {
   return (
     <>
-      <section className="w-1/3 xl:w-1/5 lg:flex flex-col h-screen sticky top-0 hidden ">
-        <div className=" flex flex-col justify-between items-center h-full bg-white ">
+      <section className="w-1/3 xl:w-1/4 lg:flex flex-col h-screen sticky top-0 hidden ">
+        <div className=" flex flex-col justify-between itemscenter px-12 h-full bg-white ">
           <div>
             {/* Logo title */}
             <div className=" font-semibold flex justify-center items-center space-x-2 py-[22px] mt-10 ">
@@ -28,8 +28,8 @@ const BigSidebar = () => {
                     key={id}
                     className={({ isActive }) => {
                       return isActive
-                        ? "flex   items-center w-full capitalize text-lg px-4 py-2 space-x-6 bg-gray-100 rounded-xl font-medium "
-                        : "flex items-center w-full capitalize text-lg px-4 py-2 space-x-6 text-gray-500 hover:bg-gray-100 rounded-xl font-medium  "
+                        ? "flex   items-center w-full capitalize text-lg px-4 py-2 space-x-6 bg-gray-100 rounded-xl font-medium transition-all duration-200 ease-out text-primary "
+                        : "flex items-center w-full capitalize text-lg px-4 py-2 space-x-6 text-gray-500 hover:bg-gray-100 rounded-xl font-medium transition-all duration-300 ease-out "
                     }}
                   >
                     <span> {icon}</span>
@@ -40,9 +40,9 @@ const BigSidebar = () => {
             </div>
           </div>
 
-          <div className="  mb-10 w-[185px] hover:bg-gray-100 rounded-xl ">
-            <button className="flex items-center w-full px-4 py-2 font-medium space-x-6 capitalize text-gray-500  ">
-              <span className="">
+          <div className="  mb-10 w-[185px] hover:bg-red-200/70 bg-red-100/60 rounded-xl ">
+            <button className="flex justify-center items-center w-full px-4 py-2  space-x-2 capitalize text-gray500 text-red-400/60  ">
+              <span>
                 {" "}
                 <HiOutlineLogout className=" w-6 h-6 " />
               </span>

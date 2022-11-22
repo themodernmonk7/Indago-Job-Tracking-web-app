@@ -4,68 +4,67 @@ import { FormRow } from "../../components"
 const AddJob = () => {
   return (
     <>
-      <section className=" my-10 px-8 space-y-10 ">
+      <section className=" my-10 mb-28 px-5 md:px-8  space-y-10   ">
         <h4 className="text-3xl">Add Job</h4>
-        <form className=" w-2/3 space-y-6 ">
-          <div className="flex items-center justify-between space-x-28 ">
+        <form className="  xl:w-2/3 space-y-6 ">
+          <div className="flex flex-col md:flex-row  items-center justify-between md:space-x-28 space-y-6 md:space-y-0 ">
             {/* First name */}
-            <div className=" flex flex-col space-y-2 w-full ">
+            <div className=" input_container ">
               <label
                 htmlFor=""
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className=" label_style "
               >
                 Position
               </label>
               <input
                 type="text"
                 placeholder="your first name"
-                className=" py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow "
+                className="input_style"
               />
-              {/* rounded-xl border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-primary focus:ring-1 hover:ring-primary hover:ring-1 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg */}
             </div>
             {/* Last name */}
-            <div className="flex flex-col space-y-2 w-full ">
+            <div className="input_container ">
               <label
                 htmlFor=""
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className="label_style"
               >
                 Company
               </label>
               <input
                 type="text"
                 placeholder=" your last name"
-                className="py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow"
+                className="input_style"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-between space-x-28">
+          <div className="flex flex-col md:flex-row items-center justify-between md:space-x-28 space-y-6 md:space-y-0">
             {/* Job Location */}
-            <div className="flex flex-col space-y-2 w-full ">
+            <div className="input_container ">
               <label
                 htmlFor=""
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className="label_style"
               >
                 Job Location
               </label>
               <input
                 type="email"
                 placeholder="youremail@gmai.com"
-                className=" py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow"
+                className=" input_style"
               />
             </div>
             {/* Job Type */}
-            <div className="flex flex-col space-y-2 w-full ">
+            <div className="input_container ">
               <label
                 htmlFor=""
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className="label_style"
               >
                 Job Type
               </label>
               <select
                 name=""
                 id=""
-                className=" py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow capitalize "
+                className="input_style capitalize "
               >
                 <option value="full-time">full-time</option>
                 <option value="part-time">part-time</option>
@@ -74,19 +73,19 @@ const AddJob = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between space-x-28">
+          <div className="flex flex-col md:flex-row items-center justify-between md:space-x-28 space-y-6 md:space-y-0 ">
             {/* Status */}
-            <div className="flex flex-col space-y-2 w-full ">
+            <div className="input_container ">
               <label
                 htmlFor=" "
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className="label_style"
               >
                 Status
               </label>
               <select
                 name=""
                 id=""
-                className=" py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow capitalize "
+                className="input_style capitalize "
               >
                 <option value="interview">interview</option>
                 <option value="declined">declined</option>
@@ -94,10 +93,10 @@ const AddJob = () => {
               </select>
             </div>
             {/* Company Logo */}
-            <div className="flex flex-col space-y-2 w-full ">
+            <div className="input_container ">
               <label
                 htmlFor=" "
-                className="text-gray-500 after:content-['*'] after:ml-1 after:text-red-500"
+                className="label_style"
               >
                 Company Logo
               </label>
@@ -105,28 +104,28 @@ const AddJob = () => {
                 type="file"
                 accept=".jpeg, .jpg, .png"
                 placeholder="Choose file..."
-                className="py-3  rounded-xl border-none bg-white ring-1 ring-gray-300 focus:ring-2 file:focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow text-gray-300 file:mr-4  file:px-4
+                className="input_style bg-white file:mr-4  file:px-4
                  file:border-0 file:bg-white
-                file:text-sm file:font-semibold file:text-primary lowercase "
+                file:text-sm file:font-semibold file:text-primary  text-gray-400 w-full "
               />
-              {/* py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow */}
             </div>
           </div>
 
-          <div className="flex flex-col space-y-2 ">
+          <div className="input_container ">
             <label htmlFor="" className="text-gray-500">
-              About job
+              About Job
             </label>
             <textarea
               name=""
               id=""
               cols="30"
               rows="5"
-              placeholder="Brief description of your job..."
-              className=" py-3  rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm resize-none shadow "
+              maxLength={50}
+              placeholder="Brief description about your job..."
+              className="input_style resize-none "
             ></textarea>
           </div>
-          <div className=" space-x-6 flex justify-end  ">
+          <div className=" space-x-6 flex md:justify-end  ">
             <button className=" px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white ">
               + Add
             </button>
