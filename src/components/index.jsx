@@ -1,4 +1,4 @@
-import BigSidebar from "./BigSidebar"
+import BigSidebar from "./Sidebar"
 import Graph from "./Graph"
 import Navbar from "./Navbar"
 import Overview from "./Overview"
@@ -11,7 +11,10 @@ import ProfileFormRow from "./ProfileFormRow"
 import IndagoLogo from './Logo'
 import UserImage from "./UserImage"
 import SidebarNavLink from "./SidebarNavLink"
+import MobileNavLink from "./MobileNavLink"
+
 export {
+  MobileNavLink,
   BigSidebar,
   UserImage,
   IndagoLogo,
