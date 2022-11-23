@@ -1,11 +1,9 @@
-import { NavLink } from "react-router-dom"
-import links from "../utils/links"
 import { HiOutlineLogout } from "react-icons/hi"
-import IndagoLogo from "./Logo"
+import {IndagoLogo, SidebarNavLink} from '../components'
 const BigSidebar = () => {
   return (
     <>
-      <section className="w-1/3 xl:w-1/4 lg:flex flex-col h-screen sticky top-0 hidden ">
+      <aside className="w-1/3 xl:w-1/4 lg:flex flex-col h-screen sticky top-0 hidden ">
         <div className=" flex flex-col justify-between px-12 h-full bg-white ">
           <div>
             {/* Logo title */}
@@ -14,12 +12,14 @@ const BigSidebar = () => {
             </div>
             {/* Menu items */}
             <div className=" mt-12 capitalize flex flex-col justify-center items-center space-y-10 ">
-              {links.map((link) => {
+              <SidebarNavLink/>
+              {/* {links.map((link) => {
                 const { text, path, id, icon } = link
                 return (
                   <NavLink
                     to={path}
                     key={id}
+                    end
                     className={({ isActive }) => {
                       return isActive
                         ? "flex items-center w-full capitalize text-lg px-4 py-2 space-x-6 bg-gray-100 rounded-xl font-medium transition-all duration-200 ease-out text-primary "
@@ -30,7 +30,7 @@ const BigSidebar = () => {
                     <span>{text} </span>
                   </NavLink>
                 )
-              })}
+              })} */}
             </div>
           </div>
 
@@ -44,7 +44,7 @@ const BigSidebar = () => {
             </button>
           </div>
         </div>
-      </section>
+      </aside>
     </>
   )
 }

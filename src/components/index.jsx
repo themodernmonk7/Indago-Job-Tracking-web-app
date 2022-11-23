@@ -10,6 +10,7 @@ import FormRow from "./FormRow"
 import ProfileFormRow from "./ProfileFormRow"
 import IndagoLogo from './Logo'
 import UserImage from "./UserImage"
+import SidebarNavLink from "./SidebarNavLink"
 export {
   BigSidebar,
   UserImage,
@@ -21,6 +22,7 @@ export {
   Overview,
   ProfileBanner,
   Sidebar,
+  SidebarNavLink,
   JobCard,
   SearchBarFilter,
 }
