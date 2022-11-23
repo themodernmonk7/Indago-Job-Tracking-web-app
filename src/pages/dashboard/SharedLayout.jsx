@@ -10,7 +10,7 @@ const SharedLayout = () => {
           <ProfileBanner />
           <Outlet />
         </div>
-        <MobileNavLink/>
+        <MobileNavLink />
       </main>
     </>
   )

@@ -8,11 +8,11 @@ const Sidebar = () => {
           <div>
             {/* Logo title */}
             <div className=" flex justify-center items-center space-x-2 py-[22px] mt-10 ">
-              <IndagoLogo height={10}  />
+              <IndagoLogo height={10} />
             </div>
             {/* Menu items */}
             <div className=" mt-12 capitalize flex flex-col justify-center items-center space-y-10 ">
-              <SidebarNavLink/>
+              <SidebarNavLink />
             </div>
           </div>
 

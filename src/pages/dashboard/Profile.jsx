@@ -1,6 +1,4 @@
-import React from "react"
-import { ProfileFormRow, UserImage } from "../../components"
-import userImage from "../../assets/user.png"
+import { UserImage, ProfileForm } from "../../components"
 
 const Profile = () => {
   return (
@@ -30,7 +28,7 @@ const Profile = () => {
         </div>
         {/* Profile Picture change */}
         <div className="flex items-center md:space-x-10 space-x-6 ">
-          <UserImage className={'border w-20 h-20  lg:w-24 lg:h-24 '} />
+          <UserImage className={"border w-20 h-20  lg:w-24 lg:h-24 "} />
           <div className=" md:space-x-6 space-x-2 flex md:flex-row ">
             <button className="bg-primary text-white px-4 md:px-12 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 md:font-medium text-xs md:text-base">
               Change
@@ -42,85 +40,7 @@ const Profile = () => {
         </div>
 
         {/* Form */}
-        <form className=" xl:w-2/3 space-y-6 ">
-          <div className="flex flex-col md:flex-row items-center justify-between md:space-x-28 space-y-6 md:space-y-0 ">
-            {/* First name */}
-            <div className=" input_container ">
-              <label
-                htmlFor=""
-                className="label_style  "
-              >
-                First name
-              </label>
-              <input
-                type="text"
-                placeholder="your first name"
-                className=" input_style "
-              />
-              {/* rounded-xl border-2 border-gray-200 placeholder:text-sm focus:outline-none focus:ring-primary focus:ring-1 hover:ring-primary hover:ring-1 py-4 placeholder:text-gray-300 transition-all duration-200 ease-in-out delay-100 text-lg */}
-            </div>
-            {/* Last name */}
-            <div className="input_container ">
-              <label htmlFor="" className="label_style">
-                Last name
-              </label>
-              <input
-                type="text"
-                placeholder=" your last name"
-                className="input_style"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center justify-between md:space-x-28 space-y-6 md:space-y-0">
-            {/* Email */}
-            <div className="input_container ">
-              <label
-                htmlFor=""
-                className="label_style"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="youremail@gmai.com"
-                className=" input_style"
-              />
-            </div>
-            {/* Location */}
-            <div className="input_container ">
-              <label htmlFor=" " className=" label_style after:content-none ">
-                Location
-              </label>
-              <input
-                type="text"
-                placeholder="my city"
-                className=" input_style"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col space-y-2 ">
-            <label htmlFor="" className=" label_style after:content-none  ">
-              Bio
-            </label>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="5"
-              placeholder="Brief description for your profile..."
-              className=" input_style resize-none "
-            ></textarea>
-          </div>
-          <div className=" space-x-6 flex md:justify-end  ">
-            <button className=" px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white ">
-              Save
-            </button>
-            <button className="bg-white px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium">
-              Cancel
-            </button>
-          </div>
-        </form>
+        <ProfileForm />
       </section>
     </>
   )

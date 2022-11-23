@@ -1,8 +1,5 @@
-import React from "react"
 import data from "../data"
-// import { HiEllipsisVertical, HiTrash } from "react-icons/hi2"
-import { HiDotsVertical, HiOutlineTrash } from "react-icons/hi"
-import { AiOutlineEdit } from "react-icons/ai"
+import { HiDotsVertical } from "react-icons/hi"
 
 const JobCard = () => {
   return (

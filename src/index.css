@@ -15,12 +15,12 @@
         @apply flex flex-col space-y-2 w-full
       }
       .label_style {
-        @apply text-gray-500 after:content-['*'] after:ml-1 after:text-red-500
+        @apply text-gray-500 after:content-['*'] after:ml-1 after:text-red-500 capitalize
       }
     }
   
       .input_style {
-        @apply py-3 md:py-4 rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm shadow hover:ring-2 hover:ring-primary transition-all duration-200 ease-in
+        @apply py-3 md:py-4 rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary placeholder:text-gray-300 placeholder:text-sm placeholder:capitalize shadow hover:ring-2 hover:ring-primary transition-all duration-200 ease-in w-full
     
     }
 

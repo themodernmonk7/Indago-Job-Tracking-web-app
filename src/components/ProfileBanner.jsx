@@ -1,4 +1,3 @@
-import React from "react"
 import UserImage from "./UserImage"
 const ProfileBanner = () => {
   return (
@@ -9,7 +8,7 @@ const ProfileBanner = () => {
             {" "}
             Welcome back, <span className="font-medium">Sarah!</span>{" "}
           </h4>
-          <UserImage className={ 'w-10 h-10 md:w-14 md:h-14'}  />
+          <UserImage className={"w-10 h-10 md:w-14 md:h-14"} />
         </div>
       </section>
     </>
