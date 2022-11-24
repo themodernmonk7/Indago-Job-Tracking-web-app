@@ -4,11 +4,13 @@ const FormRow = ({
   labelText,
   className,
   placeholder,
+  value,
+  handleChange,
   textArea,
 }) => {
   return (
     <div className={`input_container `}>
-      <label htmlFor="" className="label_style">
+      <label htmlFor={name} className="label_style">
         {labelText || name}
       </label>
       {textArea ? (
@@ -27,6 +29,8 @@ const FormRow = ({
           placeholder={placeholder}
           type={type}
           name={name}
+          value={value}
+          onChange={handleChange}
           className={`input_style ${className} `}
         />
       )}

@@ -41,7 +41,7 @@ const Register = () => {
             <div className="absolute -top-12 -right-10  bg-blue-900 w-28 h-28 rounded-full opacity-40 "></div>
           </aside>
           {/* Left */}
-          <article className="my-16  w-full flex flex-col items-center justify-between space-y-12   ">
+          <article className=" my-10 md:my-16  w-full flex flex-col items-center justify-between space-y-12   ">
             <div className=" flex flex-col items-center space-y-4 ">
               <img
                 src={Logo}
@@ -52,11 +52,6 @@ const Register = () => {
             </div>
 
             <RegisterForm />
-
-            <p className=" text-lg ">
-              Already a member?{" "}
-              <button className="text-blue-700 font-medium ">Login In</button>
-            </p>
           </article>
         </div>
       </section>
