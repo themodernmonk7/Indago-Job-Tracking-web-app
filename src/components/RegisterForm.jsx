@@ -10,6 +10,22 @@ const initialState = {
 
 const RegisterForm = () => {
   const [values, setValues] = useState(initialState)
+  
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    console.log(`${name}: ${value}`)
+    setValues({ ...values, [name]: value })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(e.target)
+    const { name, email, password, isMember } = values
+    if (!email || !password || (!isMember && !name)) {
+      console.log("Please fill out all fields")
+      return
+    }
+  }
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember })
