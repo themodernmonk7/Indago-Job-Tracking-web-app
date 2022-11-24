@@ -19,7 +19,7 @@ const Landing = () => {
               criteria. Fast, Safe and reliable.
             </p>
           </div>
-          <Link className="bg-blue-500 text-white block mr-auto px-12 py-3 rounded-lg text-xl my-10 ">
+          <Link className="bg-primary text-white block mr-auto px-12 py-3 rounded-lg text-xl my-10 ">
             {" "}
             Start{" "}
           </Link>

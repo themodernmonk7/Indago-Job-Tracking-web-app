@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className=" space-x-12 text-lg ">
         <Link>Find Jobs</Link>
         <Link>Sign In</Link>
-        <Link className="bg-blue-200 px-4 py-2 rounded-md text-blue-500 font-medium ">
+        <Link className="bg-gray-100 px-4 py-2 rounded-md text-primary font-medium ">
           {" "}
           Register{" "}
         </Link>
