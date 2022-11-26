@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { FormRow } from "../components"
 
 const initialState = {
@@ -10,7 +11,9 @@ const initialState = {
 
 const RegisterForm = () => {
   const [values, setValues] = useState(initialState)
-  
+  const { isLoading, user } = useSelector((store) => store.user)
+  const dispatch = useDispatch()
+
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -25,6 +28,10 @@ const RegisterForm = () => {
       console.log("Please fill out all fields")
       return
     }
+    if (isMember) {
+      dispatch(loginUser({ email: email, password: password }))
+    }
+    dispatch(registerUser({ name: name, email: email, password: password }))
   }
 
   const toggleMember = () => {
