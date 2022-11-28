@@ -44,6 +44,13 @@ const RegisterForm = () => {
     setValues({ ...values, isMember: !values.isMember })
   }
 
+  // Navigate user to dashboard
+  useEffect(() => {
+    if (user) {
+      navigate("/")
+    }
+  }, [user, navigate])
+
   return (
     <>
       <form
