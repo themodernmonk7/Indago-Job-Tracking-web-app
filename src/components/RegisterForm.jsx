@@ -78,7 +78,7 @@ const RegisterForm = () => {
           />
         </div>
         <button className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow ">
-          Create Account
+          {values.isMember ? "Login" : "Create Account"}
         </button>
       </form>
       {/* 
