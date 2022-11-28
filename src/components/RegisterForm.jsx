@@ -3,18 +3,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { FormRow } from "../components"
 import { toast } from "react-toastify"
 import { loginUser, registerUser } from "../features/user/userSlice"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const initialState = {
   name: "",
   email: "",
   password: "",
-  isMember: false,
+  isMember: true,
 }
 
 const RegisterForm = () => {
   const [values, setValues] = useState(initialState)
   const { isLoading, user } = useSelector((store) => store.user)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const name = e.target.name
@@ -27,12 +30,12 @@ const RegisterForm = () => {
     // console.log(e.target)
     const { name, email, password, isMember } = values
     if (!email || !password || (!isMember && !name)) {
-      console.log("Please fill out all fields")
       toast.error("Please fill out all fields")
       return
     }
     if (isMember) {
       dispatch(loginUser({ email: email, password: password }))
+      return
     }
     dispatch(registerUser({ name: name, email: email, password: password }))
   }
@@ -81,11 +84,6 @@ const RegisterForm = () => {
           {values.isMember ? "Login" : "Create Account"}
         </button>
       </form>
-      {/* 
-      Not a Member? Sign Up
-      Don't have an account? Sign up for free
-
-       */}
       <p className=" text-sm  ">
         {values.isMember ? `Don't have an account?` : "Already a member?"}
         <button
