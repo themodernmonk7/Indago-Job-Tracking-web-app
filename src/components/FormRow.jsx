@@ -15,8 +15,8 @@ const FormRow = ({
       </label>
       {textArea ? (
         <textarea
-          name=""
-          id=""
+          name={name}
+          id={name}
           cols="30"
           rows="5"
           maxLength={50}
