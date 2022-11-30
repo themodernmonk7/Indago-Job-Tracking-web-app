@@ -7,6 +7,7 @@ import {
   removeUserFromLocalStorage,
 } from "../../utils/localStorage"
 getUserFromLocalStorage
+
 const initialState = {
   isLoading: false,
   user: getUserFromLocalStorage(),
@@ -29,6 +30,23 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await customFetch.post("/auth/login", user)
       console.log("login success")
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
+  }
+)
+
+export const updateUser = createAsyncThunk(
+  "user/updateUser",
+  async (user, thunkAPI) => {
+    try {
+      const response = await customFetch.patch("auth/updateUser", user, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+        },
+      })
+      console.log(response)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
@@ -73,6 +91,21 @@ const userSlice = createSlice({
       toast.success(`Welcome back ${user.name}`)
     },
     [loginUser.rejected]: (state, action) => {
+      state.isLoading = false
+      toast.error(action.payload)
+    },
+
+    //** ==================== LOGIN USER ==================== */
+    [updateUser.pending]: (state) => {
+      state.isLoading = true
+    },
+    [updateUser.fulfilled]: (state, action) => {
+      const { user } = action.payload
+      state.isLoading = false
+      state.user = user
+      addUserToLocalStorage()
+    },
+    [updateUser.rejected]: (state, action) => {
       state.isLoading = false
       toast.error(action.payload)
     },
