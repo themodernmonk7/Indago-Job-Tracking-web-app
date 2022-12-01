@@ -103,7 +103,7 @@ const userSlice = createSlice({
       const { user } = action.payload
       state.isLoading = false
       state.user = user
-      addUserToLocalStorage()
+      addUserToLocalStorage(user)
     },
     [updateUser.rejected]: (state, action) => {
       state.isLoading = false
