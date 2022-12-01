@@ -16,7 +16,10 @@ const FormRow = ({
       {textArea ? (
         <textarea
           name={name}
+          type={type}
           id={name}
+          value={value}
+          onChange={handleChange}
           cols="30"
           rows="5"
           maxLength={50}
