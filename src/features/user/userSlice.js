@@ -46,7 +46,6 @@ export const updateUser = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         },
       })
-      console.log(response)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
@@ -95,7 +94,7 @@ const userSlice = createSlice({
       toast.error(action.payload)
     },
 
-    //** ==================== LOGIN USER ==================== */
+    //** ==================== UPDATE USER INFORMATION ==================== */
     [updateUser.pending]: (state) => {
       state.isLoading = true
     },
@@ -104,6 +103,7 @@ const userSlice = createSlice({
       state.isLoading = false
       state.user = user
       addUserToLocalStorage(user)
+      toast.success("Save changes successfully")
     },
     [updateUser.rejected]: (state, action) => {
       state.isLoading = false

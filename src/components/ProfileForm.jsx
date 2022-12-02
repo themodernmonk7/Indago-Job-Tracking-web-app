@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
-import { FormRow, Button } from "../components"
+import { FormRow } from "../components"
 import { updateUser } from "../features/user/userSlice"
 
 const ProfileForm = () => {
@@ -81,7 +81,12 @@ const ProfileForm = () => {
           />
         </div>
       </div>
-      <Button props={["save", "cancel"]} />
+      <button
+        className=" ml-auto block w-44  py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize disabled:cursor-not-allowed "
+        disabled={isLoading}
+      >
+        {isLoading ? "Please wait..." : "Save changes"}
+      </button>
     </form>
   )
 }
