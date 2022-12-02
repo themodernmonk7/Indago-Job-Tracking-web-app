@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 src/assets
-
+Todo.md
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
