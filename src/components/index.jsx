@@ -12,13 +12,11 @@ import MobileNavLink from "./MobileNavLink"
 import FormRow from "./FormRow"
 import FormRowSelect from "./FormRowSelect"
 import AddJobForm from "./AddJobForm"
-import Button from "./Button"
 import ProfileForm from "./ProfileForm"
 import RegisterForm from "./RegisterForm"
 export {
   RegisterForm,
   ProfileForm,
-  Button,
   FormRow,
   AddJobForm,
   FormRowSelect,
