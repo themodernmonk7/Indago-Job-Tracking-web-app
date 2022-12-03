@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { FormRow, FormRowSelect } from "../components"
@@ -18,8 +19,20 @@ const AddJobForm = () => {
     status,
     statusOptions,
     aboutJob,
+    isEditing,
   } = useSelector((store) => store.job)
+  const { user } = useSelector((store) => store.user)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(
+      handleChangeFunction({
+        name: "jobLocation",
+        value: user.location,
+      })
+    )
+  }, [])
+
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
