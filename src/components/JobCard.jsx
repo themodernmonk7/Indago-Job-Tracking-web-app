@@ -2,6 +2,8 @@ import data from "../data"
 import { HiDotsVertical } from "react-icons/hi"
 import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
 import { Link } from "react-router-dom"
+import { deleteJob } from "../features/allJobs/allJobsSlice"
+import { useDispatch } from "react-redux"
 
 const JobCard = ({
   _id,
@@ -12,6 +14,7 @@ const JobCard = ({
   position,
   status,
 }) => {
+  const dispatch = useDispatch()
   return (
     <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm ">
       <div className="flex justify-between items-center">
@@ -75,7 +78,7 @@ const JobCard = ({
         </Link>
         <button
           className="  hover:text-red-400 text-gray-500 transition-all"
-          onClick={() => console.log("delete job")}
+          onClick={() => dispatch(deleteJob(_id))}
         >
           <HiOutlineTrash className="w-5 h-5 " />
         </button>
