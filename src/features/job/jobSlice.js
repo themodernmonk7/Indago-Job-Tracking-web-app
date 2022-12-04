@@ -38,7 +38,7 @@ export const createJob = createAsyncThunk(
 )
 
 export const deleteJob = createAsyncThunk(
-  "allJobs/deleteJob",
+  "job/deleteJob",
   async (jobId, thunkAPI) => {
     try {
       const response = await customFetch.delete(`/jobs/${jobId}`, {
@@ -52,6 +52,9 @@ export const deleteJob = createAsyncThunk(
     }
   }
 )
+
+export const uploadImage = createAsyncThunk("")
+
 export const jobSlice = createSlice({
   name: "Job",
   initialState,
