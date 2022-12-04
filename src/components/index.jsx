@@ -14,7 +14,10 @@ import FormRowSelect from "./FormRowSelect"
 import AddJobForm from "./AddJobForm"
 import ProfileForm from "./ProfileForm"
 import RegisterForm from "./RegisterForm"
+import JobContainer from "./JobContainer"
+
 export {
+  JobContainer,
   RegisterForm,
   ProfileForm,
   FormRow,

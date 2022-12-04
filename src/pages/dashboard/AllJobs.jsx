@@ -1,10 +1,10 @@
-import { JobCard, SearchBarFilter } from "../../components"
+import { JobContainer, SearchBarFilter } from "../../components"
 
 const AllJobs = () => {
   return (
     <>
       <SearchBarFilter />
-      <JobCard />
+      <JobContainer />
     </>
   )
 }

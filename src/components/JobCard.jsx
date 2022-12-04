@@ -4,10 +4,6 @@ import { HiDotsVertical } from "react-icons/hi"
 const JobCard = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10 my-10 mb-28 place-items-center px-5 lg:px-0 ">
-      {/* <div className=" flex justify-between ">
-        <p>75 Jobs found</p>
-        <p>Sort by latest</p>
-      </div> */}
       {data.map((item) => {
         const { id, company, position, status, jobType, jobLocation, image } =
           item
