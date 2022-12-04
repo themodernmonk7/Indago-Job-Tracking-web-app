@@ -1,9 +1,7 @@
-import data from "../data"
-import { HiDotsVertical } from "react-icons/hi"
 import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
 import { Link } from "react-router-dom"
-import { deleteJob } from "../features/allJobs/allJobsSlice"
 import { useDispatch } from "react-redux"
+import { deleteJob } from "../features/job/jobSlice"
 
 const JobCard = ({
   _id,
