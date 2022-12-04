@@ -1,5 +1,7 @@
 import data from "../data"
 import { HiDotsVertical } from "react-icons/hi"
+import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
+import { Link } from "react-router-dom"
 
 const JobCard = ({
   _id,
@@ -64,9 +66,20 @@ const JobCard = ({
           <button className="text-blue-500 text-sm ">..read more</button>
         </p>
       </div>
-      <button className=" ml-auto block items-center hover:text-gray-500 transition-all  ">
-        <HiDotsVertical className="w-5 h-5 " />
-      </button>
+      <div className="flex justify-between">
+        <Link
+          to="/add-job"
+          className=" hover:text-blue-500 text-gray-500 transition-all  "
+        >
+          <HiOutlinePencilAlt className="w-5 h-5" />
+        </Link>
+        <button
+          className="  hover:text-red-400 text-gray-500 transition-all"
+          onClick={() => console.log("delete job")}
+        >
+          <HiOutlineTrash className="w-5 h-5 " />
+        </button>
+      </div>
     </article>
   )
 }
