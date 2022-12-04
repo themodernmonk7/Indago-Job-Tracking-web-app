@@ -25,7 +25,10 @@ const JobContainer = () => {
       {/* Total jobs and sort function */}
       <section className=" my-10 flex justify-between items-center ">
         <div className="">
-          <h3>75 Jobs found</h3>
+          <h3>
+            {" "}
+            {total_jobs} Job{jobs.length > 1 && "s"} found
+          </h3>
         </div>
         <div className="">
           <span>Sort by</span>
@@ -42,7 +45,12 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <JobCard />
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10 my-10 mb-28 place-items-center px-5 lg:px-0 ">
+        {jobs.map((job) => {
+          return <JobCard key={job._id} {...job} />
+        })}
+      </section>
+      {/* <JobCard /> */}
       {/* Pagination */}
     </>
   )
