@@ -10,10 +10,11 @@ const initialState = {
   company: "",
   jobLocation: "",
   jobType: "full-time",
-  jobTypeOptions: ["Full-time", "Part-time", "Internship"],
+  jobTypeOptions: ["full-time", "part-time", "internship"],
   status: "pending",
   statusOptions: ["pending", "declined", "interview"],
   aboutJob: "",
+  companyLogo: [],
 }
 
 export const createJob = createAsyncThunk(
@@ -53,7 +54,22 @@ export const deleteJob = createAsyncThunk(
   }
 )
 
-export const uploadImage = createAsyncThunk("")
+export const uploadImage = createAsyncThunk(
+  "job/uploadImage",
+  async (image, thunkAPI) => {
+    try {
+      const response = await customFetch.post("/jobs/uploadImage", image, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+        },
+      })
+      console.log(response.data)
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
+  }
+)
 
 export const jobSlice = createSlice({
   name: "Job",
