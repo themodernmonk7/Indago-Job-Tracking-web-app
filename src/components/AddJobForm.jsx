@@ -26,12 +26,14 @@ const AddJobForm = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(
-      handleChangeFunction({
-        name: "jobLocation",
-        value: user.location,
-      })
-    )
+    if (!isEditing) {
+      dispatch(
+        handleChangeFunction({
+          name: "jobLocation",
+          value: user.location,
+        })
+      )
+    }
   }, [])
 
   const handleChange = (e) => {

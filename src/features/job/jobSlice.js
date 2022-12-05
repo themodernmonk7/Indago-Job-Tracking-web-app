@@ -15,6 +15,8 @@ const initialState = {
   statusOptions: ["pending", "declined", "interview"],
   aboutJob: "",
   companyLogo: "",
+  isEditing: false,
+  editJobId: "",
 }
 
 export const createJob = createAsyncThunk(
@@ -27,7 +29,6 @@ export const createJob = createAsyncThunk(
         },
       })
       thunkAPI.dispatch(clearValues())
-      console.log(response.data)
       return response.data
     } catch (error) {
       if (error.response.status === 401) {
@@ -68,6 +69,9 @@ export const jobSlice = createSlice({
         jobLocation: getUserFromLocalStorage()?.location || "",
       }
     },
+    setEditJob: (state, { payload }) => {
+      return { ...state, isEditing: true, ...payload }
+    },
   },
   extraReducers: {
     //** ==================== CREATE JOB ==================== */
@@ -85,5 +89,6 @@ export const jobSlice = createSlice({
   },
 })
 
-export const { handleChangeFunction, clearValues } = jobSlice.actions
+export const { handleChangeFunction, clearValues, setEditJob } =
+  jobSlice.actions
 export default jobSlice.reducer

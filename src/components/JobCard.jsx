@@ -1,7 +1,7 @@
 import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { deleteJob } from "../features/job/jobSlice"
+import { deleteJob, setEditJob } from "../features/job/jobSlice"
 
 const JobCard = ({
   _id,
@@ -71,6 +71,18 @@ const JobCard = ({
         <Link
           to="/add-job"
           className=" hover:text-blue-500 text-gray-500 transition-all  "
+          onClick={() =>
+            dispatch(
+              setEditJob({
+                editJobId: _id,
+                position,
+                company,
+                jobLocation,
+                jobType,
+                status,
+              })
+            )
+          }
         >
           <HiOutlinePencilAlt className="w-5 h-5" />
         </Link>
