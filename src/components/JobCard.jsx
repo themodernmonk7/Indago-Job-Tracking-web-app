@@ -11,6 +11,7 @@ const JobCard = ({
   jobType,
   position,
   status,
+  jobDescription,
 }) => {
   const dispatch = useDispatch()
   return (
@@ -56,14 +57,16 @@ const JobCard = ({
           {jobType}{" "}
         </span>
       </div>
-      <div className=" space-y-2 ">
+      <div className=" space-y-2 max-w-2xl  ">
         <h4 className="text-md font-medium capitalize">
           {" "}
           {company}, {jobLocation}
         </h4>
         <p className="text-md text-gray-400">
-          {/* Add fading away text effect */}I applied in this company because
-          my skill.{" "}
+          I applied in this company because my skill.
+          {/* {jobDescription === ""
+            ? "Add Job description here for more clarity..."
+            : jobDescription} */}
           <button className="text-blue-500 text-sm ">..read more</button>
         </p>
       </div>
@@ -80,6 +83,7 @@ const JobCard = ({
                 jobLocation,
                 jobType,
                 status,
+                jobDescription,
               })
             )
           }
