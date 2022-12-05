@@ -6,7 +6,6 @@ import {
   handleChangeFunction,
   clearValues,
   createJob,
-  setEditJob,
   editJob,
 } from "../features/job/jobSlice"
 
@@ -20,24 +19,13 @@ const AddJobForm = () => {
     jobTypeOptions,
     status,
     statusOptions,
-    aboutJob,
+    jobDescription,
     companyLogo,
     isEditing,
     editJobId,
   } = useSelector((store) => store.job)
   const { user } = useSelector((store) => store.user)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (!isEditing) {
-      dispatch(
-        handleChangeFunction({
-          name: "jobLocation",
-          value: user.location,
-        })
-      )
-    }
-  }, [])
 
   const handleChange = (e) => {
     const name = e.target.name
@@ -61,9 +49,11 @@ const AddJobForm = () => {
             jobLocation,
             jobType,
             status,
+            jobDescription,
           },
         })
       )
+      return
     }
     // dispatch action
     dispatch(
@@ -73,10 +63,21 @@ const AddJobForm = () => {
         jobLocation,
         jobType,
         status,
-        aboutJob,
+        jobDescription,
       })
     )
   }
+
+  useEffect(() => {
+    if (!isEditing) {
+      dispatch(
+        handleChangeFunction({
+          name: "jobLocation",
+          value: user.location,
+        })
+      )
+    }
+  }, [])
 
   return (
     <>
@@ -137,11 +138,11 @@ const AddJobForm = () => {
           <div className=" md:col-span-2 ">
             <FormRow
               type="text"
-              name="aboutJob"
+              name="jobDescription"
               labelText="About Job"
               placeholder="Brief description about your job..."
               textArea={true}
-              value={aboutJob}
+              value={jobDescription}
               handleChange={handleChange}
             />
           </div>

@@ -13,7 +13,7 @@ const initialState = {
   jobTypeOptions: ["full-time", "part-time", "internship"],
   status: "pending",
   statusOptions: ["pending", "declined", "interview"],
-  aboutJob: "",
+  jobDescription: "",
   companyLogo: "",
   isEditing: false,
   editJobId: "",
@@ -57,7 +57,7 @@ export const deleteJob = createAsyncThunk(
 )
 
 export const editJob = createAsyncThunk(
-  "jobs/editJob",
+  "job/editJob",
   async ({ jobId, job }, thunkAPI) => {
     try {
       const response = await customFetch.patch(`/jobs/${jobId}`, job, {
@@ -65,6 +65,7 @@ export const editJob = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         },
       })
+      thunkAPI.dispatch(clearValues())
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
@@ -102,16 +103,18 @@ export const jobSlice = createSlice({
       state.isLoading = false
       toast.error(action.payload)
     },
-  },
-  //** ==================== CREATE JOB ==================== */
-  [editJob.pending]: (state) => {
-    state.isLoading = true
-  },
-  [editJob.fulfilled]: (state, action) => {
-    ;(state.isLoading = false), toast.success("Save changes successfully!")
-  },
-  [editJob.rejected]: (state, action) => {
-    ;(state.isLoading = false), toast.error(action.payload)
+    //** ==================== EDIT JOB ==================== */
+    [editJob.pending]: (state) => {
+      state.isLoading = true
+    },
+    [editJob.fulfilled]: (state) => {
+      state.isLoading = false
+      toast.success("Save changes successfully!")
+    },
+    [editJob.rejected]: (state, action) => {
+      state.isLoading = false
+      toast.error(action.payload)
+    },
   },
 })
 
