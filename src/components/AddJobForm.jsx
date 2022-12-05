@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
@@ -7,7 +6,6 @@ import {
   handleChangeFunction,
   clearValues,
   createJob,
-  uploadImage,
 } from "../features/job/jobSlice"
 
 const AddJobForm = () => {
@@ -37,12 +35,8 @@ const AddJobForm = () => {
   }, [])
 
   const handleChange = (e) => {
-    let name = e.target.name
-    let value = e.target.value
-    if (name === "companyLogo") {
-      value = e.target.files
-    }
-    console.log(`${name}: ${value}`)
+    const name = e.target.name
+    const value = e.target.value
     dispatch(handleChangeFunction({ name, value }))
   }
 
