@@ -14,7 +14,7 @@ const initialState = {
   status: "pending",
   statusOptions: ["pending", "declined", "interview"],
   aboutJob: "",
-  companyLogo: [],
+  companyLogo: "",
 }
 
 export const createJob = createAsyncThunk(
@@ -27,6 +27,7 @@ export const createJob = createAsyncThunk(
         },
       })
       thunkAPI.dispatch(clearValues())
+      console.log(response.data)
       return response.data
     } catch (error) {
       if (error.response.status === 401) {
@@ -47,23 +48,6 @@ export const deleteJob = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         },
       })
-      return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
-  }
-)
-
-export const uploadImage = createAsyncThunk(
-  "job/uploadImage",
-  async (image, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/jobs/uploadImage", image, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      })
-      console.log(response.data)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
