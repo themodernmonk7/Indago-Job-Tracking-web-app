@@ -6,6 +6,8 @@ import {
   handleChangeFunction,
   clearValues,
   createJob,
+  setEditJob,
+  editJob,
 } from "../features/job/jobSlice"
 
 const AddJobForm = () => {
@@ -21,6 +23,7 @@ const AddJobForm = () => {
     aboutJob,
     companyLogo,
     isEditing,
+    editJobId,
   } = useSelector((store) => store.job)
   const { user } = useSelector((store) => store.user)
   const dispatch = useDispatch()
@@ -48,7 +51,20 @@ const AddJobForm = () => {
       toast.error("Please fill out all fields")
       return
     }
-
+    if (isEditing) {
+      dispatch(
+        editJob({
+          jobId: editJobId,
+          job: {
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
+          },
+        })
+      )
+    }
     // dispatch action
     dispatch(
       createJob({
