@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
@@ -6,6 +7,7 @@ import {
   handleChangeFunction,
   clearValues,
   createJob,
+  uploadImage,
 } from "../features/job/jobSlice"
 
 const AddJobForm = () => {
@@ -19,6 +21,7 @@ const AddJobForm = () => {
     status,
     statusOptions,
     aboutJob,
+    companyLogo,
     isEditing,
   } = useSelector((store) => store.job)
   const { user } = useSelector((store) => store.user)
@@ -34,8 +37,12 @@ const AddJobForm = () => {
   }, [])
 
   const handleChange = (e) => {
-    const name = e.target.name
-    const value = e.target.value
+    let name = e.target.name
+    let value = e.target.value
+    if (name === "companyLogo") {
+      value = e.target.files
+    }
+    console.log(`${name}: ${value}`)
     dispatch(handleChangeFunction({ name, value }))
   }
 
@@ -48,7 +55,14 @@ const AddJobForm = () => {
 
     // dispatch action
     dispatch(
-      createJob({ position, company, jobLocation, jobType, status, aboutJob })
+      createJob({
+        position,
+        company,
+        jobLocation,
+        jobType,
+        status,
+        aboutJob,
+      })
     )
   }
 
@@ -100,6 +114,8 @@ const AddJobForm = () => {
           <FormRow
             type="file"
             name="companyLogo"
+            value={companyLogo}
+            handleChange={handleChange}
             labelText="Company Logo"
             className=" bg-white file:mr-4  file:px-4
             file:border-0 file:bg-white
