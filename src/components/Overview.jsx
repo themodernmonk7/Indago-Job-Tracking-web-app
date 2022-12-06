@@ -14,13 +14,13 @@ const Overview = () => {
     dispatch(showStats())
   }, [])
 
-  // if (isLoading) {
-  //   return <Loading />
-  // }
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>
-      {/* <StatsContainer /> */}
+      <StatsContainer />
       {monthlyApplications.length > 0 && <ChartsContainer />}
     </>
   )
