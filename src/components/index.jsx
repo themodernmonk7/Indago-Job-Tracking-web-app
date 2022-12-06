@@ -15,8 +15,16 @@ import AddJobForm from "./AddJobForm"
 import ProfileForm from "./ProfileForm"
 import RegisterForm from "./RegisterForm"
 import JobContainer from "./JobContainer"
+import StatsContainer from "./StatsContainer"
+import ChartsContainer from "./ChartsContainer"
+import Loading from "./Loading"
+import StatItem from "./StatItem"
 
 export {
+  StatItem,
+  Loading,
+  ChartsContainer,
+  StatsContainer,
   JobContainer,
   RegisterForm,
   ProfileForm,
