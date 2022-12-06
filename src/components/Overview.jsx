@@ -1,5 +1,8 @@
 import React from "react"
+import { useEffect } from "react"
 import { FcPlanner, FcDisclaimer, FcBriefcase } from "react-icons/fc"
+import { useDispatch, useSelector } from "react-redux"
+import { showStats } from "../features/allJobs/allJobsSlice"
 const lists = [
   {
     id: 1,
@@ -22,6 +25,13 @@ const lists = [
 ]
 
 const Overview = () => {
+  const { stats, monthlyApplications } = useSelector((store) => store.allJobs)
+  console.log(stats)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(showStats())
+  }, [])
+
   return (
     <>
       <section className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 xl:gap-20 my-10 mb-28 px-5 lg:px-0 ">
