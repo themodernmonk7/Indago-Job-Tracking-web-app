@@ -8,7 +8,7 @@ const ChartsContainer = () => {
   const { monthlyApplications: data } = useSelector((store) => store.allJobs)
   return (
     <>
-      <section className="flex flex-col justify-center items-center space-y-10">
+      <section className="flex flex-col justify-center items-center space-y-6 mb-10 ">
         <h4 className=" capitalize text-2xl ">Monthly applications</h4>
         <button
           type="button"
