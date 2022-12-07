@@ -1,7 +1,7 @@
 import React from "react"
 
-const AreaChart = () => {
+const AreaChartComponent = () => {
   return <div>AreaChart</div>
 }
 
-export default AreaChart
+export default AreaChartComponent

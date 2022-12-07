@@ -19,12 +19,11 @@ import StatsContainer from "./StatsContainer"
 import ChartsContainer from "./ChartsContainer"
 import Loading from "./Loading"
 import StatItem from "./StatItem"
-import AreaChart from "./AreaChart"
-import BarChart from "./BarChart"
-
+import AreaChartComponent from "./AreaChart"
+import BarChartComponent from "./BarChart"
 export {
-  BarChart,
-  AreaChart,
+  BarChartComponent,
+  AreaChartComponent,
   StatItem,
   Loading,
   ChartsContainer,
