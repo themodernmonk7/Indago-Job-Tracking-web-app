@@ -1,8 +1,11 @@
+import { useMemo } from "react"
+import { useState } from "react"
 import { FiSearch } from "react-icons/fi"
 import { useDispatch, useSelector } from "react-redux"
 import { handleChange, clearFilters } from "../features/allJobs/allJobsSlice"
 
 const SearchBarFilter = () => {
+  const [localSearch, setLocalSearch] = useState("")
   const { search, searchJobStatus, searchJobType } = useSelector(
     (store) => store.allJobs
   )
@@ -15,10 +18,25 @@ const SearchBarFilter = () => {
     dispatch(handleChange({ name: e.target.name, value: e.target.value }))
   }
 
+  // Setup debounce
+  const debounce = () => {
+    let timeoutID
+    return (e) => {
+      setLocalSearch(e.target.value)
+      clearTimeout()
+      timeoutID = setTimeout(() => {
+        dispatch(handleChange({ name: e.target.name, value: e.target.value }))
+      }, 3000)
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    setLocalSearch("")
     dispatch(clearFilters())
   }
+
+  const optimizedDebounced = useMemo(() => debounce(), [])
 
   return (
     <>
@@ -32,10 +50,10 @@ const SearchBarFilter = () => {
           <input
             type="text"
             name="search"
-            value={search}
+            value={localSearch}
             className="   focus:outline-none border-none w-full px-4 pl-10 transition ease-in duration-200 text-black placeholder:text-gray-600 placeholder:font-medium focus:ring-0 "
             placeholder="Front-end developer"
-            onChange={handleSearch}
+            onChange={optimizedDebounced}
           />
         </div>
         {/* Job Status */}
