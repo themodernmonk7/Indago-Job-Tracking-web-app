@@ -1,16 +1,17 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { JobCard } from "../components"
+import { JobCard, PaginationButton } from "../components"
 import { getAllJobs } from "../features/allJobs/allJobsSlice"
-
 const JobContainer = () => {
-  const { isLoading, jobs, total_jobs } = useSelector((store) => store.allJobs)
+  const { isLoading, jobs, total_jobs, num_of_pages, page } = useSelector(
+    (store) => store.allJobs
+  )
   const dispatch = useDispatch()
 
   // dispatch the getAllJobs action when component is rendering
   useEffect(() => {
     dispatch(getAllJobs())
-  }, [])
+  }, [page])
 
   if (isLoading) {
     return <h3> Loading... </h3>
@@ -45,13 +46,13 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10 my-10 mb-28 place-items-center px-5 lg:px-0 ">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10 my-10 place-items-center px-5 lg:px-0 ">
         {jobs.map((job) => {
           return <JobCard key={job._id} {...job} />
         })}
       </section>
-      {/* <JobCard /> */}
       {/* Pagination */}
+      {num_of_pages > 1 && <PaginationButton />}
     </>
   )
 }

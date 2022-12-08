@@ -63,6 +63,9 @@ export const allJobsSlice = createSlice({
     clearFilters: (state) => {
       return { ...state, ...initialFilterState }
     },
+    changePage: (state, { payload }) => {
+      state.page = payload
+    },
   },
   extraReducers: {
     //** ==================== GET ALL JOBS ==================== */
@@ -96,5 +99,5 @@ export const allJobsSlice = createSlice({
   },
 })
 
-export const { handleChange, clearFilters } = allJobsSlice.actions
+export const { handleChange, clearFilters, changePage } = allJobsSlice.actions
 export default allJobsSlice.reducer

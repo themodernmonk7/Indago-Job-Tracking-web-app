@@ -21,7 +21,9 @@ import Loading from "./Loading"
 import StatItem from "./StatItem"
 import AreaChartComponent from "./AreaChart"
 import BarChartComponent from "./BarChart"
+import PaginationButton from "./PaginationButton"
 export {
+  PaginationButton,
   BarChartComponent,
   AreaChartComponent,
   StatItem,
