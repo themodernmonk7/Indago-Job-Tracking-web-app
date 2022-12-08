@@ -1,7 +1,6 @@
-import React from "react"
 import { FiSearch } from "react-icons/fi"
-import { BsFilter } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
+import { handleChange, clearFilters } from "../features/allJobs/allJobsSlice"
 
 const SearchBarFilter = () => {
   const { search, searchJobStatus, searchJobType } = useSelector(
@@ -10,11 +9,15 @@ const SearchBarFilter = () => {
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job)
   const jobStatusOptionsValue = ["all", ...statusOptions]
   const jobTypeOptionsValue = ["all", ...jobTypeOptions]
+  const dispatch = useDispatch()
 
-  const handleChange = (e) => {}
+  const handleSearch = (e) => {
+    dispatch(handleChange({ name: e.target.name, value: e.target.value }))
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    dispatch(clearFilters())
   }
 
   return (
@@ -32,17 +35,17 @@ const SearchBarFilter = () => {
             value={search}
             className="   focus:outline-none border-none w-full px-4 pl-10 transition ease-in duration-200 text-black placeholder:text-gray-600 placeholder:font-medium focus:ring-0 "
             placeholder="Front-end developer"
-            onChange={handleChange}
+            onChange={handleSearch}
           />
         </div>
         {/* Job Status */}
         <div className=" lg:grid border-r-2 w-full ">
           <select
-            name="jobStatus"
+            name="searchJobStatus"
             value={searchJobStatus}
             id="jobStatus"
             className=" placeholder:font-light  focus:outline-none border-none w-full px4 transition ease-in duration-200 text-gray-600 font-medium focus:ring-0 capitalize "
-            onChange={handleChange}
+            onChange={handleSearch}
           >
             {jobStatusOptionsValue.map((item, index) => {
               return (
@@ -58,11 +61,11 @@ const SearchBarFilter = () => {
         {/* Job type */}
         <div className=" lg:grid border-r-2 w-full ">
           <select
-            name="jobType"
+            name="searchJobType"
             value={searchJobType}
             id="jobType"
             className=" placeholder:font-light  focus:outline-none border-none w-full  transition ease-in duration-200 text-gray-600 font-medium focus:ring-0 capitalize  "
-            onChange={handleChange}
+            onChange={handleSearch}
           >
             {jobTypeOptionsValue.map((item, index) => {
               return (
