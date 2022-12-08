@@ -67,6 +67,8 @@ export const allJobsSlice = createSlice({
   initialState,
   reducers: {
     handleChange: (state, { payload: { name, value } }) => {
+      // Every time user change something then page will back to 1
+      state.page = 1
       state[name] = value
     },
     clearFilters: (state) => {
