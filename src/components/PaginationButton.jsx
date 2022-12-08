@@ -3,13 +3,13 @@ import { changePage } from "../features/allJobs/allJobsSlice"
 
 const PaginationButton = () => {
   // Read data from the store
-  const { num_of_pages } = useSelector((store) => store.allJobs)
+  const { num_of_pages, page } = useSelector((store) => store.allJobs)
 
   // Dispatch actions
   const dispatch = useDispatch()
 
   // Generate page number sequence
-  const page = Array.from({ length: num_of_pages }, (_, index) => {
+  const pages = Array.from({ length: num_of_pages }, (_, index) => {
     return index + 1
   })
 
@@ -37,14 +37,15 @@ const PaginationButton = () => {
         Prev{" "}
       </button>
       <div className=" space-x-10 ">
-        {page.map((pageNumber) => {
+        {pages.map((pageNumber) => {
+          console.log(pageNumber === page)
           return (
             <button
               key={pageNumber}
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "bg-primary rounded-md px-4 py-2 text-red font-medium"
+                  ? "bg-primary rounded-md px-4 py-2 text-white font-medium"
                   : "bg-white rounded-md px-4 py-2 text-primary font-medium"
               }
             >
