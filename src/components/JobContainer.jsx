@@ -3,15 +3,25 @@ import { useDispatch, useSelector } from "react-redux"
 import { JobCard, PaginationButton } from "../components"
 import { getAllJobs } from "../features/allJobs/allJobsSlice"
 const JobContainer = () => {
-  const { isLoading, jobs, total_jobs, num_of_pages, page } = useSelector(
-    (store) => store.allJobs
-  )
+  // Read data data from the allJobs store
+  const {
+    isLoading,
+    jobs,
+    total_jobs,
+    num_of_pages,
+    page,
+    search,
+    searchJobStatus,
+    searchJobType,
+  } = useSelector((store) => store.allJobs)
+
+  // Dispatch actions
   const dispatch = useDispatch()
 
   // dispatch the getAllJobs action when component is rendering
   useEffect(() => {
     dispatch(getAllJobs())
-  }, [page])
+  }, [page, search, searchJobStatus, searchJobType])
 
   if (isLoading) {
     return <h3> Loading... </h3>
