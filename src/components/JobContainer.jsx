@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { JobCard, PaginationButton } from "../components"
+import { JobCard, Loading, PaginationButton } from "../components"
 import { getAllJobs } from "../features/allJobs/allJobsSlice"
+
 const JobContainer = () => {
   // Read data data from the allJobs store
   const {
@@ -24,7 +25,7 @@ const JobContainer = () => {
   }, [page, search, searchJobStatus, searchJobType])
 
   if (isLoading) {
-    return <h3> Loading... </h3>
+    return <Loading />
   }
 
   if (jobs.length === 0) {
