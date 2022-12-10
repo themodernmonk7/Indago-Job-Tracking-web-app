@@ -13,12 +13,12 @@ const JobCard = ({
   position,
   status,
   jobDescription,
-  createAt,
+  createdAt,
 }) => {
   const dispatch = useDispatch()
-  const jobCreationDate = moment(createAt).format("MMM Do YY")
+  const jobCreationDate = moment(createdAt).format("MMM Do YY")
   return (
-    <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm ">
+    <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm  ">
       <div className="flex justify-between items-center">
         <h3 className="bg-blue-200 px-3 rounded-full py-1">
           {company.charAt(0)}

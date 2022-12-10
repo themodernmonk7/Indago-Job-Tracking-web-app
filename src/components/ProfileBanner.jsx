@@ -5,7 +5,7 @@ const ProfileBanner = () => {
   const { user } = useSelector((store) => store.user)
   return (
     <>
-      <section className="flex px-4 md:px-8 py-4 sticky top-0 bg-white z-10 border-b backdrop-blur-sm ">
+      <section className="flex px-4 md:px-8 py-4 sticky top-0 bg-white z-10  ">
         <div className=" flex items-center justify-between  space-x-6 w-full">
           <h4 className="md:text-2xl">
             {" "}

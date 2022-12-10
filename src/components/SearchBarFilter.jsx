@@ -6,7 +6,7 @@ import { handleChange, clearFilters } from "../features/allJobs/allJobsSlice"
 
 const SearchBarFilter = () => {
   const [localSearch, setLocalSearch] = useState("")
-  const { search, searchJobStatus, searchJobType } = useSelector(
+  const { searchJobStatus, searchJobType } = useSelector(
     (store) => store.allJobs
   )
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job)
@@ -42,27 +42,27 @@ const SearchBarFilter = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="hidden bg-white py-4 gap-10 md:grid grid-cols-4 lg:grid-cols-4 md:place-items-center mt-10 shadow-md rounded-2xl md:mx-8 lg:mx-0 px-5 lg:px-8  "
+        className=" hidden bg-white py-4 gap-10 md:grid md:grid-cols-4  mt-10 shadow-md rounded-2xl md:mx-8 px-5 lg:px-8 lg:mx-5 xl:mx-16  "
       >
         {/* Search */}
-        <div className="relative flex items-center border-r-2 ">
+        <div className="relative flex items-center md:border-r-2 ">
           <FiSearch className="pointer-events-none absolute h-6 w-6 text-gray-600" />{" "}
           <input
             type="text"
             name="search"
             value={localSearch}
-            className="   focus:outline-none border-none w-full px-4 pl-10 transition ease-in duration-200 text-black placeholder:text-gray-600 placeholder:font-medium focus:ring-0 "
+            className="   focus:outline-none border-none w-full px-4 pl-10 transition ease-in duration-200 text-black placeholder:text-gray-600 focus:ring-0 "
             placeholder="Front-end developer"
             onChange={optimizedDebounced}
           />
         </div>
         {/* Job Status */}
-        <div className=" lg:grid border-r-2 w-full ">
+        <div className=" lg:grid md:border-r-2 md:w-full  ">
           <select
             name="searchJobStatus"
             value={searchJobStatus}
             id="jobStatus"
-            className=" placeholder:font-light  focus:outline-none border-none w-full px4 transition ease-in duration-200 text-gray-600 font-medium focus:ring-0 capitalize "
+            className=" placeholder:font-light  focus:outline-none border-none w-full px4 transition ease-in duration-200 text-gray-600 focus:ring-0 capitalize  "
             onChange={handleSearch}
           >
             {jobStatusOptionsValue.map((item, index) => {
@@ -77,12 +77,12 @@ const SearchBarFilter = () => {
         </div>
 
         {/* Job type */}
-        <div className=" lg:grid border-r-2 w-full ">
+        <div className=" lg:grid md:border-r-2 md:w-full ">
           <select
             name="searchJobType"
             value={searchJobType}
             id="jobType"
-            className=" placeholder:font-light  focus:outline-none border-none w-full  transition ease-in duration-200 text-gray-600 font-medium focus:ring-0 capitalize  "
+            className=" placeholder:font-light  focus:outline-none border-none w-full  transition ease-in duration-200 text-gray-600 focus:ring-0 capitalize  "
             onChange={handleSearch}
           >
             {jobTypeOptionsValue.map((item, index) => {
@@ -95,8 +95,9 @@ const SearchBarFilter = () => {
             })}
           </select>
         </div>
-        <div className="flex justify-center items-center">
-          <button className="bg-gray-100 md:px-4 px-6 py-2 font-medium rounded-md active:scale-90   ">
+        {/* Clear button */}
+        <div className="flex justify-end items-center ">
+          <button className="bg-gray-100 md:px-4 px-6 py-2  rounded-md active:scale-90 font-medium   ">
             Clear filters
           </button>
         </div>
