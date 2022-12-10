@@ -22,12 +22,10 @@ const RegisterForm = () => {
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
-    // console.log(`${name}: ${value}`)
     setValues({ ...values, [name]: value })
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(e.target)
     const { name, email, password, isMember } = values
     if (!email || !password || (!isMember && !name)) {
       toast.error("Please fill out all fields")
@@ -87,18 +85,21 @@ const RegisterForm = () => {
             handleChange={handleChange}
           />
         </div>
-        <button className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow ">
+        <button
+          className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow disabled:cursor-not-allowed disabled:bg-primary/60  "
+          disabled={isLoading}
+        >
           {values.isMember ? "Login" : "Create Account"}
         </button>
       </form>
-      <p className=" text-sm  ">
+      <p className=" text-sm flex flex-col md:flex-row  ">
         {values.isMember ? `Don't have an account?` : "Already a member?"}
         <button
-          className="text-primary font-medium ml-3 "
+          className="text-primary font-medium ml-2 "
           onClick={toggleMember}
         >
           {" "}
-          {values.isMember ? "Sign up for free" : "Login"}{" "}
+          {values.isMember ? "Create an account" : "Login"}{" "}
         </button>
       </p>
     </>

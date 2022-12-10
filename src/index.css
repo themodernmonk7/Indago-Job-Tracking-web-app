@@ -15,7 +15,7 @@
         @apply flex flex-col space-y-2 w-full
       }
       .label_style {
-        @apply text-gray-500 after:content-['*'] after:ml-1 after:text-red-500 capitalize
+        @apply text-gray-500 capitalize
       }
     }
   
