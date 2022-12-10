@@ -15,7 +15,7 @@ const initialState = {
   status: "pending",
   statusOptions: ["pending", "declined", "interview"],
   jobDescription: "",
-  companyLogo: "",
+  image: "",
   isEditing: false,
   editJobId: "",
 }
@@ -75,6 +75,24 @@ export const editJob = createAsyncThunk(
   }
 )
 
+export const uploadImage = createAsyncThunk(
+  "job/uploadImage",
+  async (formData, thunkAPI) => {
+    try {
+      const response = await customFetch.post("/jobs/uploadImage", formData, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      thunkAPI.fulfillWithValue(response.data.image.src)
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
+  }
+)
+
 export const jobSlice = createSlice({
   name: "Job",
   initialState,
@@ -97,7 +115,7 @@ export const jobSlice = createSlice({
     [createJob.pending]: (state) => {
       state.isLoading = true
     },
-    [createJob.fulfilled]: (state, action) => {
+    [createJob.fulfilled]: (state) => {
       state.isLoading = false
       toast.success("Job added successfully!")
     },
@@ -121,6 +139,11 @@ export const jobSlice = createSlice({
     //** ==================== EDIT JOB ==================== */
     [deleteJob.fulfilled]: () => {
       toast.success("Job deleted successfully!")
+    },
+    //** ==================== UPLOAD IMAGE ==================== */
+    [uploadImage.fulfilled]: (state, action) => {
+      state.isLoading = false
+      state.image = action.payload.image.src
     },
   },
 })

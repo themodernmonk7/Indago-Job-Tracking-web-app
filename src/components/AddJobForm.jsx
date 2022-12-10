@@ -7,6 +7,7 @@ import {
   clearValues,
   createJob,
   editJob,
+  uploadImage,
 } from "../features/job/jobSlice"
 
 const AddJobForm = () => {
@@ -20,7 +21,7 @@ const AddJobForm = () => {
     status,
     statusOptions,
     jobDescription,
-    companyLogo,
+    image,
     isEditing,
     editJobId,
   } = useSelector((store) => store.job)
@@ -31,6 +32,12 @@ const AddJobForm = () => {
     const name = e.target.name
     const value = e.target.value
     dispatch(handleChangeFunction({ name, value }))
+  }
+  const handleUpload = (e) => {
+    const imageFile = e.target.files[0]
+    const formData = new FormData()
+    formData.append("image", imageFile)
+    dispatch(uploadImage(formData))
   }
 
   const handleSubmit = (e) => {
@@ -50,6 +57,7 @@ const AddJobForm = () => {
             jobType,
             status,
             jobDescription,
+            image,
           },
         })
       )
@@ -64,6 +72,7 @@ const AddJobForm = () => {
         jobType,
         status,
         jobDescription,
+        image,
       })
     )
   }
@@ -126,9 +135,8 @@ const AddJobForm = () => {
           {/* Company logo */}
           <FormRow
             type="file"
-            name="companyLogo"
-            value={companyLogo}
-            handleChange={handleChange}
+            name="image"
+            handleChange={handleUpload}
             labelText="Company Logo"
             className=" bg-white file:mr-4  file:px-4
             file:border-0 file:bg-white

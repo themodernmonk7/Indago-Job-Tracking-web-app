@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { deleteJob, setEditJob } from "../features/job/jobSlice"
 import moment from "moment/moment"
-
+import defaultImage from "../assets/defaultLogo.png"
 const JobCard = ({
   _id,
   company,
@@ -20,14 +20,11 @@ const JobCard = ({
   return (
     <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm  ">
       <div className="flex justify-between items-center">
-        <h3 className="bg-blue-200 px-3 rounded-full py-1">
-          {company.charAt(0)}
-        </h3>
-        {/* <img
-          src={image}
-          // alt={`${company} Logo`}
+        <img
+          src={image || defaultImage}
+          alt={`${company} Logo`}
           className="xl:w-14 xl:h-14 w-10 h-10 object-contain border shadow-inner  object-center rounded-full md:bg-white"
-        /> */}
+        />
         <span className="text-gray-400 text-sm "> {jobCreationDate} </span>
       </div>
       <div className="flex justify-between items-center h-16 ">
