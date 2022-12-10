@@ -2,6 +2,7 @@ import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { deleteJob, setEditJob } from "../features/job/jobSlice"
+import moment from "moment/moment"
 
 const JobCard = ({
   _id,
@@ -12,8 +13,10 @@ const JobCard = ({
   position,
   status,
   jobDescription,
+  createAt,
 }) => {
   const dispatch = useDispatch()
+  const jobCreationDate = moment(createAt).format("MMM Do YY")
   return (
     <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm ">
       <div className="flex justify-between items-center">
@@ -25,7 +28,7 @@ const JobCard = ({
           // alt={`${company} Logo`}
           className="xl:w-14 xl:h-14 w-10 h-10 object-contain border shadow-inner  object-center rounded-full md:bg-white"
         /> */}
-        <span className="text-gray-400 text-sm font-medium "> 7 July </span>
+        <span className="text-gray-400 text-sm "> {jobCreationDate} </span>
       </div>
       <div className="flex justify-between items-center h-16 ">
         <h4 className="text-xl font-semibold w-3/5 capitalize ">
