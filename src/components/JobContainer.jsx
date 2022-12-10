@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { JobCard, Loading, PaginationButton } from "../components"
-import { getAllJobs } from "../features/allJobs/allJobsSlice"
+import { getAllJobs, handleChange } from "../features/allJobs/allJobsSlice"
 
 const JobContainer = () => {
   // Read data data from the allJobs store
@@ -14,6 +14,8 @@ const JobContainer = () => {
     search,
     searchJobStatus,
     searchJobType,
+    sort,
+    sortOptions,
   } = useSelector((store) => store.allJobs)
 
   // Dispatch actions
@@ -22,7 +24,11 @@ const JobContainer = () => {
   // dispatch the getAllJobs action when component is rendering
   useEffect(() => {
     dispatch(getAllJobs())
-  }, [page, search, searchJobStatus, searchJobType])
+  }, [page, search, searchJobStatus, searchJobType, sort])
+
+  const handleSort = (e) => {
+    dispatch(handleChange({ name: e.target.name, value: e.target.value }))
+  }
 
   if (isLoading) {
     return <Loading />
@@ -36,22 +42,26 @@ const JobContainer = () => {
     <>
       {/* Total jobs and sort function */}
       <section className=" my-10 flex justify-between items-center ">
-        <div className="">
-          <h3>
-            {" "}
-            {total_jobs} Job{jobs.length > 1 && "s"} found
-          </h3>
-        </div>
-        <div className="">
-          <span>Sort by</span>
+        <h3 className="text-sm px-6 md:px-10 lg:px-0 font-medium ">
+          {" "}
+          {total_jobs} Job{jobs.length > 1 && "s"} found
+        </h3>
+        <div>
+          <span className="text-sm text-gray-500 lowercase ">Sort by </span>
           <select
-            name=""
-            id=""
-            className=" py-0 px-10 border-none bg-gray-100 capitalize "
+            name="sort"
+            id="sort"
+            onChange={handleSort}
+            value={sort}
+            className=" py-0 border-none font-medium bg-gray-100 capitalize focus:ring-0  "
           >
-            <option value="latest">latest</option>
-            <option value="a-z">a-z</option>
-            <option value="z-a">z-a</option>
+            {sortOptions.map((item, index) => {
+              return (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              )
+            })}
           </select>
         </div>
       </section>
