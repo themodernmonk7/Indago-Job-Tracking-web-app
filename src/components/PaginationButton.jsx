@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { changePage } from "../features/allJobs/allJobsSlice"
+import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md"
 
 const PaginationButton = () => {
   // Read data from the store
@@ -32,21 +33,20 @@ const PaginationButton = () => {
   }
 
   return (
-    <section className=" mb-10 py-5  flex justify-evenly  ">
-      <button className="" onClick={prevPage}>
-        Prev{" "}
+    <section className=" mb-24 lg:mb-10 py-5  flex flex-row items-center  justify-center space-x-12 px-6  ">
+      <button onClick={prevPage}>
+        <MdOutlineNavigateBefore className="w-7 h-7 text-gray-500 " />
       </button>
-      <div className=" space-x-10 ">
+      <div className=" xl:space-x-10 lg:flex grid grid-cols-4 place-items-center  gap-x-12 lg:gap-x-8 gap-y-4  ">
         {pages.map((pageNumber) => {
-          console.log(pageNumber === page)
           return (
             <button
               key={pageNumber}
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "bg-primary rounded-md px-4 py-2 text-white font-medium"
-                  : "bg-white rounded-md px-4 py-2 text-primary font-medium"
+                  ? "bg-primary rounded-md w-8 h-8  text-white font-medium"
+                  : " bg-white rounded-md  w-8 h-8 font-medium"
               }
             >
               {pageNumber}
@@ -54,8 +54,8 @@ const PaginationButton = () => {
           )
         })}
       </div>
-      <button className="" onClick={nexPage}>
-        next{" "}
+      <button onClick={nexPage}>
+        <MdOutlineNavigateNext className="w-7 h-7 text-gray-500 " />
       </button>
     </section>
   )
