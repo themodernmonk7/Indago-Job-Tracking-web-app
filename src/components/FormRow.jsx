@@ -7,6 +7,7 @@ const FormRow = ({
   value,
   handleChange,
   textArea,
+  acceptProps,
 }) => {
   return (
     <div className={`input_container `}>
@@ -33,6 +34,7 @@ const FormRow = ({
           type={type}
           name={name}
           value={value}
+          accept={acceptProps}
           onChange={handleChange}
           className={`input_style ${className} `}
         />

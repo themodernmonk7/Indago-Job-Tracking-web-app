@@ -137,6 +137,7 @@ const AddJobForm = () => {
             type="file"
             name="image"
             handleChange={handleUpload}
+            acceptProps="image/*"
             labelText="Company Logo"
             className=" bg-white file:mr-4  file:px-4
             file:border-0 file:bg-white
