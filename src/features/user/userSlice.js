@@ -11,6 +11,7 @@ getUserFromLocalStorage
 const initialState = {
   isLoading: false,
   user: getUserFromLocalStorage(),
+  userImage: "",
 }
 export const registerUser = createAsyncThunk(
   "user/registerUser",
@@ -51,6 +52,24 @@ export const updateUser = createAsyncThunk(
         thunkAPI.dispatch(logoutUser())
         return thunkAPI.rejectWithValue("Unauthorized! Login out...")
       }
+      return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
+  }
+)
+
+export const uploadUserImage = createAsyncThunk(
+  "user/uploadUserImage",
+  async (formData, thunkAPI) => {
+    try {
+      const response = await customFetch.post("/auth/uploadProfile", formData, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      thunkAPI.fulfillWithValue(response.data.image.src)
+      return response.data
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
     }
   }
@@ -112,6 +131,10 @@ const userSlice = createSlice({
     [updateUser.rejected]: (state, action) => {
       state.isLoading = false
       toast.error(action.payload)
+    },
+    // //** ==================== UPLOAD USER IMAGE ==================== */
+    [uploadUserImage.fulfilled]: (state, action) => {
+      state.userImage = action.payload.image.src
     },
   },
 })
