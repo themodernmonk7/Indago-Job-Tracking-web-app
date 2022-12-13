@@ -1,6 +1,11 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { JobCard, Loading, PaginationButton } from "../components"
+import {
+  JobCard,
+  Loading,
+  NoJobsMessage,
+  PaginationButton,
+} from "../components"
 import { getAllJobs, handleChange } from "../features/allJobs/allJobsSlice"
 
 const JobContainer = () => {
@@ -35,7 +40,7 @@ const JobContainer = () => {
   }
 
   if (jobs.length === 0) {
-    return <h3 className=" text-center text-3xl my-10  ">No Jobs to display</h3>
+    return <NoJobsMessage />
   }
 
   return (

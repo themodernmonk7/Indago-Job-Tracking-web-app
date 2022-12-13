@@ -22,7 +22,9 @@ import StatItem from "./StatItem"
 import AreaChartComponent from "./AreaChart"
 import BarChartComponent from "./BarChart"
 import PaginationButton from "./PaginationButton"
+import NoJobsMessage from "./NoJobsMessage"
 export {
+  NoJobsMessage,
   PaginationButton,
   BarChartComponent,
   AreaChartComponent,
