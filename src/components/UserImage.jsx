@@ -1,11 +1,12 @@
 import React from 'react'
-import UserProfilePicture from '../assets/user.jpg'
-// const UserImage = ( {width, height, mWidth, mHeight, extraClass} ) => {
-const UserImage = ( {className} ) => {
+import { useSelector } from "react-redux"
+import defaultUserImage from "../assets/user.jpg"
+const UserImage = ({ className }) => {
+  const { user } = useSelector((store) => store.user)
   return (
     <img
-      src={UserProfilePicture}
-      className={`${className} object-cover rounded-full `}
+      src={user.image}
+      className={`${className} object-top object-cover rounded-full `}
       alt={`user.name's profile picture`}
     />
   )

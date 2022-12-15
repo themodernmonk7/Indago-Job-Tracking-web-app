@@ -1,4 +1,4 @@
-import UserImage from "../assets/user.png"
+import UserImage from "../assets/user.jpg"
 import Logo from "../assets/Logo.png"
 import { RegisterForm } from "../components"
 

@@ -18,7 +18,17 @@ const JobCard = ({
   const dispatch = useDispatch()
   const jobCreationDate = moment(createdAt).format("MMM Do YY")
   return (
-    <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-6 border max-w-xs lg:max-w-sm  ">
+    <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-4 border max-w-xs lg:max-w-sm relative min-h-full    ">
+      <span
+        className={`uppercase text-[10px] tracking-widest font-medium  px-2 py-1 rounded-full flex justify-center items-center absolute top-4 right-6 md:right-10   ${
+          status === "declined" && "bg-red-300/70 text-red-700"
+        } ${status === "interview" && "bg-green-300/70 text-green-700"} ${
+          status === "pending" && "bg-yellow-300/70 text-yellow-700"
+        } `}
+      >
+        {" "}
+        {status}{" "}
+      </span>
       <div className="flex justify-between items-center">
         <img
           src={image || defaultImage}
@@ -28,20 +38,10 @@ const JobCard = ({
         <span className="text-gray-400 text-sm "> {jobCreationDate} </span>
       </div>
       <div className="flex justify-between items-center h-16 ">
-        <h4 className="text-xl font-semibold w-3/5 capitalize ">
+        <h4 className="text-xl font-semibold w3/5   capitalize ">
           {" "}
           {position}{" "}
         </h4>
-        <span
-          className={`uppercase text-[10px] tracking-widest font-medium  px-2 py-1 rounded-full flex justify-center items-center  ${
-            status === "declined" && "bg-red-300/70 text-red-700"
-          } ${status === "interview" && "bg-green-300/70 text-green-700"} ${
-            status === "pending" && "bg-yellow-300/70 text-yellow-700"
-          } `}
-        >
-          {" "}
-          {status}{" "}
-        </span>
       </div>
       <div>
         <span
@@ -67,7 +67,7 @@ const JobCard = ({
           {/* {jobDescription === ""
             ? "Add Job description here for more clarity..."
             : jobDescription} */}
-          <button className="text-blue-500 text-sm ">..read more</button>
+          {/* <button className="text-blue-500 text-sm ">..read more</button> */}
         </p>
       </div>
       <div className="flex justify-between">

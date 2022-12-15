@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { toast } from "react-toastify"
+import { toast } from "react-hot-toast"
 import customFetch from "../../utils/axios"
 import { getUserFromLocalStorage } from "../../utils/localStorage"
 import { getAllJobs } from "../allJobs/allJobsSlice"
@@ -117,11 +117,11 @@ export const jobSlice = createSlice({
     },
     [createJob.fulfilled]: (state) => {
       state.isLoading = false
-      toast.success("Job added successfully!")
+      toast.success("Job added successfully! ")
     },
     [createJob.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Network error")
     },
     //** ==================== EDIT JOB ==================== */
     [editJob.pending]: (state) => {
@@ -136,7 +136,7 @@ export const jobSlice = createSlice({
       toast.error(action.payload)
     },
 
-    //** ==================== EDIT JOB ==================== */
+    //** ==================== DELETE JOB ==================== */
     [deleteJob.fulfilled]: () => {
       toast.success("Job deleted successfully!")
     },

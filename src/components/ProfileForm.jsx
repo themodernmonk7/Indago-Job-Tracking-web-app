@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { toast } from "react-toastify"
+import { toast } from "react-hot-toast"
 import { FormRow } from "../components"
 import { updateUser } from "../features/user/userSlice"
 
@@ -23,12 +23,13 @@ const ProfileForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const { image } = user
     const { name, lastName, email, location, bio } = userData
     if (!name || !lastName || !email || !location || !bio) {
       toast.error("Please fill out all fields")
       return
     }
-    dispatch(updateUser({ name, lastName, email, location, bio }))
+    dispatch(updateUser({ name, lastName, email, location, bio, image }))
   }
 
   return (

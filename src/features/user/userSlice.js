@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { toast } from "react-toastify"
+import { toast } from "react-hot-toast"
+
 import customFetch from "../../utils/axios"
 import {
   addUserToLocalStorage,
@@ -11,7 +12,6 @@ getUserFromLocalStorage
 const initialState = {
   isLoading: false,
   user: getUserFromLocalStorage(),
-  userImage: "",
 }
 export const registerUser = createAsyncThunk(
   "user/registerUser",
@@ -114,7 +114,7 @@ const userSlice = createSlice({
     },
     [loginUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Network error")
     },
 
     //** ==================== UPDATE USER INFORMATION ==================== */
@@ -133,8 +133,13 @@ const userSlice = createSlice({
       toast.error(action.payload)
     },
     // //** ==================== UPLOAD USER IMAGE ==================== */
+    [uploadUserImage.pending]: (state, action) => {},
     [uploadUserImage.fulfilled]: (state, action) => {
-      state.userImage = action.payload.image.src
+      state.user.image = action.payload.image.src
+      toast.success("Image uploaded successfully!")
+    },
+    [uploadUserImage.rejected]: (state, action) => {
+      toast.error(action.payload)
     },
   },
 })
