@@ -84,6 +84,7 @@ const JobCard = ({
                 jobType,
                 status,
                 jobDescription,
+                image,
               })
             )
           }
