@@ -7,7 +7,7 @@ const UserImage = ({ className }) => {
     <img
       src={user.image}
       className={`${className} object-top object-cover rounded-full `}
-      alt={`user.name's profile picture`}
+      alt={"profile picture"}
     />
   )
 }

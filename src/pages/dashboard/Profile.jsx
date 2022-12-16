@@ -61,9 +61,9 @@ const Profile = () => {
             >
               Change
             </button> */}
-            <button className="bg-white px-4 md:px-12 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 md:font-medium text-xs md:text-base">
+            {/* <button className="bg-white px-4 md:px-12 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 md:font-medium text-xs md:text-base">
               Remove
-            </button>
+            </button> */}
           </div>
         </div>
 

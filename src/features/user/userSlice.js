@@ -30,6 +30,7 @@ export const loginUser = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await customFetch.post("/auth/login", user)
+      console.log(response.data)
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg)
@@ -130,16 +131,17 @@ const userSlice = createSlice({
     },
     [updateUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Network Error")
     },
     // //** ==================== UPLOAD USER IMAGE ==================== */
-    [uploadUserImage.pending]: (state, action) => {},
     [uploadUserImage.fulfilled]: (state, action) => {
       state.user.image = action.payload.image.src
       toast.success("Image uploaded successfully!")
     },
     [uploadUserImage.rejected]: (state, action) => {
-      toast.error(action.payload)
+      toast.error(
+        action.payload || "Something went wrong, Please try again later!"
+      )
     },
   },
 })
