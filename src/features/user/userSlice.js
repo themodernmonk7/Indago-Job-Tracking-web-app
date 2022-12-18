@@ -99,7 +99,7 @@ const userSlice = createSlice({
     },
     [registerUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Something went wrong, Please try again later.")
     },
     //** ==================== LOGIN USER ==================== */
     [loginUser.pending]: (state) => {
@@ -114,7 +114,7 @@ const userSlice = createSlice({
     },
     [loginUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Network error")
+      toast.error(action.payload || "Something went wrong, Please try again later.")
     },
 
     //** ==================== UPDATE USER INFORMATION ==================== */
@@ -130,7 +130,9 @@ const userSlice = createSlice({
     },
     [updateUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Network Error")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
     // //** ==================== UPLOAD USER IMAGE ==================== */
     [uploadUserImage.fulfilled]: (state, action) => {

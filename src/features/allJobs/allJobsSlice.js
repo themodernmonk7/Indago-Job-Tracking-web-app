@@ -92,8 +92,10 @@ export const allJobsSlice = createSlice({
     },
     [getAllJobs.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Something went wrong, Please try again later.")
     },
+
+    //** ==================== SHOW STATS ==================== */
     [showStats.pending]: (state) => {
       state.isLoading = true
     },
@@ -105,7 +107,7 @@ export const allJobsSlice = createSlice({
     },
     [showStats.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(action.payload || "Something went wrong, Please try again later.")
     },
   },
 })

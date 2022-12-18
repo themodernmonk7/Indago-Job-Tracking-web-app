@@ -121,7 +121,9 @@ export const jobSlice = createSlice({
     },
     [createJob.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Network error")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
     //** ==================== EDIT JOB ==================== */
     [editJob.pending]: (state) => {
@@ -133,7 +135,9 @@ export const jobSlice = createSlice({
     },
     [editJob.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload)
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
 
     //** ==================== DELETE JOB ==================== */
@@ -144,6 +148,12 @@ export const jobSlice = createSlice({
     [uploadImage.fulfilled]: (state, action) => {
       state.isLoading = false
       state.image = action.payload.image.src
+    },
+    [uploadImage.rejected]: (state, action) => {
+      state.isLoading = false
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
   },
 })
