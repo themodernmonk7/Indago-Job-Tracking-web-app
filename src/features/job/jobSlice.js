@@ -148,6 +148,7 @@ export const jobSlice = createSlice({
     [uploadImage.fulfilled]: (state, action) => {
       state.isLoading = false
       state.image = action.payload.image.src
+      toast.success("Upload image successful!")
     },
     [uploadImage.rejected]: (state, action) => {
       state.isLoading = false
