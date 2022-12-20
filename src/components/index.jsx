@@ -23,7 +23,14 @@ import AreaChartComponent from "./AreaChart"
 import BarChartComponent from "./BarChart"
 import PaginationButton from "./PaginationButton"
 import NoJobsMessage from "./NoJobsMessage"
+import JobTag from "./JobTag"
+import JobTypeTag from "./JobTypeTag"
+import JobButton from "./JobButton"
+
 export {
+  JobButton,
+  JobTypeTag,
+  JobTag,
   NoJobsMessage,
   PaginationButton,
   BarChartComponent,
