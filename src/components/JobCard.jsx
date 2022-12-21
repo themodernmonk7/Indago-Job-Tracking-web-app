@@ -1,7 +1,9 @@
 import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi"
+import { GoLocation } from "react-icons/go"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { deleteJob, setEditJob } from "../features/job/jobSlice"
+import { JobTag, JobTypeTag, JobButton } from "../components"
 import moment from "moment/moment"
 import defaultImage from "../assets/defaultLogo.png"
 const JobCard = ({
@@ -18,50 +20,41 @@ const JobCard = ({
   const dispatch = useDispatch()
   const jobCreationDate = moment(createdAt).format("MMM Do YY")
   return (
-    <article className="bg-white px-6 md:px-10 py-8 rounded-xl space-y-4 border max-w-xs lg:max-w-sm relative min-h-full    ">
-      <span
-        className={`uppercase text-[10px] tracking-widest font-medium  px-2 py-1 rounded-full flex justify-center items-center absolute top-4 right-6 md:right-10   ${
-          status === "declined" && "bg-red-300/70 text-red-700"
-        } ${status === "interview" && "bg-green-300/70 text-green-700"} ${
-          status === "pending" && "bg-yellow-300/70 text-yellow-700"
-        } `}
-      >
-        {" "}
-        {status}{" "}
-      </span>
+    <article className="bg-white px-6 md:px-10 py-6 rounded-xl space-y-4 border max-w-xs lg:max-w-sm relative min-h-full    ">
+      {/* Job Status */}
+      <JobTag status={status} />
+
+      {/* Company Logo */}
       <div className="flex justify-between items-center">
         <img
           src={image || defaultImage}
           alt={`${company} Logo`}
-          className="xl:w-14 xl:h-14 w-10 h-10 object-contain border shadow-inner  object-center rounded-full md:bg-white"
+          className="xl:w-14 xl:h-14 w-12 h-12 object-contain border shadow-inner  object-center rounded-full md:bg-white"
         />
         <span className="text-gray-400 text-sm "> {jobCreationDate} </span>
       </div>
-      <div className="flex justify-between items-center h-16 ">
-        <h4 className="text-xl font-semibold w3/5   capitalize ">
-          {" "}
-          {position}{" "}
-        </h4>
+
+      {/* Position */}
+      <div className=" flex items-center h-16 ">
+        <h4 className="text-xl  font-semibold capitalize "> {position} </h4>
       </div>
-      <div>
-        <span
-          className={`capitalize tracking-wider border rounded-full px-2 py-1  font-medium text-xs ${
-            jobType === "full-time" && " text-pink-500 border-pink-500 "
-          } ${jobType === "part-time" && " text-blue-500 border-blue-500 "} ${
-            jobType === "internship" && " text-purple-500 border-purple-500  "
-          } ${
-            jobType === "remote" && " text-fuchsia-500 border-fuchsia-500 "
-          } `}
-        >
-          {" "}
-          {jobType}{" "}
-        </span>
-      </div>
+
+      {/* JOb Type Tag */}
+      <JobTypeTag jobType={jobType} />
+
+      {/* Company Name and Job location */}
       <div className=" space-y-2 max-w-2xl  ">
-        <h4 className="text-md font-medium capitalize">
+        <h4 className="text-md font-medium capitalize flex items-center ">
           {" "}
+          <span>
+            {" "}
+            {/* <HiLocationMarker className="w-5 h-5" />{" "} */}
+            <GoLocation className="w-4 h-4 mr-2 " />{" "}
+          </span>
           {company}, {jobLocation}
         </h4>
+
+        {/* Job Description */}
         <p className="text-md text-gray-400">
           I applied in this company because my skill.
           {/* {jobDescription === ""
@@ -70,7 +63,9 @@ const JobCard = ({
           {/* <button className="text-blue-500 text-sm ">..read more</button> */}
         </p>
       </div>
-      <div className="flex justify-between">
+      {/* Edit and Delete button */}
+      {/* <JobButton/> */}
+      <div className="flex justify-between pt-5 ">
         <Link
           to="/add-job"
           className=" hover:text-blue-500 text-gray-500 transition-all  "
