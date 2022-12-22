@@ -1,8 +1,7 @@
 import axios from "axios"
 
 const customFetch = axios.create({
-  baseURL:
-    "https://indago-job-tracking-website-api-production.up.railway.app/api/v1/",
+  baseURL: "http://localhost:5000/api/v1/",
 })
 
 export default customFetch
