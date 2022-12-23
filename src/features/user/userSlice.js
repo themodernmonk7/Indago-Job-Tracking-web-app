@@ -1,77 +1,53 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
 
-import customFetch from "../../utils/axios"
 import {
   addUserToLocalStorage,
   getUserFromLocalStorage,
   removeUserFromLocalStorage,
 } from "../../utils/localStorage"
+import {
+  loginUserThunk,
+  registerUserThunk,
+  updateUserThunk,
+  uploadUserImageThunk,
+} from "./userThunk"
 getUserFromLocalStorage
 
 const initialState = {
   isLoading: false,
   user: getUserFromLocalStorage(),
 }
+
+//** ==================== Register User ==================== */
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (user, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/auth/register", user)
-      return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
+    return registerUserThunk("/auth/register", user, thunkAPI)
   }
 )
 
+//** ==================== Login User ==================== */
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (user, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/auth/login", user)
-      return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
+    return loginUserThunk("/auth/login", user, thunkAPI)
   }
 )
 
+//** ==================== Update User ==================== */
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (user, thunkAPI) => {
-    try {
-      const response = await customFetch.patch("auth/updateUser", user, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      })
-      return response.data
-    } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logoutUser())
-        return thunkAPI.rejectWithValue("Unauthorized! Login out...")
-      }
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
+    return updateUserThunk("auth/updateUser", user, thunkAPI)
   }
 )
 
+//** ==================== Upload User Image ==================== */
 export const uploadUserImage = createAsyncThunk(
   "user/uploadUserImage",
   async (formData, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/auth/uploadProfile", formData, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      thunkAPI.fulfillWithValue(response.data.image.src)
-      return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
+    uploadUserImageThunk("/auth/uploadProfile", formData, thunkAPI)
   }
 )
 
