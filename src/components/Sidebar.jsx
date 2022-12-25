@@ -1,6 +1,6 @@
 import { HiOutlineLogout } from "react-icons/hi"
 import { useDispatch } from "react-redux"
-import { IndagoLogo, SidebarNavLink } from "."
+import { Logo, SidebarNavLink } from "../components"
 import { logoutUser } from "../features/user/userSlice"
 
 const Sidebar = () => {
@@ -12,7 +12,7 @@ const Sidebar = () => {
           <div>
             {/* Logo title */}
             <div className=" flex justify-center items-center space-x-2 mt-7 ">
-              <IndagoLogo height={10} />
+              <Logo className="h-10" />
             </div>
             {/* Menu items */}
             <div className=" mt-28 capitalize flex flex-col justify-center items-center space-y-10 ">

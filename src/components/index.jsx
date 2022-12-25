@@ -5,7 +5,7 @@ import ProfileBanner from "./ProfileBanner"
 import Sidebar from "./Sidebar"
 import JobCard from "./JobCard"
 import SearchBarFilter from "./SearchBarFilter"
-import IndagoLogo from "./Logo"
+import Logo from "./Logo"
 import UserImage from "./UserImage"
 import SidebarNavLink from "./SidebarNavLink"
 import MobileNavLink from "./MobileNavLink"
@@ -48,7 +48,7 @@ export {
   MobileNavLink,
   BigSidebar,
   UserImage,
-  IndagoLogo,
+  Logo,
   Navbar,
   Overview,
   ProfileBanner,
