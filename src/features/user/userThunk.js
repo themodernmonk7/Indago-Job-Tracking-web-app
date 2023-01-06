@@ -1,4 +1,7 @@
 import customFetch from "../../utils/axios"
+import { clearAllJobsState } from "../allJobs/allJobsSlice"
+import { logoutUser } from "./userSlice"
+import { clearValues } from "../job/jobSlice"
 
 //** ==================== Register User ==================== */
 export const registerUserThunk = async (url, user, thunkAPI) => {
@@ -48,8 +51,24 @@ export const uploadUserImageThunk = async (url, formData, thunkAPI) => {
       },
     })
     thunkAPI.fulfillWithValue(response.data.image.src)
+    console.log(response.data)
     return response.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.msg)
+  }
+}
+
+//** ==================== Clear Store ==================== */
+export const clearStoreThunk = async (message, thunkAPI) => {
+  try {
+    // Logout user
+    thunkAPI.dispatch(logoutUser(message))
+    // Clear jobs values
+    thunkAPI.dispatch(clearAllJobsState())
+    // Clear job input value
+    thunkAPI.dispatch(clearValues())
+    return Promise.resolve()
+  } catch (error) {
+    return Promise.reject()
   }
 }

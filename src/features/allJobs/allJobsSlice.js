@@ -77,6 +77,9 @@ export const allJobsSlice = createSlice({
     changePage: (state, { payload }) => {
       state.page = payload
     },
+    clearAllJobsState: () => {
+      initialState
+    },
   },
   extraReducers: {
     //** ==================== GET ALL JOBS ==================== */
@@ -92,7 +95,9 @@ export const allJobsSlice = createSlice({
     },
     [getAllJobs.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Something went wrong, Please try again later.")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
 
     //** ==================== SHOW STATS ==================== */
@@ -107,10 +112,13 @@ export const allJobsSlice = createSlice({
     },
     [showStats.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Something went wrong, Please try again later.")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
   },
 })
 
-export const { handleChange, clearFilters, changePage } = allJobsSlice.actions
+export const { handleChange, clearFilters, changePage, clearAllJobsState } =
+  allJobsSlice.actions
 export default allJobsSlice.reducer

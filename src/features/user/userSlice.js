@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
+import customFetch from "../../utils/axios"
 
 import {
   addUserToLocalStorage,
@@ -7,6 +8,7 @@ import {
   removeUserFromLocalStorage,
 } from "../../utils/localStorage"
 import {
+  clearStoreThunk,
   loginUserThunk,
   registerUserThunk,
   updateUserThunk,
@@ -47,9 +49,25 @@ export const updateUser = createAsyncThunk(
 export const uploadUserImage = createAsyncThunk(
   "user/uploadUserImage",
   async (formData, thunkAPI) => {
-    uploadUserImageThunk("/auth/uploadProfile", formData, thunkAPI)
+    // To Do
+    // uploadUserImageThunk("/auth/uploadProfile", formData, thunkAPI)
+    try {
+      const response = await customFetch.post("/auth/uploadProfile", formData, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      thunkAPI.fulfillWithValue(response.data.image.src)
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
   }
 )
+
+//** ==================== Clear Store ==================== */
+export const clearStore = createAsyncThunk("user/clearStore", clearStoreThunk)
 
 const userSlice = createSlice({
   name: "user",
@@ -75,7 +93,9 @@ const userSlice = createSlice({
     },
     [registerUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Something went wrong, Please try again later.")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
     //** ==================== LOGIN USER ==================== */
     [loginUser.pending]: (state) => {
@@ -90,7 +110,9 @@ const userSlice = createSlice({
     },
     [loginUser.rejected]: (state, action) => {
       state.isLoading = false
-      toast.error(action.payload || "Something went wrong, Please try again later.")
+      toast.error(
+        action.payload || "Something went wrong, Please try again later."
+      )
     },
 
     //** ==================== UPDATE USER INFORMATION ==================== */
@@ -119,6 +141,11 @@ const userSlice = createSlice({
       toast.error(
         action.payload || "Something went wrong, Please try again later!"
       )
+    },
+
+    //** ==================== Clear Store ==================== */
+    [clearStore.rejected]: () => {
+      toast.error("There was an error.")
     },
   },
 })
