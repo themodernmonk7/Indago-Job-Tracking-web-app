@@ -110,52 +110,58 @@ export const jobSlice = createSlice({
       return { ...state, isEditing: true, ...payload }
     },
   },
-  extraReducers: {
+  extraReducers: (builder) => {
     //** ==================== CREATE JOB ==================== */
-    [createJob.pending]: (state) => {
-      state.isLoading = true
-    },
-    [createJob.fulfilled]: (state) => {
-      state.isLoading = false
-      toast.success("Job added successfully! ")
-    },
-    [createJob.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
-    //** ==================== EDIT JOB ==================== */
-    [editJob.pending]: (state) => {
-      state.isLoading = true
-    },
-    [editJob.fulfilled]: (state) => {
-      state.isLoading = false
-      toast.success("Save changes successfully!")
-    },
-    [editJob.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
+    builder
+      .addCase(createJob.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(createJob.fulfilled, (state) => {
+        state.isLoading = false
+        toast.success("Job added successfully! ")
+      })
+      .addCase(createJob.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
+      //** ==================== EDIT JOB ==================== */
+      .addCase(editJob.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(editJob.fulfilled, (state) => {
+        state.isLoading = false
+        toast.success("Save changes successfully!")
+      })
+      .addCase(editJob.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
 
-    //** ==================== DELETE JOB ==================== */
-    [deleteJob.fulfilled]: () => {
-      toast.success("Job deleted successfully!")
-    },
-    //** ==================== UPLOAD IMAGE ==================== */
-    [uploadImage.fulfilled]: (state, action) => {
-      state.isLoading = false
-      state.image = action.payload.image.src
-      toast.success("Upload image successful!")
-    },
-    [uploadImage.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
+      //** ==================== DELETE JOB ==================== */
+      .addCase(deleteJob.fulfilled, () => {
+        toast.success("Job deleted successfully!")
+      })
+      .addCase(deleteJob.rejected, (state, action) => {
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
+      //** ==================== UPLOAD IMAGE ==================== */
+      .addCase(uploadImage.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.image = action.payload.image.src
+        toast.success("Upload image successful!")
+      })
+      .addCase(uploadImage.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
   },
 })
 

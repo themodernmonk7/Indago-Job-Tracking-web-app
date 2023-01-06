@@ -81,41 +81,42 @@ export const allJobsSlice = createSlice({
       initialState
     },
   },
-  extraReducers: {
-    //** ==================== GET ALL JOBS ==================== */
-    [getAllJobs.pending]: (state) => {
-      state.isLoading = true
-    },
-    [getAllJobs.fulfilled]: (state, action) => {
-      const { jobs, totalJobs, numOfPages } = action.payload
-      state.isLoading = false
-      state.jobs = jobs
-      state.total_jobs = totalJobs
-      state.num_of_pages = numOfPages
-    },
-    [getAllJobs.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
+  extraReducers: (builder) => {
+    builder
+      //** ==================== GET ALL JOBS ==================== */
+      .addCase(getAllJobs.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAllJobs.fulfilled, (state, action) => {
+        const { jobs, totalJobs, numOfPages } = action.payload
+        state.isLoading = false
+        state.jobs = jobs
+        state.total_jobs = totalJobs
+        state.num_of_pages = numOfPages
+      })
+      .addCase(getAllJobs.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
 
-    //** ==================== SHOW STATS ==================== */
-    [showStats.pending]: (state) => {
-      state.isLoading = true
-    },
-    [showStats.fulfilled]: (state, action) => {
-      const { defaultStats, monthlyApplications } = action.payload
-      state.isLoading = false
-      state.stats = defaultStats
-      state.monthlyApplications = monthlyApplications
-    },
-    [showStats.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
+      //** ==================== SHOW STATS ==================== */
+      .addCase(showStats.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(showStats.fulfilled, (state, action) => {
+        const { defaultStats, monthlyApplications } = action.payload
+        state.isLoading = false
+        state.stats = defaultStats
+        state.monthlyApplications = monthlyApplications
+      })
+      .addCase(showStats.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
   },
 })
 

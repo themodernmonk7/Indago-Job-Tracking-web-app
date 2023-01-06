@@ -79,74 +79,75 @@ const userSlice = createSlice({
       removeUserFromLocalStorage()
     },
   },
-  extraReducers: {
-    //** ==================== REGISTER USER ==================== */
-    [registerUser.pending]: (state) => {
-      state.isLoading = true
-    },
-    [registerUser.fulfilled]: (state, action) => {
-      const { user } = action.payload
-      state.isLoading = false
-      state.user = user
-      addUserToLocalStorage(user)
-      toast.success(`Hello there ${user.name}`)
-    },
-    [registerUser.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
-    //** ==================== LOGIN USER ==================== */
-    [loginUser.pending]: (state) => {
-      state.isLoading = true
-    },
-    [loginUser.fulfilled]: (state, action) => {
-      const { user } = action.payload
-      state.isLoading = false
-      state.user = user
-      addUserToLocalStorage(user)
-      toast.success(`Welcome back ${user.name}`)
-    },
-    [loginUser.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
+  extraReducers: (builder) => {
+    builder
+      //** ==================== REGISTER USER ==================== */
+      .addCase(registerUser.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        const { user } = action.payload
+        state.isLoading = false
+        state.user = user
+        addUserToLocalStorage(user)
+        toast.success(`Hello there ${user.name}`)
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
+      //** ==================== LOGIN USER ==================== */
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        const { user } = action.payload
+        state.isLoading = false
+        state.user = user
+        addUserToLocalStorage(user)
+        toast.success(`Welcome back ${user.name}`)
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
 
-    //** ==================== UPDATE USER INFORMATION ==================== */
-    [updateUser.pending]: (state) => {
-      state.isLoading = true
-    },
-    [updateUser.fulfilled]: (state, action) => {
-      const { user } = action.payload
-      state.isLoading = false
-      state.user = user
-      addUserToLocalStorage(user)
-      toast.success("Save changes successfully")
-    },
-    [updateUser.rejected]: (state, action) => {
-      state.isLoading = false
-      toast.error(
-        action.payload || "Something went wrong, Please try again later."
-      )
-    },
-    // //** ==================== UPLOAD USER IMAGE ==================== */
-    [uploadUserImage.fulfilled]: (state, action) => {
-      state.user.image = action.payload.image.src
-      toast.success("Image uploaded successfully!")
-    },
-    [uploadUserImage.rejected]: (state, action) => {
-      toast.error(
-        action.payload || "Something went wrong, Please try again later!"
-      )
-    },
+      //** ==================== UPDATE USER INFORMATION ==================== */
+      .addCase(updateUser.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        const { user } = action.payload
+        state.isLoading = false
+        state.user = user
+        addUserToLocalStorage(user)
+        toast.success("Save changes successfully")
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(
+          action.payload || "Something went wrong, Please try again later."
+        )
+      })
+      // //** ==================== UPLOAD USER IMAGE ==================== */
+      .addCase(uploadUserImage.fulfilled, (state, action) => {
+        state.user.image = action.payload.image.src
+        toast.success("Image uploaded successfully!")
+      })
+      .addCase(uploadUserImage.rejected, (state, action) => {
+        toast.error(
+          action.payload || "Something went wrong, Please try again later!"
+        )
+      })
 
-    //** ==================== Clear Store ==================== */
-    [clearStore.rejected]: () => {
-      toast.error("There was an error.")
-    },
+      //** ==================== Clear Store ==================== */
+      .addCase(clearStore.rejected, () => {
+        toast.error("There was an error.")
+      })
   },
 })
 
