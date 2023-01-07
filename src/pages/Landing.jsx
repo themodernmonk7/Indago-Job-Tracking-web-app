@@ -34,15 +34,24 @@ const Landing = () => {
         </div>
       </section>
       {/* Bottom  */}
-      <section className=" container mx-auto ">
-        <div className="">
+      <section className=" container mx-auto flex justify-between items-center py-6   my-10">
+        <div className=" w-1/2 space-y-6  ">
           {/* Logo */}
-          <Logo className=" h-10" />
-          <h3>Take your chance to work in a place that matters to you</h3>
+          <div className=" flex items-center space-x-3 ">
+            <Logo className=" h-6" />
+            <h3 className="text-lg font-medium">Indago.</h3>
+          </div>
+          <h3 className="text-4xl w-1/2 font-semibold ">
+            Take your chance to work in a place that matters to you
+          </h3>
         </div>
-        <div className="">
-          <button className="">Register</button>
-          <button className="">Sing In Now</button>
+        <div className=" space-x-10 ">
+          <button className="bg-gradient-to-tr from-blue-600 via-blue-700 to-blue-700/90 px-6 rounded-md py-2 text-white ">
+            Register
+          </button>
+          <button className="text-sm text-blue-700 font-medium ">
+            Sing In Now
+          </button>
         </div>
       </section>
       {/* Footer */}
