@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 import { loginUser, registerUser } from "../features/user/userSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { CgSpinner } from "react-icons/cg"
 const initialState = {
   name: "",
   email: "",
@@ -86,9 +86,15 @@ const RegisterForm = () => {
           />
         </div>
         <button
-          className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow disabled:cursor-not-allowed disabled:bg-primary/60  "
+          className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-4 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow disabled:cursor-not-allowed disabled:bg-primary/60 flex flex-row justify-center items-center  "
           disabled={isLoading}
         >
+          {isLoading ? (
+            <span>
+              {" "}
+              <CgSpinner className="w-6 h-6 mr-4  animate-spin " />{" "}
+            </span>
+          ) : null}
           {values.isMember ? "Login" : "Create Account"}
         </button>
       </form>
