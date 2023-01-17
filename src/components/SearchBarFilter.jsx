@@ -26,7 +26,7 @@ const SearchBarFilter = () => {
       clearTimeout()
       timeoutID = setTimeout(() => {
         dispatch(handleChange({ name: e.target.name, value: e.target.value }))
-      }, 3000)
+      }, 2000)
     }
   }
 
@@ -42,10 +42,10 @@ const SearchBarFilter = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className=" hidden bg-white py-4 gap-10 md:grid md:grid-cols-4  mt-10 shadow-md rounded-2xl md:mx-8 px-5 lg:px-8 lg:mx-5 xl:mx-16  "
+        className="  bg-white py-4 gap-10 md:grid md:grid-cols-4  mt-10 shadow-md rounded-2xl md:mx-8 px-5 lg:px-8 lg:mx-5 xl:mx-16 mx-4 space-y-2 md:space-y-0 "
       >
         {/* Search */}
-        <div className="relative flex items-center md:border-r-2 ">
+        <div className="relative flex items-center md:border-r-2 border-b md:border-b-0 ">
           <FiSearch className="pointer-events-none absolute h-6 w-6 text-gray-600" />{" "}
           <input
             type="text"
@@ -57,7 +57,7 @@ const SearchBarFilter = () => {
           />
         </div>
         {/* Job Status */}
-        <div className=" lg:grid md:border-r-2 md:w-full  ">
+        <div className=" lg:grid md:border-r-2 md:w-full border-b md:border-b-0 ">
           <select
             name="searchJobStatus"
             value={searchJobStatus}
@@ -96,7 +96,7 @@ const SearchBarFilter = () => {
           </select>
         </div>
         {/* Clear button */}
-        <div className="flex justify-end items-center ">
+        <div className="flex justify-center md:justify-end items-center ">
           <button className="bg-gray-100 md:px-4 px-6 py-2  rounded-md active:scale-90 font-medium   ">
             Clear filters
           </button>
