@@ -18,6 +18,7 @@ getUserFromLocalStorage
 
 const initialState = {
   isLoading: false,
+  uploadLoading: false,
   user: getUserFromLocalStorage(),
 }
 
@@ -134,11 +135,16 @@ const userSlice = createSlice({
         )
       })
       // //** ==================== UPLOAD USER IMAGE ==================== */
+      .addCase(uploadUserImage.pending, (state) => {
+        state.uploadLoading = true
+      })
       .addCase(uploadUserImage.fulfilled, (state, action) => {
         state.user.image = action.payload.image.src
+        state.uploadLoading = false
         toast.success("Image uploaded successfully!")
       })
       .addCase(uploadUserImage.rejected, (state, action) => {
+        state.uploadLoading = false
         toast.error(
           action.payload || "Something went wrong, Please try again later!"
         )
