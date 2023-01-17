@@ -26,8 +26,10 @@ import NoJobsMessage from "./NoJobsMessage"
 import JobTag from "./JobTag"
 import JobTypeTag from "./JobTypeTag"
 import JobButton from "./JobButton"
+import Logout from "./Logout"
 
 export {
+  Logout,
   JobButton,
   JobTypeTag,
   JobTag,

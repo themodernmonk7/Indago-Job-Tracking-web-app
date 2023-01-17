@@ -1,10 +1,6 @@
-import { HiOutlineLogout } from "react-icons/hi"
-import { useDispatch } from "react-redux"
 import { Logo, SidebarNavLink } from "../components"
-import { clearStore } from "../features/user/userSlice"
-
+import { Logout } from "../components"
 const Sidebar = () => {
-  const dispatch = useDispatch()
   return (
     <>
       <aside className="w-1/3 xl:w-1/4 lg:flex flex-col h-screen sticky top-0 hidden ">
@@ -21,18 +17,8 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <div className="  mb-10 w-[185px] hover:bg-red-200/70 bg-red-100/60 rounded-xl ">
-            <button
-              className="flex justify-center items-center w-full px-4 py-2  space-x-2 capitalize text-gray500 text-red-400/60  "
-              onClick={() => dispatch(clearStore("Logout Successful..."))}
-            >
-              <span>
-                {" "}
-                <HiOutlineLogout className=" w-6 h-6 " />
-              </span>
-              <span> logout </span>
-            </button>
-          </div>
+          {/* Logout button */}
+          <Logout />
         </div>
       </aside>
     </>

@@ -1,14 +1,9 @@
-import React from "react"
-import Logo from "../assets/Logo.png"
+import { ImSpinner2 } from "react-icons/im"
 const Loading = () => {
   return (
     <>
-      <div className=" h-screen grid place-items-center ">
-        <img
-          src={Logo}
-          alt="Indago - Job tracking app Logo"
-          className="w-20 h-20 object-contain mix-blend-multiply animate-bounce  "
-        />
+      <div className=" h-screen flex justify-center md:mt-72 mt-28  ">
+        <ImSpinner2 className="md:w-16 md:h-16 w-12 h-12 animate-spin text-primary/70 " />
       </div>
     </>
   )

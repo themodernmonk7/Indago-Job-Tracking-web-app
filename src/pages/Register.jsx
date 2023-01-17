@@ -46,7 +46,7 @@ const Register = () => {
               <img
                 src={Logo}
                 alt=""
-                className=" w-24 h-16 object-cover mix-blend-multiply "
+                className=" w-20 object-cover mix-blend-multiply "
               />
               <h4 className="text-4xl font-medium">Hello Again!</h4>
             </div>
