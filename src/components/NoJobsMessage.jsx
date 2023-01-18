@@ -8,7 +8,7 @@ const NoJobsMessage = () => {
       <h3 className=" text-center text-3xl my-10  ">No Jobs to display</h3>
       <Link
         to="/add-job"
-        className=" px-6 md:px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize "
+        className=" px-6 md:px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white "
       >
         {" "}
         + Add a Job

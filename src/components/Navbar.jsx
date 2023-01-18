@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="container mx-auto flex justify-between items-center my-4 py-2 px-4 ">
       <div className=" flex items-center space-x-2 ">
         <Logo className="h-8 " />
-        <h2 className="text-3xl text-center font-semibold ">indago</h2>
+        <h2 className="text-3xl text-center font-bold ">indago</h2>
       </div>
       <div className=" md:space-x-8 hidden md:flex  ">
         <Link
