@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
 import customFetch from "../../utils/axios"
 import { getUserFromLocalStorage } from "../../utils/localStorage"
-import { getAllJobs } from "../allJobs/allJobsSlice"
+import { getAllJobs, hideLoading, showLoading } from "../allJobs/allJobsSlice"
 import { logoutUser } from "../user/userSlice"
 
 const initialState = {
@@ -45,6 +45,7 @@ export const deleteJob = createAsyncThunk(
   "job/deleteJob",
   async (jobId, thunkAPI) => {
     try {
+      thunkAPI.dispatch(showLoading())
       const response = await customFetch.delete(`/jobs/${jobId}`, {
         headers: {
           authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
@@ -53,6 +54,7 @@ export const deleteJob = createAsyncThunk(
       thunkAPI.dispatch(getAllJobs())
       return response.data
     } catch (error) {
+      thunkAPI.dispatch(hideLoading())
       return thunkAPI.rejectWithValue(error.response.data.msg)
     }
   }

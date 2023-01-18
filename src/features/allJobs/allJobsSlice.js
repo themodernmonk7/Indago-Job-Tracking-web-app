@@ -66,6 +66,12 @@ export const allJobsSlice = createSlice({
   name: "allJobs",
   initialState,
   reducers: {
+    showLoading: (state) => {
+      state.isLoading = true
+    },
+    hideLoading: (state) => {
+      state.isLoading = false
+    },
     handleChange: (state, { payload: { name, value } }) => {
       // Every time user change something then page will back to 1
       state.page = 1
@@ -120,6 +126,12 @@ export const allJobsSlice = createSlice({
   },
 })
 
-export const { handleChange, clearFilters, changePage, clearAllJobsState } =
-  allJobsSlice.actions
+export const {
+  showLoading,
+  hideLoading,
+  handleChange,
+  clearFilters,
+  changePage,
+  clearAllJobsState,
+} = allJobsSlice.actions
 export default allJobsSlice.reducer
