@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
-import customFetch from "../../utils/axios"
+import customFetch, { checkForUnauthorizedResponse } from "../../utils/axios"
 import { getUserFromLocalStorage } from "../../utils/localStorage"
 import { getAllJobs, hideLoading, showLoading } from "../allJobs/allJobsSlice"
 import { logoutUser } from "../user/userSlice"
@@ -24,19 +24,11 @@ export const createJob = createAsyncThunk(
   "job/createJob",
   async (job, thunkAPI) => {
     try {
-      const response = await customFetch.post("/jobs", job, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      })
+      const response = await customFetch.post("/jobs", job)
       thunkAPI.dispatch(clearValues())
       return response.data
     } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logoutUser())
-        return thunkAPI.rejectWithValue("Unauthorized! Logging Out...")
-      }
-      return thunkAPI.rejectWithValue(error.response.data.msg)
+      return checkForUnauthorizedResponse(error, thunkAPI)
     }
   }
 )
@@ -46,16 +38,12 @@ export const deleteJob = createAsyncThunk(
   async (jobId, thunkAPI) => {
     try {
       thunkAPI.dispatch(showLoading())
-      const response = await customFetch.delete(`/jobs/${jobId}`, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      })
+      const response = await customFetch.delete(`/jobs/${jobId}`)
       thunkAPI.dispatch(getAllJobs())
       return response.data
     } catch (error) {
       thunkAPI.dispatch(hideLoading())
-      return thunkAPI.rejectWithValue(error.response.data.msg)
+      return checkForUnauthorizedResponse(error, thunkAPI)
     }
   }
 )
@@ -64,15 +52,11 @@ export const editJob = createAsyncThunk(
   "job/editJob",
   async ({ jobId, job }, thunkAPI) => {
     try {
-      const response = await customFetch.patch(`/jobs/${jobId}`, job, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
-      })
+      const response = await customFetch.patch(`/jobs/${jobId}`, job)
       thunkAPI.dispatch(clearValues())
       return response.data
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
+      return checkForUnauthorizedResponse(error, thunkAPI)
     }
   }
 )
@@ -90,7 +74,7 @@ export const uploadImage = createAsyncThunk(
       thunkAPI.fulfillWithValue(response.data.image.src)
       return response.data
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
+      return checkForUnauthorizedResponse(error, thunkAPI)
     }
   }
 )
