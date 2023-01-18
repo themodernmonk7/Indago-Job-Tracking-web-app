@@ -14,9 +14,9 @@ export const registerUserThunk = async (url, user, thunkAPI) => {
 }
 
 //** ==================== Login User ==================== */
-export const loginUserThunk = async (url, user, thunkAPI) => {
+export const loginUserThunk = async (user, thunkAPI) => {
   try {
-    const response = await customFetch.post(url, user)
+    const response = await customFetch.post("/auth/login", user)
     return response.data
   } catch (error) {
     return checkForUnauthorizedResponse(error, thunkAPI)
@@ -24,9 +24,9 @@ export const loginUserThunk = async (url, user, thunkAPI) => {
 }
 
 //** ==================== Update User ==================== */
-export const updateUserThunk = async (url, user, thunkAPI) => {
+export const updateUserThunk = async (user, thunkAPI) => {
   try {
-    const response = await customFetch.patch(url, user)
+    const response = await customFetch.patch("auth/updateUser", user)
     return response.data
   } catch (error) {
     return checkForUnauthorizedResponse(error, thunkAPI)
@@ -34,16 +34,14 @@ export const updateUserThunk = async (url, user, thunkAPI) => {
 }
 
 //** ==================== Upload User Image ==================== */
-export const uploadUserImageThunk = async (url, formData, thunkAPI) => {
+export const uploadUserImageThunk = async (formData, thunkAPI) => {
   try {
-    const response = await customFetch.post(url, formData, {
+    const response = await customFetch.post("/auth/uploadProfile", formData, {
       headers: {
-        authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         "Content-Type": "multipart/form-data",
       },
     })
     thunkAPI.fulfillWithValue(response.data.image.src)
-    console.log(response.data)
     return response.data
   } catch (error) {
     return checkForUnauthorizedResponse(error, thunkAPI)

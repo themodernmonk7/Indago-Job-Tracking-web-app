@@ -31,40 +31,15 @@ export const registerUser = createAsyncThunk(
 )
 
 //** ==================== Login User ==================== */
-export const loginUser = createAsyncThunk(
-  "user/loginUser",
-  async (user, thunkAPI) => {
-    return loginUserThunk("/auth/login", user, thunkAPI)
-  }
-)
+export const loginUser = createAsyncThunk("user/loginUser", loginUserThunk)
 
 //** ==================== Update User ==================== */
-export const updateUser = createAsyncThunk(
-  "user/updateUser",
-  async (user, thunkAPI) => {
-    return updateUserThunk("auth/updateUser", user, thunkAPI)
-  }
-)
+export const updateUser = createAsyncThunk("user/updateUser", updateUserThunk)
 
 //** ==================== Upload User Image ==================== */
 export const uploadUserImage = createAsyncThunk(
   "user/uploadUserImage",
-  async (formData, thunkAPI) => {
-    // To Do
-    // uploadUserImageThunk("/auth/uploadProfile", formData, thunkAPI)
-    try {
-      const response = await customFetch.post("/auth/uploadProfile", formData, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      thunkAPI.fulfillWithValue(response.data.image.src)
-      return response.data
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.msg)
-    }
-  }
+  uploadUserImageThunk
 )
 
 //** ==================== Clear Store ==================== */

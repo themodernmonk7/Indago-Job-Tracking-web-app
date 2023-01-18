@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
-import customFetch, { checkForUnauthorizedResponse } from "../../utils/axios"
 import { getUserFromLocalStorage } from "../../utils/localStorage"
-import { getAllJobs, hideLoading, showLoading } from "../allJobs/allJobsSlice"
-import { logoutUser } from "../user/userSlice"
+import {
+  createJobThunk,
+  deleteJobThunk,
+  editJobThunk,
+  uploadImageThunk,
+} from "./jobThunk"
 
 const initialState = {
   isLoading: false,
@@ -20,64 +23,13 @@ const initialState = {
   editJobId: "",
 }
 
-export const createJob = createAsyncThunk(
-  "job/createJob",
-  async (job, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/jobs", job)
-      thunkAPI.dispatch(clearValues())
-      return response.data
-    } catch (error) {
-      return checkForUnauthorizedResponse(error, thunkAPI)
-    }
-  }
-)
+export const createJob = createAsyncThunk("job/createJob", createJobThunk)
 
-export const deleteJob = createAsyncThunk(
-  "job/deleteJob",
-  async (jobId, thunkAPI) => {
-    try {
-      thunkAPI.dispatch(showLoading())
-      const response = await customFetch.delete(`/jobs/${jobId}`)
-      thunkAPI.dispatch(getAllJobs())
-      return response.data
-    } catch (error) {
-      thunkAPI.dispatch(hideLoading())
-      return checkForUnauthorizedResponse(error, thunkAPI)
-    }
-  }
-)
+export const deleteJob = createAsyncThunk("job/deleteJob", deleteJobThunk)
 
-export const editJob = createAsyncThunk(
-  "job/editJob",
-  async ({ jobId, job }, thunkAPI) => {
-    try {
-      const response = await customFetch.patch(`/jobs/${jobId}`, job)
-      thunkAPI.dispatch(clearValues())
-      return response.data
-    } catch (error) {
-      return checkForUnauthorizedResponse(error, thunkAPI)
-    }
-  }
-)
+export const editJob = createAsyncThunk("job/editJob", editJobThunk)
 
-export const uploadImage = createAsyncThunk(
-  "job/uploadImage",
-  async (formData, thunkAPI) => {
-    try {
-      const response = await customFetch.post("/jobs/uploadImage", formData, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      thunkAPI.fulfillWithValue(response.data.image.src)
-      return response.data
-    } catch (error) {
-      return checkForUnauthorizedResponse(error, thunkAPI)
-    }
-  }
-)
+export const uploadImage = createAsyncThunk("job/uploadImage", uploadImageThunk)
 
 export const jobSlice = createSlice({
   name: "Job",
