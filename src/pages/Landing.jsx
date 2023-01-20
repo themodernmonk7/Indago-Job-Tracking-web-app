@@ -6,10 +6,10 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-      <section className="">
-        <div className="grid py-8 px-4 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+      <section className=" lg:px-4">
+        <div className="grid py-8 px-4 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
           <div className="place-self-center mr-auto lg:col-span-7">
-            <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl">
+            <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none md:text-5xl xl:text-6xl">
               Job tracking tool for software engineers
             </h1>
             <p className="mb-6 max-w-2xl font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
@@ -34,12 +34,12 @@ const Landing = () => {
                 ></path>
               </svg>
             </Link>
-            <a
+            {/* <a
               href="#"
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100"
             >
               Speak to Sales
-            </a>
+            </a> */}
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
@@ -56,7 +56,7 @@ const Landing = () => {
               Start your free trial today
             </h2>
             <p className="mb-6 font-light text-gray-500 md:text-lg">
-              Try Flowbite Platform for 30 days. No credit card required.
+              Try Indago Platform for 30 days. No credit card required.
             </p>
             <Link
               to="/register"

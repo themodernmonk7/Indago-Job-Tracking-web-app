@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-hot-toast"
 import { FormRow } from "../components"
 import { updateUser } from "../features/user/userSlice"
+import { CgSpinner } from "react-icons/cg"
 
 const ProfileForm = () => {
   const { user, isLoading } = useSelector((store) => store.user)
@@ -83,9 +84,15 @@ const ProfileForm = () => {
         </div>
       </div>
       <button
-        className=" ml-auto block w-44  py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize disabled:cursor-not-allowed "
+        className=" ml-auto w-44  py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white flex justify-center capitalize disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
         disabled={isLoading}
       >
+        {isLoading ? (
+          <span>
+            {" "}
+            <CgSpinner className="w-6 h-6 mr-2  animate-spin " />{" "}
+          </span>
+        ) : null}
         {isLoading ? "Please wait..." : "Save changes"}
       </button>
     </form>

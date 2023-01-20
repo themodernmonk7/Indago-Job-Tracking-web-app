@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { FormRow, FormRowSelect } from "../components"
+import { CgSpinner } from "react-icons/cg"
+
 import {
   handleChangeFunction,
   clearValues,
@@ -159,9 +161,15 @@ const AddJobForm = () => {
         <div className=" flex justify-end space-x-4 ">
           <button
             type="submit"
-            className=" w-44 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize disabled:cursor-not-allowed "
+            className=" w-44 py-2 flex justify-center rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
             disabled={isLoading}
           >
+            {isLoading ? (
+              <span>
+                {" "}
+                <CgSpinner className="w-6 h-6 mr-2  animate-spin " />{" "}
+              </span>
+            ) : null}
             {isLoading ? "Adding Job..." : "+ Add Job"}
           </button>
           <button
