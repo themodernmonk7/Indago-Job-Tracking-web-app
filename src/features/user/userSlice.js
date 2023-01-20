@@ -66,7 +66,7 @@ const userSlice = createSlice({
         state.isLoading = false
         state.user = user
         addUserToLocalStorage(user)
-        toast.success(`Hello there ${user.name}`)
+        toast.success(`Hello ${user.name}`)
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false

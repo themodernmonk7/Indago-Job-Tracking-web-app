@@ -13,8 +13,8 @@ const Landing = () => {
               Job tracking tool for software engineers
             </h1>
             <p className="mb-6 max-w-2xl font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
-              Streamline your job search with Indago - stay organized, stay
-              informed, land your dream job.
+              Track your job search progress with Indago - Never miss an update
+              on your job application status.
             </p>
             <Link
               to="/register"
@@ -34,12 +34,6 @@ const Landing = () => {
                 ></path>
               </svg>
             </Link>
-            {/* <a
-              href="#"
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100"
-            >
-              Speak to Sales
-            </a> */}
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
@@ -49,7 +43,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gray-100/50">
+      {/* <section className="bg-gray-100/50">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center">
             <h2 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900">
@@ -66,7 +60,7 @@ const Landing = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

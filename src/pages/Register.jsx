@@ -9,7 +9,7 @@ const Register = () => {
         <div className="flex ">
           {/* Right */}
           <aside className=" hidden bg-primary md:w-1/2 xl:w-1/3 rounded-2xl p-10 space-y-10 my-16 lg:flex flex-col justify-between relative overflow-hidden shadow-2xl ">
-            <h1 className="text-2xl text-white uppercase font-bold tracking-wider ">
+            <h1 className="text-2xl text-white uppercase font-extrabold tracking-widest ">
               Indago.
             </h1>
             <div className=" space-y-6 ">
@@ -17,14 +17,15 @@ const Register = () => {
                 Start your journey with us.
               </h3>
               <h4 className=" text-xl text-gray-300 ">
-                Discover the world's best community of freelancers and business
-                owners.{" "}
+                Track your job search progress with Indago - Never miss an
+                update on your job application status.{" "}
               </h4>
             </div>
-            <div className=" bg-indigo-700 rounded-xl flex flex-col justify-between p-4 py10 space-y-12  ">
+            <div className=" bg-secondary-800 rounded-xl flex flex-col justify-between p-4 py10 space-y-12  ">
               <p className="text-gray-300">
-                Simply unbelievable! I am really satisfied with my projects and
-                business. This is Absolutely wonderful!
+                Indago is a great web app for job seekers. It helps to keep
+                track of job applications and their statuses. Highly recommended
+                for anyone actively searching for a job.
               </p>
               <div className="flex items-center space-x-6 ">
                 <img
@@ -34,11 +35,11 @@ const Register = () => {
                 />
                 <div className=" space-y2 ">
                   <h4 className="text-white text-lg "> Sara Williams </h4>
-                  <p className="text-gray-400">Freelancer</p>
+                  <p className="text-gray-400">Software Engineer</p>
                 </div>
               </div>
             </div>
-            <div className="absolute -top-12 -right-10  bg-blue-900 w-28 h-28 rounded-full opacity-40 "></div>
+            <div className="absolute -top-12 -right-10 bg-secondary-900 w-28 h-28 rounded-full opacity-40 "></div>
           </aside>
           {/* Left */}
           <article className=" my-10 md:my-16  w-full flex flex-col items-center justify-between space-y-12   ">
