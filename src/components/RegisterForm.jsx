@@ -52,7 +52,7 @@ const RegisterForm = () => {
   return (
     <>
       <form
-        className=" md:w-2/3  lg:w-2/3 xl:w-1/2 w-full px-4 md:px-0 group "
+        className=" group  w-full px-4 md:w-2/3 md:px-0 lg:w-2/3 xl:w-1/2 "
         onSubmit={handleSubmit}
       >
         <div className=" space-y-6 ">
@@ -75,7 +75,7 @@ const RegisterForm = () => {
               id="email"
               name="email"
               placeholder="youremail@gmail.com"
-              className=" placeholder:lowercase w-full rounded-xl border-none  py-3 md:py-4 placeholder-gray-300 focus:outline-none valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400 ring-1 ring-gray-300 hover:ring-primary focus:ring-2 shadow shadow-gray-100 transition-all duration-200 ease-in  "
+              className=" w-full rounded-xl border-none py-3  placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in placeholder:lowercase hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400  "
               required
               pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               value={values.email}
@@ -97,7 +97,7 @@ const RegisterForm = () => {
               placeholder="**********"
               value={values.password}
               onChange={handleChange}
-              className="peer w-full rounded-xl border-none  py-3 md:py-4 placeholder-gray-300 focus:outline-none valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400 ring-1 ring-gray-300 hover:ring-primary focus:ring-2 transition-all duration-200 ease-in shadow shadow-gray-100   "
+              className="peer w-full rounded-xl border-none  py-3 placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400   "
               pattern=".{6,}"
               required
             />
@@ -110,23 +110,23 @@ const RegisterForm = () => {
         <div className="">
           <button
             type="submit"
-            className=" bg-primary hover:bg-blue-900/90 text-white tracking-wider px-10 py-5 rounded-xl focus:outline-none focus:bg-blue-800/90 w-full mt-20 transition-all duration-300 ease-in shadow disabled:cursor-not-allowed disabled:bg-primary/60 flex flex-row justify-center items-center group-invalid:pointer-events-none group-invalid:opacity-70  "
+            className=" mt-20 flex w-full flex-row items-center justify-center rounded-xl bg-primary px-10 py-5 tracking-wider text-white shadow transition-all duration-300 ease-in hover:bg-blue-900/90 focus:bg-blue-800/90 focus:outline-none disabled:cursor-not-allowed disabled:bg-primary/60 group-invalid:pointer-events-none group-invalid:opacity-70  "
             disabled={isLoading}
           >
             {isLoading ? (
               <span>
                 {" "}
-                <CgSpinner className="w-6 h-6 mr-4  animate-spin " />{" "}
+                <CgSpinner className="mr-4 h-6 w-6  animate-spin " />{" "}
               </span>
             ) : null}
             {values.isMember ? "Login" : "Create Account"}
           </button>
         </div>
       </form>
-      <p className=" text-sm flex flex-col md:flex-row  ">
+      <p className=" flex flex-col text-sm md:flex-row  ">
         {values.isMember ? `Don't have an account?` : "Already a member?"}
         <button
-          className="text-primary font-medium ml-2 "
+          className="ml-2 font-medium text-primary "
           onClick={toggleMember}
         >
           {" "}

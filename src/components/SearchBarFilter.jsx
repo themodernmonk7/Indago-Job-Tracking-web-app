@@ -42,27 +42,27 @@ const SearchBarFilter = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="  bg-white py-4 gap-10 md:grid md:grid-cols-4  mt-10 shadow-md rounded-2xl md:mx-8 px-5 lg:px-8 lg:mx-5 xl:mx-16 mx-4 space-y-2 md:space-y-0 "
+        className="  mx-4 mt-10 gap-10 space-y-2 rounded-2xl  bg-white py-4 px-5 shadow-md md:mx-8 md:grid md:grid-cols-4 md:space-y-0 lg:mx-5 lg:px-8 xl:mx-16 "
       >
         {/* Search */}
-        <div className="relative flex items-center md:border-r-2 border-b md:border-b-0 ">
+        <div className="relative flex items-center border-b md:border-r-2 md:border-b-0 ">
           <FiSearch className="pointer-events-none absolute h-6 w-6 text-gray-600" />{" "}
           <input
             type="text"
             name="search"
             value={localSearch}
-            className="   focus:outline-none border-none w-full px-4 pl-10 transition ease-in duration-200 text-black placeholder:text-gray-600 focus:ring-0 "
+            className="   w-full border-none px-4 pl-10 text-black transition duration-200 ease-in placeholder:text-gray-600 focus:outline-none focus:ring-0 "
             placeholder="Front-end developer"
             onChange={optimizedDebounced}
           />
         </div>
         {/* Job Status */}
-        <div className=" lg:grid md:border-r-2 md:w-full border-b md:border-b-0 ">
+        <div className=" border-b md:w-full md:border-r-2 md:border-b-0 lg:grid ">
           <select
             name="searchJobStatus"
             value={searchJobStatus}
             id="jobStatus"
-            className=" placeholder:font-light  focus:outline-none border-none w-full px4 transition ease-in duration-200 text-gray-600 focus:ring-0 capitalize  "
+            className=" px4  w-full border-none capitalize text-gray-600 transition duration-200 ease-in placeholder:font-light focus:outline-none focus:ring-0  "
             onChange={handleSearch}
           >
             {jobStatusOptionsValue.map((item, index) => {
@@ -77,12 +77,12 @@ const SearchBarFilter = () => {
         </div>
 
         {/* Job type */}
-        <div className=" lg:grid md:border-r-2 md:w-full ">
+        <div className=" md:w-full md:border-r-2 lg:grid ">
           <select
             name="searchJobType"
             value={searchJobType}
             id="jobType"
-            className=" placeholder:font-light  focus:outline-none border-none w-full  transition ease-in duration-200 text-gray-600 focus:ring-0 capitalize  "
+            className=" w-full  border-none capitalize text-gray-600  transition duration-200 ease-in placeholder:font-light focus:outline-none focus:ring-0  "
             onChange={handleSearch}
           >
             {jobTypeOptionsValue.map((item, index) => {
@@ -96,8 +96,8 @@ const SearchBarFilter = () => {
           </select>
         </div>
         {/* Clear button */}
-        <div className="flex justify-center md:justify-end items-center ">
-          <button className="bg-gray-100 md:px-4 px-6 py-2  rounded-md active:scale-90 font-medium   ">
+        <div className="flex items-center justify-center md:justify-end ">
+          <button className="rounded-md bg-gray-100 px-6 py-2  font-medium active:scale-90 md:px-4   ">
             Clear filters
           </button>
         </div>

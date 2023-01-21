@@ -3,21 +3,21 @@ import { Logo } from "../components"
 
 const Navbar = () => {
   return (
-    <nav className="container mx-auto flex justify-between items-center my-4 py-2 px-4 ">
+    <nav className="container mx-auto my-4 flex items-center justify-between py-2 px-4 ">
       <div className=" flex items-center space-x-2 ">
         <Logo className="h-8 " />
-        <h2 className="text-3xl text-center font-bold ">indago</h2>
+        <h2 className="text-center text-3xl font-bold ">indago</h2>
       </div>
-      <div className=" md:space-x-8 hidden md:flex  ">
+      <div className=" hidden md:flex md:space-x-8  ">
         <Link
           to="/register"
-          className=" font-medium rounded-md hover:bg-gray-100 px-4 py-3 "
+          className=" rounded-md px-4 py-3 font-medium hover:bg-gray-100 "
         >
           Log in
         </Link>
         <Link
           to="/register"
-          className=" bg-secondary-700 px-4 py-3 rounded-md text-white text-xs md:text-sm font-medium hover:bg-secondary-800 "
+          className=" rounded-md bg-secondary-700 px-4 py-3 text-xs font-medium text-white hover:bg-secondary-800 md:text-sm "
         >
           {" "}
           Get Started{" "}

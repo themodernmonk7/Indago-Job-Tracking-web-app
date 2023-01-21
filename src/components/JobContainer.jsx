@@ -46,19 +46,19 @@ const JobContainer = () => {
   return (
     <>
       {/* Total jobs and sort function */}
-      <section className=" my-10 flex justify-between items-center lg:mx-5 xl:mx-16 ">
-        <h3 className="text-sm px-6 md:px-10 lg:px-0 font-medium ">
+      <section className=" my-10 flex items-center justify-between lg:mx-5 xl:mx-16 ">
+        <h3 className="px-6 text-sm font-medium md:px-10 lg:px-0 ">
           {" "}
           {total_jobs} Job{jobs.length > 1 && "s"} found
         </h3>
         <div>
-          <span className="text-sm text-gray-500 lowercase ">Sort by </span>
+          <span className="text-sm lowercase text-gray-500 ">Sort by </span>
           <select
             name="sort"
             id="sort"
             onChange={handleSort}
             value={sort}
-            className=" py-0 border-none font-medium bg-gray-100 capitalize focus:ring-0  "
+            className=" border-none bg-gray-100 py-0 font-medium capitalize focus:ring-0  "
           >
             {sortOptions.map((item, index) => {
               return (
@@ -72,7 +72,7 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10 my-10 place-items-center px-5 lg:px-0  mb-28 lg:mx-5 xl:mx-16 ">
+      <section className="my-10 mb-28 grid grid-cols-1 place-items-center gap-10 px-5 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
         {jobs.map((job) => {
           return <JobCard key={job._id} {...job} />
         })}

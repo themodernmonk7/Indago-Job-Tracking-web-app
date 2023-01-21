@@ -7,14 +7,14 @@ const Logout = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className="  mb-10 w-[185px] hover:bg-red-200/70 bg-red-100/60 rounded-xl ">
+    <div className="  mb-10 w-[185px] rounded-xl bg-red-100/60 hover:bg-red-200/70 ">
       <button
-        className="flex justify-center items-center w-full px-4 py-2  space-x-2 capitalize text-gray500 text-red-400/60  "
+        className="text-gray500 flex w-full items-center justify-center space-x-2  px-4 py-2 capitalize text-red-400/60  "
         onClick={() => dispatch(clearStore("Logout Successful..."))}
       >
         <span>
           {" "}
-          <HiOutlineLogout className=" w-6 h-6 " />
+          <HiOutlineLogout className=" h-6 w-6 " />
         </span>
         <span> logout </span>
       </button>

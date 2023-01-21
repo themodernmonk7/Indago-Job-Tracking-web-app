@@ -4,14 +4,14 @@ import GraphImage from "../assets/no_data_report.svg"
 const NoData = () => {
   return (
     <>
-      <div className=" flex flex-col justify-center items-center mb-28  ">
+      <div className=" mb-28 flex flex-col items-center justify-center  ">
         <div>
           <img
             src={GraphImage}
             alt=""
-            className=" w-52 h-52  md:w-72 md:h-72"
+            className=" h-52 w-52  md:h-72 md:w-72"
           />
-          <h2 className="text-xl ml5  text-gray-500 font-light  ">
+          <h2 className="ml5 text-xl  font-light text-gray-500  ">
             {" "}
             No job added yet.{" "}
           </h2>

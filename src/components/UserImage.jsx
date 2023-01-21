@@ -6,7 +6,7 @@ const UserImage = ({ className }) => {
   return (
     <img
       src={user?.image || defaultUserImage}
-      className={`${className} object-top object-cover rounded-full `}
+      className={`${className} rounded-full object-cover object-top `}
       alt={"profile picture"}
     />
   )

@@ -14,8 +14,8 @@ const ProfileBanner = () => {
   }
   return (
     <>
-      <section className="flex px-4 md:px-8 py-1 sticky top-0 bg-white z-10  ">
-        <div className=" flex items-center justify-between  space-x-6 w-full">
+      <section className="sticky top-0 z-10 flex bg-white px-4 py-1 md:px-8  ">
+        <div className=" flex w-full items-center  justify-between space-x-6">
           <h4 className="md:text-2xl">
             {" "}
             Welcome back,{" "}
@@ -26,21 +26,21 @@ const ProfileBanner = () => {
               type="button"
               onClick={() => setShowLogoutButton(!showLogoutButton)}
             >
-              <UserImage className={"w-12 h-12 md:w-14 md:h-14"} />
+              <UserImage className={"h-12 w-12 md:h-14 md:w-14"} />
             </button>
             <div
               className={
                 showLogoutButton
-                  ? " absolute visible md:right-10   "
+                  ? " visible absolute md:right-10   "
                   : " hidden "
               }
             >
               <button
                 type="button"
                 onClick={toggleLogout}
-                className=" bg-red-200 px-2 py-2 rounded-full  "
+                className=" rounded-full bg-red-200 px-2 py-2  "
               >
-                <HiOutlineLogout className="w-6 h-6 text-red-700 " />
+                <HiOutlineLogout className="h-6 w-6 text-red-700 " />
               </button>
             </div>
           </div>

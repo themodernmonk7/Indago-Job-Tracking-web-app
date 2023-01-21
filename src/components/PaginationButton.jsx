@@ -33,11 +33,11 @@ const PaginationButton = () => {
   }
 
   return (
-    <section className=" mb-24 lg:mb-10 py-5  flex flex-row items-center  justify-center space-x-12 px-6  ">
+    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12  py-5 px-6 lg:mb-10  ">
       <button onClick={prevPage}>
-        <MdOutlineNavigateBefore className="w-7 h-7 text-gray-500 " />
+        <MdOutlineNavigateBefore className="h-7 w-7 text-gray-500 " />
       </button>
-      <div className=" xl:space-x-10 lg:flex grid grid-cols-4 place-items-center  gap-x-12 lg:gap-x-8 gap-y-4  ">
+      <div className=" grid grid-cols-4 place-items-center gap-x-12 gap-y-4  lg:flex lg:gap-x-8 xl:space-x-10  ">
         {pages.map((pageNumber) => {
           return (
             <button
@@ -45,8 +45,8 @@ const PaginationButton = () => {
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "bg-primary rounded-md w-8 h-8  text-white font-medium"
-                  : " bg-white rounded-md  w-8 h-8 font-medium"
+                  ? "h-8 w-8 rounded-md bg-primary  font-medium text-white"
+                  : " h-8 w-8  rounded-md bg-white font-medium"
               }
             >
               {pageNumber}
@@ -55,7 +55,7 @@ const PaginationButton = () => {
         })}
       </div>
       <button onClick={nexPage}>
-        <MdOutlineNavigateNext className="w-7 h-7 text-gray-500 " />
+        <MdOutlineNavigateNext className="h-7 w-7 text-gray-500 " />
       </button>
     </section>
   )

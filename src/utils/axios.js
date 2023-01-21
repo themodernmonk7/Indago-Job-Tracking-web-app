@@ -5,7 +5,7 @@ import { getUserFromLocalStorage } from "./localStorage"
 const customFetch = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_BASE_URL,
 })
-
+ 
 customFetch.interceptors.request.use((config) => {
   const user = getUserFromLocalStorage()
   if (user) {

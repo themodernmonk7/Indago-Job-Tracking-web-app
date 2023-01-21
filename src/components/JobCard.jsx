@@ -6,6 +6,8 @@ import { deleteJob, setEditJob } from "../features/job/jobSlice"
 import { JobTag, JobTypeTag, JobButton } from "../components"
 import moment from "moment/moment"
 import defaultImage from "../assets/defaultLogo.png"
+
+ 
 const JobCard = ({
   _id,
   company,
@@ -20,22 +22,22 @@ const JobCard = ({
   const dispatch = useDispatch()
   const jobCreationDate = moment(createdAt).format("MMM Do YY")
   return (
-    <article className="bg-white px-6 md:px-10 py-6 rounded-xl space-y-4 border max-w-xs lg:max-w-sm relative min-h-full    ">
+    <article className="relative min-h-full max-w-xs space-y-4 rounded-xl border bg-white px-6 py-6 md:px-10 lg:max-w-sm    ">
       {/* Job Status */}
       <JobTag status={status} />
 
       {/* Company Logo */}
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <img
           src={image || defaultImage}
           alt={`${company} Logo`}
-          className="xl:w-14 xl:h-14 w-12 h-12 object-contain border shadow-inner  object-center rounded-full md:bg-white"
+          className="h-12 w-12 rounded-full border object-contain object-center shadow-inner  md:bg-white xl:h-14 xl:w-14"
         />
-        <span className="text-gray-400 text-sm "> {jobCreationDate} </span>
+        <span className="text-sm text-gray-400 "> {jobCreationDate} </span>
       </div>
 
       {/* Position */}
-      <div className=" flex items-center h-16 ">
+      <div className=" flex h-16 items-center ">
         <h4 className="text-xl  font-semibold capitalize "> {position} </h4>
       </div>
 
@@ -43,24 +45,22 @@ const JobCard = ({
       <JobTypeTag jobType={jobType} />
 
       {/* Company Name and Job location */}
-      <div className=" space-y-2 max-w-2xl  ">
-        <h4 className="text-md font-medium capitalize flex items-center ">
+      <div className=" max-w-2xl space-y-2  ">
+        <h4 className="text-md flex items-center font-medium capitalize text-secondary-600   ">
           {" "}
           <span>
             {" "}
-            {/* <HiLocationMarker className="w-5 h-5" />{" "} */}
-            <GoLocation className="w-4 h-4 mr-2 " />{" "}
+            <GoLocation className="mr-2 h-4 w-4 " />{" "}
           </span>
           {company}, {jobLocation}
         </h4>
 
         {/* Job Description */}
         <p className="text-md text-gray-400">
-          I applied in this company because my skill.
-          {/* {jobDescription === ""
+          {/* I applied in this company because my skill. */}
+          {jobDescription === ""
             ? "Add Job description here for more clarity..."
-            : jobDescription} */}
-          {/* <button className="text-blue-500 text-sm ">..read more</button> */}
+            : jobDescription}
         </p>
       </div>
       {/* Edit and Delete button */}
@@ -68,7 +68,7 @@ const JobCard = ({
       <div className="flex justify-between pt-5 ">
         <Link
           to="/add-job"
-          className=" hover:text-blue-500 text-gray-500 transition-all  "
+          className=" rounded-full px-2 py-2 text-gray-500 transition-all  duration-300  ease-in-out hover:bg-gray-100 hover:text-blue-500   "
           onClick={() =>
             dispatch(
               setEditJob({
@@ -84,13 +84,13 @@ const JobCard = ({
             )
           }
         >
-          <HiOutlinePencilAlt className="w-5 h-5" />
+          <HiOutlinePencilAlt className="h-5 w-5" />
         </Link>
         <button
-          className="  hover:text-red-400 text-gray-500 transition-all"
+          className="  rounded-full px-2 py-2 text-gray-500 transition-all  duration-300  ease-in-out hover:bg-gray-100 hover:text-red-500  "
           onClick={() => dispatch(deleteJob(_id))}
         >
-          <HiOutlineTrash className="w-5 h-5 " />
+          <HiOutlineTrash className="h-5 w-5 " />
         </button>
       </div>
     </article>

@@ -3,8 +3,8 @@ import links from "../utils/links"
 
 const MobileNavLink = () => {
   return (
-    <div className="fixed bottom-0 bg-white border-t lg:hidden w-full py-4 ">
-      <ul className="flex px-4 justify-around items-center  ">
+    <div className="fixed bottom-0 w-full border-t bg-white py-4 lg:hidden ">
+      <ul className="flex items-center justify-around px-4  ">
         {links.map((link) => {
           const { id, icon, path } = link
           return (
@@ -14,8 +14,8 @@ const MobileNavLink = () => {
               end
               className={({ isActive }) => {
                 return isActive
-                  ? "text-primary bg-gray-200/80 px-2 py-2 rounded-full "
-                  : "text-gray-500 active:scale-90 px-2 py-2 rounded-full "
+                  ? "rounded-full bg-gray-200/80 px-2 py-2 text-primary "
+                  : "rounded-full px-2 py-2 text-gray-500 active:scale-90 "
               }}
             >
               {" "}

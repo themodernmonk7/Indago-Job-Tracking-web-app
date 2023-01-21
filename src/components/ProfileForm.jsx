@@ -34,8 +34,8 @@ const ProfileForm = () => {
   }
 
   return (
-    <form className=" xl:w-2/3 space-y-6 " onSubmit={handleSubmit}>
-      <div className="grid md:grid-cols-2 md:gap-x-28 gap-y-8">
+    <form className=" space-y-6 xl:w-2/3 " onSubmit={handleSubmit}>
+      <div className="grid gap-y-8 md:grid-cols-2 md:gap-x-28">
         {/* First Name */}
         <FormRow
           type="text"
@@ -84,13 +84,13 @@ const ProfileForm = () => {
         </div>
       </div>
       <button
-        className=" ml-auto w-44  py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white flex justify-center capitalize disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
+        className=" ml-auto flex  w-44 justify-center rounded-xl border border-gray-300 bg-primary py-2 font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
         disabled={isLoading}
       >
         {isLoading ? (
           <span>
             {" "}
-            <CgSpinner className="w-6 h-6 mr-2  animate-spin " />{" "}
+            <CgSpinner className="mr-2 h-6 w-6  animate-spin " />{" "}
           </span>
         ) : null}
         {isLoading ? "Please wait..." : "Save changes"}

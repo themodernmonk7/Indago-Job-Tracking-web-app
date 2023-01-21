@@ -29,7 +29,7 @@ const StatsContainer = () => {
   ]
   return (
     <>
-      <section className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 xl:gap-10 my-10 mb-28 px-5 lg:px-0 lg:mx-5 xl:mx-16 ">
+      <section className=" my-10 mb-28 grid grid-cols-1 gap-10 px-5 md:grid-cols-3 md:gap-5 lg:mx-5 lg:px-0 xl:mx-16 xl:gap-10 ">
         {defaultStats.map((item, index) => {
           return <StatItem key={index} {...item} />
         })}

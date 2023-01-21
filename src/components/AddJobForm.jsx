@@ -92,8 +92,8 @@ const AddJobForm = () => {
 
   return (
     <>
-      <form className="  xl:w-2/3 space-y-6 " onSubmit={handleSubmit}>
-        <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-x-28 gap-y-8   ">
+      <form className="  space-y-6 xl:w-2/3 " onSubmit={handleSubmit}>
+        <div className=" grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-28   ">
           {/* Position */}
           <FormRow
             type="text"
@@ -141,9 +141,9 @@ const AddJobForm = () => {
             handleChange={handleUpload}
             acceptProps="image/*"
             labelText="Company Logo"
-            className=" bg-white file:mr-4  file:px-4
+            className=" bg-white text-gray-300  file:mr-4
             file:border-0 file:bg-white
-            file:text-sm file:font-semibold file:text-primary  text-gray-300 "
+            file:px-4 file:text-sm file:font-semibold  file:text-primary "
           />
           {/* About job textarea */}
           <div className=" md:col-span-2 ">
@@ -161,20 +161,20 @@ const AddJobForm = () => {
         <div className=" flex justify-end space-x-4 ">
           <button
             type="submit"
-            className=" w-44 py-2 flex justify-center rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium bg-primary text-white capitalize disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
+            className=" flex w-44 justify-center rounded-xl border border-gray-300 bg-primary py-2 font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
             disabled={isLoading}
           >
             {isLoading ? (
               <span>
                 {" "}
-                <CgSpinner className="w-6 h-6 mr-2  animate-spin " />{" "}
+                <CgSpinner className="mr-2 h-6 w-6  animate-spin " />{" "}
               </span>
             ) : null}
             {isLoading ? "Adding Job..." : "+ Add Job"}
           </button>
           <button
             type="button"
-            className="bg-white px-10 py-2 rounded-xl active:outline outline-2 outline-primary hover:outline border border-gray-300 font-medium capitalize"
+            className="rounded-xl border border-gray-300 bg-white px-10 py-2 font-medium capitalize outline-2 outline-primary hover:outline active:outline"
             onClick={() => dispatch(clearValues())}
           >
             clear
