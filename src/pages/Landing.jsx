@@ -1,7 +1,7 @@
 import React from "react"
 import { Navbar, Logo } from "../components"
 import { Link } from "react-router-dom"
-
+import mockup1 from "../assets/mockup1.png"
 const Landing = () => {
   return (
     <>
@@ -35,11 +35,13 @@ const Landing = () => {
               </svg>
             </Link>
           </div>
-          <div className="hidden lg:col-span-5 lg:mt-0 lg:flex">
-            <img
+          <div className="hidden lg:col-span-5 lg:mt-0 lg:flex   ">
+            {/* <img
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
               alt="mockup"
-            />
+            /> */}
+
+            <img src={mockup1} width="300" alt="" />
           </div>
         </div>
       </section>
