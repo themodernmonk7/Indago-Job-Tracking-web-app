@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className=" flex h-full flex-col justify-between bg-white px-12 ">
           <div>
             {/* Logo title */}
-            <div className=" mt-7 flex items-center justify-center space-x-2 ">
+            <div className=" mt-4 flex items-center justify-center space-x-2 ">
               <Logo className="h-8" />
               <h3 className="text-3xl font-bold">Indago</h3>
             </div>
