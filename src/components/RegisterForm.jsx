@@ -6,6 +6,7 @@ import { loginUser, registerUser } from "../features/user/userSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { CgSpinner } from "react-icons/cg"
+import { BsArrowRight } from "react-icons/bs"
 const initialState = {
   name: "",
   email: "",
@@ -133,6 +134,15 @@ const RegisterForm = () => {
           {values.isMember ? "Create an account" : "Login"}{" "}
         </button>
       </p>
+      <button
+        className="  group  flex  items-center justify-center rounded-md bg-secondary-900 px-6 py-1 capitalize  text-white/90  "
+        onClick={() => {
+          dispatch(loginUser({ email: "admin@test.com", password: "secret" }))
+        }}
+      >
+        Try demo app{" "}
+        <BsArrowRight className=" ml-2 animate-pulse  transition-all duration-200  ease-linear group-hover:translate-x-1  " />{" "}
+      </button>
     </>
   )
 }
