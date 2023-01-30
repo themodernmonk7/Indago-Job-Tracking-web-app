@@ -98,7 +98,7 @@ const AddJobForm = () => {
           <FormRow
             type="text"
             name="position"
-            placeholder="your first name"
+            placeholder="your position"
             value={position}
             handleChange={handleChange}
           />
