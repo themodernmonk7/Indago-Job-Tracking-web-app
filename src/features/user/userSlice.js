@@ -51,7 +51,9 @@ const userSlice = createSlice({
   reducers: {
     logoutUser: (state, action) => {
       state.user = null
-      toast.success(action.payload)
+      if (action.payload) {
+        toast.success(action.payload)
+      }
       removeUserFromLocalStorage()
     },
   },
