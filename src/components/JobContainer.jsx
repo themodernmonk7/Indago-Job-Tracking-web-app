@@ -72,7 +72,7 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <section className="my-10 grid  grid-cols-1 place-items-center gap-10 px-5 md:mb-28 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
+      <section className="my-24 grid grid-cols-1  place-items-center gap-10 px-5 md:mb-28 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
         {jobs.map((job) => {
           return <JobCard key={job._id} {...job} />
         })}
