@@ -33,11 +33,11 @@ const PaginationButton = () => {
   }
 
   return (
-    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12  py-5 px-6 lg:mb-10  ">
+    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10  ">
       <button onClick={prevPage}>
         <MdOutlineNavigateBefore className="h-7 w-7 text-gray-500 " />
       </button>
-      <div className=" grid grid-cols-4 place-items-center gap-x-12 gap-y-4  lg:flex lg:gap-x-8 xl:space-x-10  ">
+      <div className=" grid grid-cols-4 place-items-center gap-x-12 gap-y-4  md:flex lg:gap-x-8 xl:space-x-10  ">
         {pages.map((pageNumber) => {
           return (
             <button

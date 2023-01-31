@@ -46,7 +46,7 @@ const JobContainer = () => {
   return (
     <>
       {/* Total jobs and sort function */}
-      <section className=" my-10 flex items-center justify-between lg:mx-5 xl:mx-16 ">
+      <section className=" my-10  flex items-center justify-between lg:mx-5 xl:mx-16 ">
         <h3 className="px-6 text-sm font-medium md:px-10 lg:px-0 ">
           {" "}
           {total_jobs} Job{jobs.length > 1 && "s"} found
@@ -72,7 +72,7 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <section className="my-10 mb-28 grid grid-cols-1 place-items-center gap-10 px-5 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
+      <section className="my-10 grid  grid-cols-1 place-items-center gap-10 px-5 md:mb-28 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
         {jobs.map((job) => {
           return <JobCard key={job._id} {...job} />
         })}

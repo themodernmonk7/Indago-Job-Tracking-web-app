@@ -22,7 +22,7 @@ const JobCard = ({
   const dispatch = useDispatch()
   const jobCreationDate = moment(createdAt).format("MMM Do YY")
   return (
-    <article className="relative min-h-full max-w-xs space-y-4 rounded-xl border bg-white px-6 py-6 md:px-10 lg:max-w-sm    ">
+    <article className="relative min-h-full w-full space-y-4 rounded-xl border bg-white px-6  py-6  md:px-10 lg:max-w-sm   ">
       {/* Job Status */}
       <JobTag status={status} />
 
@@ -57,7 +57,6 @@ const JobCard = ({
 
         {/* Job Description */}
         <p className="text-md text-gray-400">
-          {/* I applied in this company because my skill. */}
           {jobDescription === ""
             ? "Add Job description here for more clarity..."
             : jobDescription}
