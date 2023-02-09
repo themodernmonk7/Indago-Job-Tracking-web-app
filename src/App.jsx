@@ -1,5 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Error, Landing, Register, ProtectedRoute } from "./pages"
+import {
+  Error,
+  Landing,
+  Register,
+  ProtectedRoute,
+  EmailVerification,
+} from "./pages"
 import {
   AddJob,
   AllJobs,
@@ -29,6 +35,10 @@ function App() {
         </Route>
         <Route path="landing" element={<Landing />} />
         <Route path="register" element={<Register />} />
+        <Route
+          path="/user/email-verification"
+          element={<EmailVerification />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
       <Toaster position="top-center" />
