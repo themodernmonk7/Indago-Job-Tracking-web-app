@@ -26,7 +26,7 @@ const ProfileForm = () => {
     e.preventDefault()
     const { image } = user
     const { name, lastName, email, location, bio } = userData
-    if (!name || !lastName || !email || !location || !bio) {
+    if (!name || !lastName || !email || !location) {
       toast.error("Please fill out all fields")
       return
     }
