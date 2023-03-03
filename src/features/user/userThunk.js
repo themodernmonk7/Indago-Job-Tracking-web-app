@@ -14,10 +14,15 @@ export const registerUserThunk = async (url, user, thunkAPI) => {
 }
 
 //** ==================== Email Verification ==================== */
-export const userAccountVerificationThunk =  async({verificationToken, email}, thunkAPI) => {
-  // console.log(` Before request: ${verificationToken} and ${email} `)
+export const userAccountVerificationThunk = async (
+  { verificationToken, email },
+  thunkAPI
+) => {
   try {
-    const {data} = await customFetch.post('/auth/email-verification', {verificationToken, email} )
+    const { data } = await customFetch.post("/auth/email-verification", {
+      verificationToken,
+      email,
+    })
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.msg)
   }

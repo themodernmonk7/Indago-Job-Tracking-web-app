@@ -13,7 +13,6 @@ const EmailVerification = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log("First 1")
     if (!isLoading) {
       dispatch(
         userAccountVerification({

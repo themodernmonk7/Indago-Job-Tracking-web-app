@@ -1,11 +1,13 @@
 import UserImage from "../assets/user.jpg"
 import Logo from "../assets/Logo.png"
 import { RegisterForm } from "../components"
+import { useSelector } from "react-redux"
 
 const Register = () => {
+  const { userRegisterSuccess } = useSelector((store) => store.user)
   return (
     <>
-      <section className=" container mx-auto ">
+      <section className=" container mx-auto  ">
         <div className="flex ">
           {/* Right */}
           <aside className=" relative my-16 hidden flex-col justify-between space-y-10 overflow-hidden rounded-2xl bg-primary p-10 shadow-2xl md:w-1/2 lg:flex xl:w-1/3 ">
@@ -42,7 +44,8 @@ const Register = () => {
             <div className="absolute -top-12 -right-10 h-28 w-28 rounded-full bg-secondary-900 opacity-40 "></div>
           </aside>
           {/* Left */}
-          <article className=" my-10 flex  w-full flex-col items-center justify-between space-y-12 md:my-16   ">
+          <article className=" justifybetween my-10  flex w-full flex-col items-center space-y-12 md:my-16    ">
+            {/* <article className=" my-10 flex  w-full flex-col items-center justify-between space-y-12 md:my-16    "> */}
             <div className=" flex flex-col items-center space-y-4 ">
               <img
                 src={Logo}
@@ -52,7 +55,14 @@ const Register = () => {
               <h4 className="text-4xl font-medium">Hello Again!</h4>
             </div>
 
-            <RegisterForm />
+            {!userRegisterSuccess ? (
+              <RegisterForm />
+            ) : (
+              <p className=" bg-green-100 py-4 px-6 capitalize text-green-600/70 ">
+                {" "}
+                Success! Please Check your email to verify account.{" "}
+              </p>
+            )}
           </article>
         </div>
       </section>

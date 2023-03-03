@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-hot-toast"
-import customFetch from "../../utils/axios"
 
 import {
   addUserToLocalStorage,
@@ -13,12 +12,14 @@ import {
   registerUserThunk,
   updateUserThunk,
   uploadUserImageThunk,
+  userAccountVerificationThunk,
 } from "./userThunk"
 getUserFromLocalStorage
 
 const initialState = {
   isLoading: false,
   uploadLoading: false,
+  userRegisterSuccess: false,
   user: getUserFromLocalStorage(),
 }
 
@@ -28,6 +29,12 @@ export const registerUser = createAsyncThunk(
   async (user, thunkAPI) => {
     return registerUserThunk("/auth/register", user, thunkAPI)
   }
+)
+
+//** ==================== Email Verification ==================== */
+export const userAccountVerification = createAsyncThunk(
+  "user/userAccountVerification",
+  userAccountVerificationThunk
 )
 
 //** ==================== Login User ==================== */
@@ -64,17 +71,36 @@ const userSlice = createSlice({
         state.isLoading = true
       })
       .addCase(registerUser.fulfilled, (state, action) => {
-        const { user } = action.payload
         state.isLoading = false
-        state.user = user
-        addUserToLocalStorage(user)
-        toast.success(`Hello ${user.name}`)
+        state.userRegisterSuccess = true
+        // const { user } = action.payload
+        // state.user = user
+        // addUserToLocalStorage(user)
+        // toast.success(`Hello ${user.name}`)
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false
         toast.error(
           action.payload || "Something went wrong, Please try again later."
         )
+      })
+      //** ==================== Email Verification ==================== */
+      .addCase(userAccountVerification.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(userAccountVerification.fulfilled, (state, action) => {
+        state.isLoading = false
+        // const { user } = action.payload
+        // state.user = user
+        // addUserToLocalStorage(user)
+        // toast.success(`Hello ${user.name}`)
+        toast.success(
+          action.payload || "Your account has been confirmed successfully!"
+        )
+      })
+      .addCase(userAccountVerification.rejected, (state, action) => {
+        state.isLoading = false
+        toast.error(action.payload || "Your account has been confirmed")
       })
       //** ==================== LOGIN USER ==================== */
       .addCase(loginUser.pending, (state) => {
