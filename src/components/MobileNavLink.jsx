@@ -4,11 +4,12 @@ import links from "../utils/links"
 const MobileNavLink = () => {
   return (
     <div className="fixed bottom-0 w-full border-t bg-white py-4 lg:hidden ">
-      <ul className="flex items-center justify-around px-4  ">
+      <div className="flex items-center justify-around px-4  ">
         {links.map((link) => {
-          const { id, icon, path } = link
+          const { id, icon, path, text } = link
           return (
             <NavLink
+              aria-label={text}
               key={id}
               to={path}
               end
@@ -23,7 +24,7 @@ const MobileNavLink = () => {
             </NavLink>
           )
         })}
-      </ul>
+      </div>
     </div>
   )
 }

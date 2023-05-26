@@ -66,6 +66,7 @@ const JobCard = ({
       {/* <JobButton/> */}
       <div className="flex justify-between pt-5 ">
         <Link
+          aria-label="Edit Job"
           to="/add-job"
           className=" rounded-full px-2 py-2 text-gray-500 transition-all  duration-300  ease-in-out hover:bg-gray-100 hover:text-blue-500   "
           onClick={() =>
@@ -86,6 +87,8 @@ const JobCard = ({
           <HiOutlinePencilAlt className="h-5 w-5" />
         </Link>
         <button
+          type="button"
+          aria-label="Delete Job"
           className="  rounded-full px-2 py-2 text-gray-500 transition-all  duration-300  ease-in-out hover:bg-gray-100 hover:text-red-500  "
           onClick={() => dispatch(deleteJob(_id))}
         >
