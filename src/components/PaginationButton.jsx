@@ -34,9 +34,9 @@ const PaginationButton = () => {
 
   return (
     <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10 ">
-      <div className=" flex rounded-md bg-red-200 shadow ">
+      <div className=" flex rounded-md shadow ">
         <button
-          className=" h-8  w-8 rounded-l-md border bg-white  "
+          className=" h-9  w-9 rounded-l-md border bg-white  "
           type="button"
           aria-label="Next Page"
           onClick={prevPage}
@@ -51,8 +51,8 @@ const PaginationButton = () => {
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "h-8 w-8  bg-black/80  text-sm font-medium text-white "
-                  : " b h-8  w-8 border-y border-r bg-white text-sm font-medium "
+                  ? "h-9 w-9  bg-black/80  text-sm font-medium text-white "
+                  : " h-9  w-9 border-y border-r bg-white text-sm font-medium "
               }
             >
               {pageNumber}
@@ -60,7 +60,7 @@ const PaginationButton = () => {
           )
         })}
         <button
-          className=" h-8  w-8 rounded-r-md border-y border-r bg-white "
+          className=" h-9 w-9 rounded-r-md border-y border-r bg-white "
           type="button"
           aria-label="Next Page"
           onClick={nexPage}
