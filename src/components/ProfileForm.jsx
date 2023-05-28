@@ -84,7 +84,7 @@ const ProfileForm = () => {
         </div>
       </div>
       <button
-        className=" ml-auto flex  w-44 justify-center rounded-xl border border-gray-300 bg-primary py-2 font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
+        className=" ml-auto flex  w-44 justify-center rounded-md border border-gray-300 bg-primary py-2 text-sm font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
         disabled={isLoading}
       >
         {isLoading ? (

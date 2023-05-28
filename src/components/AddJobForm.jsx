@@ -161,9 +161,9 @@ const AddJobForm = () => {
         <div className=" flex justify-end space-x-4 ">
           <button
             type="submit"
-            className=" flex w-44 justify-center rounded-xl border border-gray-300 bg-primary py-2 font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none "
+            className=" flex w-44 justify-center rounded-md border border-gray-300 bg-primary py-2 font-medium capitalize text-white outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-secondary-500 disabled:opacity-50 disabled:outline-none text-sm "
             disabled={isLoading}
-          >
+          > 
             {isLoading ? (
               <span>
                 {" "}
@@ -174,7 +174,7 @@ const AddJobForm = () => {
           </button>
           <button
             type="button"
-            className="rounded-xl border border-gray-300 bg-white px-10 py-2 font-medium capitalize outline-2 outline-primary hover:outline active:outline"
+            className="rounded-md border border-gray-300 bg-white px-10 py-2 font-medium capitalize outline-2 outline-primary hover:outline active:outline text-sm "
             onClick={() => dispatch(clearValues())}
           >
             clear
