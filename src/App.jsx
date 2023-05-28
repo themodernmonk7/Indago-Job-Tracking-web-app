@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Error, Landing, Register, ProtectedRoute } from "./pages"
-import {
-  AddJob,
-  AllJobs,
-  Dashboard,
-  Profile,
-  SharedLayout,
-} from "./pages/dashboard"
+import { SharedLayout } from "./pages/dashboard"
+
 import "react-toastify/dist/ReactToastify.css"
 import { Toaster } from "react-hot-toast"
+import { lazy } from "react"
+
+const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"))
+const AllJobs = lazy(() => import("./pages/dashboard/AllJobs"))
+const AddJob = lazy(() => import("./pages/dashboard/AddJob"))
+const Profile = lazy(() => import("./pages/dashboard/Profile"))
+
 function App() {
   return (
     <BrowserRouter>

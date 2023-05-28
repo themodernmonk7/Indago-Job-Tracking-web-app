@@ -43,10 +43,6 @@ const JobCard = ({
 
   return (
     <article className="relative min-h-full w-full rounded-md border bg-white p-5 pb-10  lg:max-w-sm  ">
-      {/* <div className=" flex justify-end mb-2 ">
-        <span className="text-xs text-gray-400 "> {jobCreationDate} </span>
-      </div> */}
-
       {/* Company Logo */}
       <div className="flex items-start justify-start space-x-5  ">
         <img
