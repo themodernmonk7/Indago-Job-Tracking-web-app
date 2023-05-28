@@ -20,7 +20,7 @@
     }
   
       .input_style {
-        @apply py-3 md:py-4 rounded-xl border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary hover:ring-1 hover:ring-primary placeholder:text-gray-300 placeholder:text-sm placeholder:capitalize shadow shadow-gray-100  transition-all duration-200 ease-in w-full focus:outline-none
+        @apply py-3 md:py-4 rounded-md border-none ring-1 ring-gray-300 focus:ring-2 focus:ring-primary hover:ring-1 hover:ring-primary placeholder:text-gray-300 placeholder:text-sm placeholder:capitalize shadow shadow-gray-100  transition-all duration-200 ease-in w-full focus:outline-none
     
     }
 

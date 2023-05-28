@@ -33,11 +33,16 @@ const PaginationButton = () => {
   }
 
   return (
-    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10  ">
-      <button type="button" aria-label="Next Page" onClick={prevPage}>
-        <MdOutlineNavigateBefore className="h-7 w-7 text-gray-500 " />
-      </button>
-      <div className=" grid grid-cols-4 place-items-center gap-x-12 gap-y-4  md:flex lg:gap-x-8 xl:space-x-10  ">
+    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10 ">
+      <div className=" flex rounded-md bg-red-200 shadow ">
+        <button
+          className=" h-8  w-8 rounded-l-md border bg-white  "
+          type="button"
+          aria-label="Next Page"
+          onClick={prevPage}
+        >
+          <MdOutlineNavigateBefore className="h-6 w-6 text-gray-500 " />
+        </button>
         {pages.map((pageNumber) => {
           return (
             <button
@@ -46,20 +51,25 @@ const PaginationButton = () => {
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "h-8 w-8 rounded-md bg-primary  font-medium text-white"
-                  : " h-8 w-8  rounded-md bg-white font-medium"
+                  ? "h-8 w-8  bg-black/80  text-sm font-medium text-white "
+                  : " b h-8  w-8 border-y border-r bg-white text-sm font-medium "
               }
             >
               {pageNumber}
             </button>
           )
         })}
+        <button
+          className=" h-8  w-8 rounded-r-md border-y border-r bg-white "
+          type="button"
+          aria-label="Next Page"
+          onClick={nexPage}
+        >
+          <MdOutlineNavigateNext className="h-7 w-7 text-gray-500 " />
+        </button>
       </div>
-      <button type="button" aria-label="Next Page" onClick={nexPage}>
-        <MdOutlineNavigateNext className="h-7 w-7 text-gray-500 " />
-      </button>
     </section>
-  )
+  ) 
 }
 
 export default PaginationButton
