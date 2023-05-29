@@ -18,7 +18,7 @@ const Landing = () => {
             </p>
             <Link
               to="/register"
-              className="mr-3 inline-flex items-center justify-center rounded-lg bg-secondary-700 py-3 px-5 text-center text-base font-medium text-white hover:bg-secondary-800"
+              className="mr-3 inline-flex items-center justify-center rounded-md bg-secondary-700 py-3 px-5 text-center text-base font-medium text-white hover:bg-secondary-800"
             >
               Get started
               <svg

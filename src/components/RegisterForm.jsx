@@ -76,7 +76,7 @@ const RegisterForm = () => {
               id="email"
               name="email"
               placeholder="youremail@gmail.com"
-              className=" w-full rounded-xl border-none py-3  placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in placeholder:lowercase hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400  "
+              className=" w-full rounded-md border-none py-3  placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in placeholder:lowercase hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400  "
               required
               pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               value={values.email}
@@ -98,7 +98,7 @@ const RegisterForm = () => {
               placeholder="**********"
               value={values.password}
               onChange={handleChange}
-              className="peer w-full rounded-xl border-none  py-3 placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400   "
+              className="peer w-full rounded-md border-none  py-3 placeholder-gray-300 shadow shadow-gray-100 ring-1 ring-gray-300 transition-all duration-200 ease-in hover:ring-primary focus:outline-none focus:ring-2 md:py-4 valid:[&:not(:placeholder-shown)]:ring-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:ring-red-400   "
               pattern=".{6,}"
               required
             />
@@ -111,7 +111,7 @@ const RegisterForm = () => {
         <div className="">
           <button
             type="submit"
-            className=" mt-20 flex w-full flex-row items-center justify-center rounded-xl bg-primary px-10 py-5 tracking-wider text-white shadow transition-all duration-300 ease-in hover:bg-blue-900/90 focus:bg-blue-800/90 focus:outline-none disabled:cursor-not-allowed disabled:bg-primary/60 group-invalid:pointer-events-none group-invalid:opacity-70  "
+            className=" mt-20 flex w-full flex-row items-center justify-center rounded-md bg-primary px-10 py-5 tracking-wider text-white shadow transition-all duration-300 ease-in hover:bg-blue-900/90 focus:bg-blue-800/90 focus:outline-none disabled:cursor-not-allowed disabled:bg-primary/60 group-invalid:pointer-events-none group-invalid:opacity-70  "
             disabled={isLoading}
           >
             {isLoading ? (

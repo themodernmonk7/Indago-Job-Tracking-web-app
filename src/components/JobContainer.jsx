@@ -36,7 +36,7 @@ const JobContainer = () => {
   }
 
   if (isLoading) {
-    return <Loading />
+    return <Loading className="h-full" />
   }
 
   if (jobs.length === 0) {
