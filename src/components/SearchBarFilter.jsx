@@ -97,7 +97,7 @@ const SearchBarFilter = () => {
         </div>
         {/* Clear button */}
         <div className="flex items-center justify-center md:justify-end ">
-          <button className="rounded-md bg-gray-100 px-6 py-2  font-medium active:scale-90 md:px-4   ">
+          <button className="rounded-md bg-gray-100 px-6 py-2  text-sm font-medium active:scale-90 md:px-4 xl:text-base ">
             Clear filters
           </button>
         </div>
