@@ -36,5 +36,5 @@
     "workbox-build": "^6.5.4",
     "workbox-window": "^6.5.4"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://indago-jobs-api-eha0.onrender.com/api/v1"
 }
