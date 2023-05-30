@@ -4,15 +4,9 @@ import { getUserFromLocalStorage } from "./localStorage"
 
 const customFetch = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_BASE_URL,
+  withCredentials: true,
 })
- 
-customFetch.interceptors.request.use((config) => {
-  const user = getUserFromLocalStorage()
-  if (user) {
-    config.headers["Authorization"] = `Bearer ${user.token}`
-  }
-  return config
-})
+
 
 export const checkForUnauthorizedResponse = (error, thunkAPI) => {
   if (error.response.status === 401) {
