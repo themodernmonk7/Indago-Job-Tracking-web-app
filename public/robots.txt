@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Allow: /landing
+Allow: /register

@@ -24,16 +24,12 @@ import BarChartComponent from "./BarChart"
 import PaginationButton from "./PaginationButton"
 import NoJobsMessage from "./NoJobsMessage"
 import JobTag from "./JobTag"
-import JobTypeTag from "./JobTypeTag"
-import JobButton from "./JobButton"
 import Logout from "./Logout"
 import NoData from "./NoData"
 
 export {
   Logout,
   NoData,
-  JobButton,
-  JobTypeTag,
   JobTag,
   NoJobsMessage,
   PaginationButton,

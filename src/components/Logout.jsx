@@ -7,9 +7,9 @@ const Logout = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className="  mb-10 w-[185px] rounded-xl bg-red-100/60 hover:bg-red-200/70 ">
+    <div className="  mb-10 w-[185px] rounded-md bg-red-100/60 hover:bg-red-200/70 ">
       <button
-        className="text-gray500 flex w-full items-center justify-center space-x-2  px-4 py-2 capitalize text-red-400/60  "
+        className="text-gray500 flex w-full items-center justify-center space-x-2  px-4 py-2 capitalize text-red-400  "
         onClick={() => dispatch(clearStore("Logout Successful..."))}
       >
         <span>

@@ -42,17 +42,17 @@ const SearchBarFilter = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="  mx-4 mt-10 gap-10 space-y-2 rounded-2xl  bg-white py-4 px-5 shadow-md md:mx-8 md:grid md:grid-cols-4 md:space-y-0 lg:mx-5 lg:px-8 xl:mx-16 "
+        className="  mx-4 mt-10 gap-10 space-y-2 rounded-md  bg-white py-3 px-5 shadow-md md:mx-8 md:grid md:grid-cols-4 md:space-y-0 lg:mx-5 lg:px-8 xl:mx-16  "
       >
         {/* Search */}
-        <div className="relative flex items-center border-b md:border-r-2 md:border-b-0 ">
-          <FiSearch className="pointer-events-none absolute h-6 w-6 text-gray-600" />{" "}
+        <div className="relative flex items-center border-b md:border-r-2 md:border-b-0  ">
+          <FiSearch className="pointer-events-none absolute h-6 w-6 text-gray-400" />{" "}
           <input
             type="text"
             name="search"
             value={localSearch}
-            className="   w-full border-none px-4 pl-10 text-black transition duration-200 ease-in placeholder:text-gray-600 focus:outline-none focus:ring-0 "
-            placeholder="Front-end developer"
+            className="   w-full border-none px-4 pl-10 text-black transition duration-200 ease-in placeholder:font-light placeholder:text-gray-400 focus:outline-none focus:ring-0 "
+            placeholder="Search by job title..."
             onChange={optimizedDebounced}
           />
         </div>
@@ -97,7 +97,7 @@ const SearchBarFilter = () => {
         </div>
         {/* Clear button */}
         <div className="flex items-center justify-center md:justify-end ">
-          <button className="rounded-md bg-gray-100 px-6 py-2  font-medium active:scale-90 md:px-4   ">
+          <button className="rounded-md bg-gray-100 px-6 py-2  text-sm font-medium active:scale-90 md:px-4 xl:text-base ">
             Clear filters
           </button>
         </div>

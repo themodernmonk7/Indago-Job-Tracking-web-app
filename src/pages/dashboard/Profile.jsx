@@ -17,24 +17,17 @@ const Profile = () => {
       <section className=" my-10 mb-28 space-y-10 px-5 md:px-8 ">
         <h4 className="text-3xl "> Account Settings </h4>
         <div className=" hidden space-x-10 text-lg md:block  ">
-          <button
-            className="rounded-xl bg-white px-8 py-2 outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-200 disabled:outline-none"
-            disabled
-          >
-            My details
-          </button>
-          <button
-            className="rounded-xl bg-white px-8 py-2 outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-200 disabled:outline-none"
-            disabled
-          >
-            Profile
-          </button>
-          <button
-            className="rounded-xl bg-white px-8 py-2 outline-2 outline-primary hover:outline active:outline  disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-200 disabled:outline-none "
-            disabled
-          >
-            Password
-          </button>
+          {["my details", "profile", "password"].map((btn, index) => {
+            return (
+              <button
+                key={index}
+                className="rounded-md bg-white px-8 py-2 capitalize outline-2 outline-primary hover:outline active:outline disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400/70 disabled:outline-none "
+                disabled
+              >
+                {btn}
+              </button>
+            )
+          })}
         </div>
         {/* Profile */}
         <div className=" space-y-2 ">
@@ -46,14 +39,14 @@ const Profile = () => {
         {/* Profile Picture change */}
         <div className="  relative w-28 ">
           <UserImage className={" h-28 w-28 lg:h-28 lg:w-28  "} />
-          <form className=" absolute -bottom-0 right-0 rounded-full border-2 border-gray-200 bg-primary px-2 py-2 ">
+          <form className=" absolute -bottom-0 right-0 rounded-full border-2 border-gray-200 bg-primary px-2 py-2">
             <input
               name="image"
               onChange={handleUpload}
               accept="image/*"
               type="file"
               id="upload_button"
-              className="block hidden  w-full text-sm text-slate-500
+              className=" hidden  w-full text-sm text-slate-500
                 file:mr-4 file:cursor-pointer file:rounded-xl 
                 file:border file:border-gray-300 
                 file:bg-primary file:py-2

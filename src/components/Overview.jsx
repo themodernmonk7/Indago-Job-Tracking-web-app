@@ -14,7 +14,7 @@ const Overview = () => {
   }, [])
 
   if (isLoading) {
-    return <Loading />
+    return <Loading className="h-screen" />
   }
 
   return (

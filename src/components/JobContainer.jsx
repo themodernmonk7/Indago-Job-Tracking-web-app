@@ -36,7 +36,7 @@ const JobContainer = () => {
   }
 
   if (isLoading) {
-    return <Loading />
+    return <Loading className="h-full" />
   }
 
   if (jobs.length === 0) {
@@ -72,7 +72,11 @@ const JobContainer = () => {
       </section>
 
       {/* Job card */}
-      <section className="my-24 grid grid-cols-1  place-items-center gap-10 px-5 md:mb-28 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-4 ">
+      <section
+        className={`${
+          num_of_pages > 1 ? "mb-20 md:mb-20" : "mb-36 lg:mb-20 "
+        } grid grid-cols-1 gap-5 px-5 md:grid-cols-2 lg:mx-5 lg:grid-cols-2  lg:px-0 xl:mx-16 xl:grid-cols-3`}
+      >
         {jobs.map((job) => {
           return <JobCard key={job._id} {...job} />
         })}
@@ -80,7 +84,7 @@ const JobContainer = () => {
       {/* Pagination */}
       {num_of_pages > 1 && <PaginationButton />}
     </>
-  )
+  ) 
 }
 
 export default JobContainer

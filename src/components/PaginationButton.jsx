@@ -33,32 +33,43 @@ const PaginationButton = () => {
   }
 
   return (
-    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10  ">
-      <button onClick={prevPage}>
-        <MdOutlineNavigateBefore className="h-7 w-7 text-gray-500 " />
-      </button>
-      <div className=" grid grid-cols-4 place-items-center gap-x-12 gap-y-4  md:flex lg:gap-x-8 xl:space-x-10  ">
+    <section className=" mb-24 flex flex-row  items-center justify-center space-x-12 px-6 md:py-5 lg:mb-10 ">
+      <div className=" flex rounded-md shadow ">
+        <button
+          className=" h-9  w-9 rounded-l-md border bg-white  "
+          type="button"
+          aria-label="Next Page"
+          onClick={prevPage}
+        >
+          <MdOutlineNavigateBefore className="h-6 w-6 text-gray-500 " />
+        </button>
         {pages.map((pageNumber) => {
           return (
             <button
+              aria-label={`Go to page ${pageNumber}`}
               key={pageNumber}
               onClick={() => dispatch(changePage(pageNumber))}
               className={
                 pageNumber === page
-                  ? "h-8 w-8 rounded-md bg-primary  font-medium text-white"
-                  : " h-8 w-8  rounded-md bg-white font-medium"
+                  ? "h-9 w-9  bg-black/80  text-sm font-medium text-white "
+                  : " h-9  w-9 border-y border-r bg-white text-sm font-medium "
               }
             >
               {pageNumber}
             </button>
           )
         })}
+        <button
+          className=" h-9 w-9 rounded-r-md border-y border-r bg-white "
+          type="button"
+          aria-label="Next Page"
+          onClick={nexPage}
+        >
+          <MdOutlineNavigateNext className="h-7 w-7 text-gray-500 " />
+        </button>
       </div>
-      <button onClick={nexPage}>
-        <MdOutlineNavigateNext className="h-7 w-7 text-gray-500 " />
-      </button>
     </section>
-  )
+  ) 
 }
 
 export default PaginationButton
