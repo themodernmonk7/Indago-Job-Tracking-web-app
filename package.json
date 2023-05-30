@@ -35,6 +35,5 @@
     "vite-plugin-pwa": "^0.15.1",
     "workbox-build": "^6.5.4",
     "workbox-window": "^6.5.4"
-  },
-  "proxy": "https://indago-jobs-api-eha0.onrender.com/api/v1"
+  }
 }
