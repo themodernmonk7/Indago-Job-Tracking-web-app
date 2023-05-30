@@ -76,7 +76,7 @@ export default defineConfig({
             urlPattern: ({ url }) => {
               return url.pathname.startsWith("/api")
             },
-            handler: "StaleWhileRevalidate",
+            handler: "NetworkFirst",
             options: {
               cacheName: "api-cache",
               expiration: {
