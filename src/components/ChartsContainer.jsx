@@ -8,11 +8,11 @@ const ChartsContainer = () => {
   const { monthlyApplications: data } = useSelector((store) => store.allJobs)
   return (
     <>
-      <section className="flex flex-col justify-center items-center space-y-6 mb-24  ">
-        <h4 className=" capitalize text-2xl ">Monthly applications</h4>
+      <section className="mb-24 flex flex-col items-center justify-center space-y-6  ">
+        <h4 className=" text-2xl capitalize ">Monthly applications</h4>
         <button
           type="button"
-          className=" text-primary font-medium text-xl  "
+          className=" text-xl font-medium text-primary  "
           onClick={() => setBarChart(!barChart)}
         >
           {" "}
