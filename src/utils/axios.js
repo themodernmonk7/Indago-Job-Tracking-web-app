@@ -2,9 +2,10 @@ import axios from "axios"
 import { clearStore } from "../features/user/userSlice"
 import { getUserFromLocalStorage } from "./localStorage"
 
+axios.defaults.withCredentials = true
 const customFetch = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_BASE_URL,
-  withCredentials: true,
+  // withCredentials: true,
 })
 
 
