@@ -2,10 +2,16 @@ import axios from "axios"
 import { clearStore } from "../features/user/userSlice"
 import { getUserFromLocalStorage } from "./localStorage"
 
-axios.defaults.withCredentials = true
 const customFetch = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_BASE_URL,
-  // withCredentials: true,
+})
+
+customFetch.interceptors.request.use((config) => {
+  const user = getUserFromLocalStorage()
+  if (user) {
+    config.headers["Authorization"] = `Bearer ${user.token}`
+  }
+  return config
 })
 
 
