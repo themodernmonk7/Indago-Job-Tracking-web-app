@@ -1,5 +1,10 @@
 import { Outlet} from "react-router-dom"
-import { Sidebar, ProfileBanner, MobileNavLink } from "../../components"
+import {
+  Sidebar,
+  ProfileBanner,
+  MobileNavLink,
+  Loading,
+} from "../../components"
 import { Suspense } from "react"
 
 const SharedLayout = () => {
@@ -9,7 +14,7 @@ const SharedLayout = () => {
         <Sidebar />
         <div className=" w-full ">
           <ProfileBanner />
-          <Suspense fallback={<p> Loading... </p>}>
+          <Suspense fallback={<Loading />}>
             <Outlet />
           </Suspense>
         </div>
