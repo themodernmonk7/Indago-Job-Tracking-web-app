@@ -44,7 +44,7 @@ export default defineConfig({
             label: "Track your Job application status easily.",
           },
           {
-            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687663275/indago/01253827-eec8-4a3b-9663-6b96e27adf68_c2whwk.png",
+            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687664370/995355b3-c897-462f-a744-f0b7fc92613f_tjagdf.png",
             sizes: "800x600",
             platform: "android",
             label: "Track your Job application status easily.",
