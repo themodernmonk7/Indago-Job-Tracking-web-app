@@ -12,6 +12,35 @@ const AddJob = lazy(() => import("./pages/dashboard/AddJob"))
 const Profile = lazy(() => import("./pages/dashboard/Profile"))
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      let deferredPrompt
+
+      const handleBeforeInstallPrompt = (event) => {
+        event.preventDefault()
+        deferredPrompt = event
+        deferredPrompt.prompt()
+      }
+
+      const handleAppInstalled = () => {
+        deferredPrompt = null
+        console.log("App installed")
+      }
+
+      window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
+      window.addEventListener("appinstalled", handleAppInstalled)
+
+      return () => {
+        window.removeEventListener(
+          "beforeinstallprompt",
+          handleBeforeInstallPrompt
+        )
+        window.removeEventListener("appinstalled", handleAppInstalled)
+      }
+    }
+  }, [location.pathname])
   return (
     <BrowserRouter>
       <Routes>
