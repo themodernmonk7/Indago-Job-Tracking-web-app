@@ -3,6 +3,7 @@ import { Overview } from "../../components"
 const Dashboard = () => {
   return (
     <>
+      <InstallPrompt />
       <Overview />
     </>
   )
