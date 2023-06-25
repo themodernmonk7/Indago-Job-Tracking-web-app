@@ -6,10 +6,12 @@ import {
   Loading,
 } from "../../components"
 import { Suspense } from "react"
+import InstallPrompt from "../../utils/InstallPrompt"
 
 const SharedLayout = () => {
   return (
     <>
+      <InstallPrompt />
       <main className=" flex  bg-gray-100  ">
         <Sidebar />
         <div className=" w-full ">
