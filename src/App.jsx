@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import { Error, Landing, Register, ProtectedRoute } from "./pages"
 import { SharedLayout } from "./pages/dashboard"
 
