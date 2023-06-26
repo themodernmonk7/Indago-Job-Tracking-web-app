@@ -46,7 +46,7 @@ export default defineConfig({
             description: "Get all your jobs",
             icons: [
               {
-                src: "/android-chrome-512x512.png",
+                src: "/all-jobs-icon.png",
                 type: "image/png",
                 sizes: "512x512",
               },
@@ -58,7 +58,7 @@ export default defineConfig({
             description: "Add your Job",
             icons: [
               {
-                src: "/android-chrome-512x512.png",
+                src: "/add-job-icon.png",
                 type: "image/png",
                 sizes: "512x512",
               },
@@ -70,7 +70,7 @@ export default defineConfig({
             description: "Profile",
             icons: [
               {
-                src: "/android-chrome-512x512.png",
+                src: "/profile-icon.png",
                 type: "image/png",
                 sizes: "512x512",
               },
