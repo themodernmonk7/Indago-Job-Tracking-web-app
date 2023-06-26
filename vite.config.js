@@ -13,6 +13,7 @@ export default defineConfig({
         short_name: "Indago",
         start_url: "/",
         display: "standalone",
+        scope: "./",
         description: "Organize and track your job opportunities.",
         icons: [
           {
@@ -38,15 +39,53 @@ export default defineConfig({
             purpose: "any maskable",
           },
         ],
+        shortcuts: [
+          {
+            name: "All Jobs",
+            url: "/all-jobs",
+            description: "Get all your jobs",
+            icons: [
+              {
+                src: "/all-jobs-icon.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
+          },
+          {
+            name: "Add Job",
+            url: "/add-job",
+            description: "Add your Job",
+            icons: [
+              {
+                src: "/add-job-icon.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
+          },
+          {
+            name: "Profile",
+            url: "/profile",
+            description: "Profile",
+            icons: [
+              {
+                src: "/profile-icon.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
+          },
+        ],
         screenshots: [
           {
-            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687662271/indago/Indago_03.b4983478_gjli9m.png",
+            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687759932/indago/Indago_oxu4uo.png",
             sizes: "800x600",
             platform: "android",
             label: "Track your Job application status easily.",
           },
           {
-            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687664370/995355b3-c897-462f-a744-f0b7fc92613f_tjagdf.png",
+            src: "https://res.cloudinary.com/die12ywpb/image/upload/v1687662271/indago/Indago_03.b4983478_gjli9m.png",
             sizes: "800x600",
             platform: "android",
             label: "Track your Job application status easily.",
