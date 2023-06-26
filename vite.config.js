@@ -11,7 +11,9 @@ export default defineConfig({
         name: "Indago",
         categories: ["developer", "developer tools", "productivity"],
         short_name: "Indago",
-        description: "Organize and track your job opportunities",
+        start_url: "/",
+        display: "standalone",
+        description: "Organize and track your job opportunities.",
         icons: [
           {
             src: "/android-chrome-192x192.png",
