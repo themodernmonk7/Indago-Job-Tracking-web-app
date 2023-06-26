@@ -13,6 +13,7 @@ export default defineConfig({
         short_name: "Indago",
         start_url: "/",
         display: "standalone",
+        scope: "./",
         description: "Organize and track your job opportunities.",
         icons: [
           {
@@ -36,6 +37,44 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
+          },
+        ],
+        shortcuts: [
+          {
+            name: "All Jobs",
+            url: "/all-jobs",
+            description: "Get all your jobs",
+            icons: [
+              {
+                src: "/android-chrome-512x512.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
+          },
+          {
+            name: "Add Job",
+            url: "/add-job",
+            description: "Add your Job",
+            icons: [
+              {
+                src: "/android-chrome-512x512.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
+          },
+          {
+            name: "Profile",
+            url: "/profile",
+            description: "Profile",
+            icons: [
+              {
+                src: "/android-chrome-512x512.png",
+                type: "image/png",
+                sizes: "512x512",
+              },
+            ],
           },
         ],
         screenshots: [
