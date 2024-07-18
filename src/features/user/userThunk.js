@@ -51,6 +51,9 @@ export const uploadUserImageThunk = async (formData, thunkAPI) => {
 //** ==================== Clear Store ==================== */
 export const clearStoreThunk = async (message, thunkAPI) => {
   try {
+    // clear the browser cache storage
+    const keys = await window.caches.keys()
+    await Promise.all(keys.map((key) => caches.delete(key)))
     // Logout user
     thunkAPI.dispatch(logoutUser(message))
     // Clear jobs values
